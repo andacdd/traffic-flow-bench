@@ -1,0 +1,18 @@
+{
+  "runtime_s": 466.8,
+  "pers_check": {
+    "max_abs_diff_fill": 0.0,
+    "max_abs_diff_obs": 0.0
+  },
+  "dev_family_fill": {
+    "pers": 0.29300586621166874,
+    "v3": 0.8019426343908502,
+    "v4": 0.7928826744324694
+  },
+  "lb_est": {
+    "pers": 0.3,
+    "v3": 0.72,
+    "v4": 0.77
+  },
+  "spearman_n3": 0.5
+}

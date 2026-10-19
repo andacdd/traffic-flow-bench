@@ -1,0 +1,39 @@
+D12_I405_N: train rows 300,000 | 14s | {'load': 6, 'train_features': 12, 'split_load': 1, 'split_features': 2} | peak 1.71 GB
+D12_I405_S: train rows 300,000 | 10s | {'load': 10, 'train_features': 21, 'split_load': 1, 'split_features': 4} | peak 1.71 GB
+D12_I5_N: train rows 300,000 | 34s | {'load': 26, 'train_features': 49, 'split_load': 4, 'split_features': 9} | peak 3.24 GB
+D12_I5_S: train rows 300,000 | 18s | {'load': 33, 'train_features': 65, 'split_load': 5, 'split_features': 12} | peak 3.24 GB
+D7_I10_E: train rows 300,000 | 24s | {'load': 44, 'train_features': 84, 'split_load': 6, 'split_features': 16} | peak 3.24 GB
+D7_I10_W: train rows 300,000 | 22s | {'load': 55, 'train_features': 102, 'split_load': 8, 'split_features': 19} | peak 3.24 GB
+D7_I210_E: train rows 300,000 | 44s | {'load': 76, 'train_features': 139, 'split_load': 10, 'split_features': 26} | peak 4.10 GB
+D7_I210_W: train rows 300,000 | 16s | {'load': 83, 'train_features': 153, 'split_load': 11, 'split_features': 29} | peak 4.10 GB
+D7_I405_N: train rows 300,000 | 46s | {'load': 106, 'train_features': 191, 'split_load': 14, 'split_features': 36} | peak 4.10 GB
+D7_I405_S: train rows 300,000 | 18s | {'load': 114, 'train_features': 206, 'split_load': 15, 'split_features': 39} | peak 4.10 GB
+trained dv,dq on 3,000,000 rows | {'load': 114, 'train_features': 206, 'split_load': 15, 'split_features': 39, 'train': 139}
+validation {'rows': 3451376, 'template_rows': 3451376, 'nan': 0, 'speed_min': 5.0, 'speed_max': 120.75, 'flow_min': 357.6315681497132, 'runtime_s': 64.2}
+private {'rows': 3284419, 'template_rows': 3284419, 'nan': 0, 'speed_min': 5.0, 'speed_max': 120.75, 'flow_min': 355.2122935137309, 'runtime_s': 58.0}
+{
+ "ref": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/v5_phys/state_vp.csv",
+ "same_key_order": true,
+ "mean_abs_diff_speed_kmh": 1.0694964507574307,
+ "mean_speed_kmh_new": 111.26045105327904,
+ "mean_speed_kmh_ref": 111.08521412072832,
+ "share_changed_speed_kmh": 0.9932250016516239,
+ "mean_abs_diff_flow_vph": 38.849458175742136,
+ "mean_flow_vph_new": 3918.8599700823415,
+ "mean_flow_vph_ref": 3919.283467785578,
+ "share_changed_flow_vph": 1.0,
+ "share_cells_changed": 1.0,
+ "by_regime": {
+  "dv": {
+   "R1": 1.0381,
+   "R2": 1.0906,
+   "R3": 1.0687
+  },
+  "dq": {
+   "R1": 43.7925,
+   "R2": 41.2041,
+   "R3": 34.5312
+  }
+ }
+}
+total 526.8s peak 4.1 GB

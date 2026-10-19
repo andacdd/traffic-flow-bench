@@ -1,0 +1,18 @@
+D12_I405_N
+D12_I405_S
+D12_I5_N
+D12_I5_S
+D7_I10_E
+D7_I10_W
+D7_I210_E
+D7_I210_W
+D7_I405_N
+D7_I405_S
+               S_FD   S_LWR  S_physics
+variant                               
+current_v06  0.9849  0.4462     0.6258
+oracle       0.9865  0.5552     0.6990
+regime           R1      R2      R3
+variant                            
+current_v06  0.7587  0.6512  0.4673
+oracle       0.8144  0.7260  0.5565

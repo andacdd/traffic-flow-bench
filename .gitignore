@@ -1,0 +1,13 @@
+data/
+cache/
+.idea/
+__pycache__/
+*.pyc
+.DS_Store
+reference/public_notebooks/
+reference/trafficflowbench-public/
+submissions/**/*.csv
+submissions/**/*.parquet
+*.npz
+reports/phys/resid_check_v06_D12_I5_N.csv
+reports/queue/cv_run.log

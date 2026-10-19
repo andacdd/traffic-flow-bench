@@ -1,0 +1,40 @@
+D12_I405_N fold 1: train 300,000 held-out 599,092 | {'load': 5.71423602104187, 'features': 7.06052303314209} | peak 2.25 GB
+D12_I405_N fold 2: train 300,000 held-out 585,188 | {'load': 5.71423602104187, 'features': 14.215964794158936} | peak 2.25 GB
+D12_I405_N fold 3: train 300,000 held-out 609,573 | {'load': 5.71423602104187, 'features': 20.982592582702637} | peak 2.25 GB
+D12_I405_S fold 1: train 300,000 held-out 330,061 | {'load': 10.060624837875366, 'features': 26.148719310760498} | peak 2.25 GB
+D12_I405_S fold 2: train 300,000 held-out 296,353 | {'load': 10.060624837875366, 'features': 31.304414987564087} | peak 2.25 GB
+D12_I405_S fold 3: train 300,000 held-out 321,552 | {'load': 10.060624837875366, 'features': 36.03880596160889} | peak 2.25 GB
+D12_I5_N fold 1: train 300,000 held-out 1,703,996 | {'load': 25.834199905395508, 'features': 49.52367186546326} | peak 4.95 GB
+D12_I5_N fold 2: train 300,000 held-out 1,788,526 | {'load': 25.834199905395508, 'features': 63.52389574050903} | peak 4.95 GB
+D12_I5_N fold 3: train 300,000 held-out 1,656,219 | {'load': 25.834199905395508, 'features': 77.22344183921814} | peak 4.95 GB
+D12_I5_S fold 1: train 300,000 held-out 672,205 | {'load': 32.84651279449463, 'features': 84.3064079284668} | peak 4.95 GB
+D12_I5_S fold 2: train 300,000 held-out 698,413 | {'load': 32.84651279449463, 'features': 91.15079188346863} | peak 4.95 GB
+D12_I5_S fold 3: train 300,000 held-out 678,894 | {'load': 32.84651279449463, 'features': 98.21591186523438} | peak 4.95 GB
+D7_I10_E fold 1: train 300,000 held-out 899,583 | {'load': 43.509286880493164, 'features': 106.82079672813416} | peak 4.95 GB
+D7_I10_E fold 2: train 300,000 held-out 971,901 | {'load': 43.509286880493164, 'features': 115.67382383346558} | peak 4.95 GB
+D7_I10_E fold 3: train 300,000 held-out 943,897 | {'load': 43.509286880493164, 'features': 124.32965993881226} | peak 4.95 GB
+D7_I10_W fold 1: train 300,000 held-out 765,606 | {'load': 51.355608224868774, 'features': 131.45295691490173} | peak 4.95 GB
+D7_I10_W fold 2: train 300,000 held-out 657,342 | {'load': 51.355608224868774, 'features': 138.70620799064636} | peak 4.95 GB
+D7_I10_W fold 3: train 300,000 held-out 733,073 | {'load': 51.355608224868774, 'features': 145.80545592308044} | peak 4.95 GB
+D7_I210_E fold 1: train 300,000 held-out 2,068,251 | {'load': 70.16270232200623, 'features': 161.37738704681396} | peak 5.19 GB
+D7_I210_E fold 2: train 300,000 held-out 1,913,448 | {'load': 70.16270232200623, 'features': 177.45850014686584} | peak 5.19 GB
+D7_I210_E fold 3: train 300,000 held-out 2,079,340 | {'load': 70.16270232200623, 'features': 194.12269520759583} | peak 5.19 GB
+D7_I210_W fold 1: train 300,000 held-out 504,638 | {'load': 77.02353644371033, 'features': 201.36942625045776} | peak 5.19 GB
+D7_I210_W fold 2: train 300,000 held-out 517,265 | {'load': 77.02353644371033, 'features': 207.79225039482117} | peak 5.19 GB
+D7_I210_W fold 3: train 300,000 held-out 547,132 | {'load': 77.02353644371033, 'features': 214.31109857559204} | peak 5.19 GB
+D7_I405_N fold 1: train 300,000 held-out 2,500,382 | {'load': 99.41615438461304, 'features': 231.8784055709839} | peak 5.19 GB
+D7_I405_N fold 2: train 300,000 held-out 2,276,347 | {'load': 99.41615438461304, 'features': 249.40092754364014} | peak 5.19 GB
+D7_I405_N fold 3: train 300,000 held-out 2,337,549 | {'load': 99.41615438461304, 'features': 267.1028275489807} | peak 5.19 GB
+D7_I405_S fold 1: train 300,000 held-out 708,606 | {'load': 106.96685028076172, 'features': 274.66747760772705} | peak 5.19 GB
+D7_I405_S fold 2: train 300,000 held-out 704,152 | {'load': 106.96685028076172, 'features': 282.0583255290985} | peak 5.19 GB
+D7_I405_S fold 3: train 300,000 held-out 715,179 | {'load': 106.96685028076172, 'features': 289.42927265167236} | peak 5.19 GB
+fold 1 trained+predicted | {'load': 106.96685028076172, 'features': 289.42927265167236, 'train': 196.01177501678467, 'predict': 227.6528422832489} | peak 5.19 GB
+fold 2 trained+predicted | {'load': 106.96685028076172, 'features': 289.42927265167236, 'train': 395.35890889167786, 'predict': 439.7190034389496} | peak 5.19 GB
+fold 3 trained+predicted | {'load': 106.96685028076172, 'features': 289.42927265167236, 'train': 587.9254190921783, 'predict': 673.3114900588989} | peak 5.19 GB
+ exp variant  S_state   S_FD  S_LWR  S_physics      J  q_rmse_v  q_mae_k  q_bias_rel  nq_rmse_v guard
+   A       A   0.9365 0.9874 0.5487     0.6949 0.4320    4.7331  10.9454      0.0006     1.5618    ok
+   B   B_all   0.9121 0.9860 0.5229     0.6773 0.4208    3.3697   8.9215      0.0098     2.6813    ok
+   B  B_cong   0.9106 0.9854 0.4835     0.6508 0.4163    5.7959  10.1245      0.0053     2.6128    ok
+base    none   0.9024 0.9829 0.2612     0.5017 0.3911   10.1366  43.3582      0.0297     2.5833    ok
+base     v06   0.9088 0.9847 0.4122     0.6031 0.4085    6.5620  18.0476     -0.0132     2.6428    ok
+stages {'load': 211, 'features': 289, 'train': 588, 'predict': 673, 'proxy_load': 136, 'score': 162} total 2064s peak 7.16 GB

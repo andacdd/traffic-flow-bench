@@ -1,0 +1,5 @@
+pers_row,rule,exact,within_10min,n
+T,joint,73,79,80
+T,onset_first,73,79,80
+T5,joint,71,77,80
+T5,onset_first,71,77,80

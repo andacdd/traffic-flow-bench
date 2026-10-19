@@ -1,0 +1,85 @@
+D12_I5_N {'v3_on': 279, 'v3_og': 504, 'e1_og': 504, 'e1_cand': 13320} 29s
+D12_I5_S {'v3_on': 279, 'v3_og': 512, 'e1_og': 512, 'e1_cand': 13820} 12s
+D7_I10_E {'v3_on': 282, 'v3_og': 485, 'e1_og': 485, 'e1_cand': 11005} 14s
+D7_I10_W {'v3_on': 134, 'v3_og': 260, 'e1_og': 260, 'e1_cand': 1970} 9s
+D7_I210_E {'v3_on': 283, 'v3_og': 546, 'e1_og': 546, 'e1_cand': 2948} 28s
+D7_I210_W {'v3_on': 390, 'v3_og': 546, 'e1_og': 546, 'e1_cand': 12844} 15s
+D7_I405_N {'v3_on': 400, 'v3_og': 546, 'e1_og': 546, 'e1_cand': 21792} 35s
+D7_I405_S {'v3_on': 280, 'v3_og': 518, 'e1_og': 518, 'e1_cand': 13276} 16s
+{'on': (442353, 2327, 369237, None), 'og': (4409424, 3917, 3680256, None), 'og_e1': (4409424, 3917, 3680743, 4409424)}
+fold 0 on|y 245650 11s
+fold 0 og|y 2448778 52s
+fold 0 og_e1|y 2438415 103s
+fold 0 og_e1|yf 2921700 148s
+fold 1 on|y 245957 5s
+fold 1 og|y 2448820 29s
+fold 1 og_e1|y 2414061 53s
+fold 1 og_e1|yf 2891388 79s
+fold 2 on|y 246867 5s
+fold 2 og|y 2462914 29s
+fold 2 og_e1|y 2509010 53s
+fold 2 og_e1|yf 3005760 81s
+checks {'v3_fill_vs_exp3c': 1.1102230246251565e-16, 'e1_obs_onset_vs_exp3c': 8.326672684688674e-17}
+             metric     level         group    n    mean  se_window  family_agg  se_boot80  pseudo_release_mean  pseudo_release_std  obs_mean  runtime_s
+          pers_fill   overall           all 3360  0.2975     0.0056      0.2930     0.0144               0.2884              0.0140       NaN      468.7
+          pers_fill condition queue_ongoing 1680  0.5947     0.0047         NaN        NaN                  NaN                 NaN       NaN      468.7
+          pers_fill condition   queue_onset 1680  0.0003     0.0003         NaN        NaN                  NaN                 NaN       NaN      468.7
+           pers_obs   overall           all 3360  0.3020     0.0057      0.2971     0.0135               0.2945              0.0113       NaN      468.7
+           pers_obs condition queue_ongoing 1680  0.6037     0.0046         NaN        NaN                  NaN                 NaN       NaN      468.7
+           pers_obs condition   queue_onset 1680  0.0003     0.0003         NaN        NaN                  NaN                 NaN       NaN      468.7
+            v3_fill   overall           all 3360  0.8085     0.0040      0.8019     0.0254               0.7898              0.0298       NaN      468.7
+            v3_fill condition queue_ongoing 1680  0.8333     0.0047         NaN        NaN                  NaN                 NaN       NaN      468.7
+            v3_fill condition   queue_onset 1680  0.7837     0.0063         NaN        NaN                  NaN                 NaN       NaN      468.7
+             v3_obs   overall           all 3360  0.8879     0.0036      0.8764     0.0236               0.8698              0.0253       NaN      468.7
+             v3_obs condition queue_ongoing 1680  0.8511     0.0042         NaN        NaN                  NaN                 NaN       NaN      468.7
+             v3_obs condition   queue_onset 1680  0.9248     0.0057         NaN        NaN                  NaN                 NaN       NaN      468.7
+        e1_040_fill   overall           all 3360  0.8125     0.0040      0.8061     0.0248               0.7954              0.0310       NaN      468.7
+        e1_040_fill condition queue_ongoing 1680  0.8413     0.0047         NaN        NaN                  NaN                 NaN       NaN      468.7
+        e1_040_fill condition   queue_onset 1680  0.7837     0.0063         NaN        NaN                  NaN                 NaN       NaN      468.7
+         e1_040_obs   overall           all 3360  0.8952     0.0035      0.8836     0.0236               0.8793              0.0270       NaN      468.7
+         e1_040_obs condition queue_ongoing 1680  0.8656     0.0041         NaN        NaN                  NaN                 NaN       NaN      468.7
+         e1_040_obs condition   queue_onset 1680  0.9248     0.0057         NaN        NaN                  NaN                 NaN       NaN      468.7
+         final_fill   overall           all 3360  0.8185     0.0038      0.8129     0.0247               0.8028              0.0261       NaN      468.7
+         final_fill condition queue_ongoing 1680  0.8534     0.0041         NaN        NaN                  NaN                 NaN       NaN      468.7
+         final_fill condition   queue_onset 1680  0.7837     0.0063         NaN        NaN                  NaN                 NaN       NaN      468.7
+          final_obs   overall           all 3360  0.8946     0.0036      0.8838     0.0238               0.8787              0.0271       NaN      468.7
+          final_obs condition queue_ongoing 1680  0.8645     0.0042         NaN        NaN                  NaN                 NaN       NaN      468.7
+          final_obs condition   queue_onset 1680  0.9248     0.0057         NaN        NaN                  NaN                 NaN       NaN      468.7
+   d_e1_040_v3_fill   overall           all 3360  0.0040     0.0014      0.0042     0.0083               0.0056              0.0054       NaN      468.7
+   d_e1_040_v3_fill condition queue_ongoing 1680  0.0079     0.0028         NaN        NaN                  NaN                 NaN       NaN      468.7
+   d_e1_040_v3_fill condition   queue_onset 1680  0.0000     0.0000         NaN        NaN                  NaN                 NaN       NaN      468.7
+    d_e1_040_v3_obs   overall           all 3360  0.0073     0.0015      0.0072     0.0091               0.0095              0.0052       NaN      468.7
+    d_e1_040_v3_obs condition queue_ongoing 1680  0.0145     0.0030         NaN        NaN                  NaN                 NaN       NaN      468.7
+    d_e1_040_v3_obs condition   queue_onset 1680  0.0000     0.0000         NaN        NaN                  NaN                 NaN       NaN      468.7
+    d_final_v3_fill   overall           all 3360  0.0100     0.0016      0.0110     0.0097               0.0130              0.0050       NaN      468.7
+    d_final_v3_fill condition queue_ongoing 1680  0.0201     0.0031         NaN        NaN                  NaN                 NaN       NaN      468.7
+    d_final_v3_fill condition   queue_onset 1680  0.0000     0.0000         NaN        NaN                  NaN                 NaN       NaN      468.7
+     d_final_v3_obs   overall           all 3360  0.0067     0.0016      0.0074     0.0097               0.0089              0.0055       NaN      468.7
+     d_final_v3_obs condition queue_ongoing 1680  0.0134     0.0033         NaN        NaN                  NaN                 NaN       NaN      468.7
+     d_final_v3_obs condition   queue_onset 1680  0.0000     0.0000         NaN        NaN                  NaN                 NaN       NaN      468.7
+d_final_e1_040_fill   overall           all 3360  0.0061     0.0009      0.0068     0.0060               0.0074              0.0074       NaN      468.7
+d_final_e1_040_fill condition queue_ongoing 1680  0.0121     0.0018         NaN        NaN                  NaN                 NaN       NaN      468.7
+d_final_e1_040_fill condition   queue_onset 1680  0.0000     0.0000         NaN        NaN                  NaN                 NaN       NaN      468.7
+ d_final_e1_040_obs   overall           all 3360 -0.0006     0.0009      0.0002     0.0060              -0.0005              0.0045       NaN      468.7
+ d_final_e1_040_obs condition queue_ongoing 1680 -0.0012     0.0018         NaN        NaN                  NaN                 NaN       NaN      468.7
+ d_final_e1_040_obs condition   queue_onset 1680  0.0000     0.0000         NaN        NaN                  NaN                 NaN       NaN      468.7
+         metric level group    n   mean  se_window  family_agg  se_boot80  pseudo_release_mean  pseudo_release_std  obs_mean  runtime_s
+d_final_v3_fill  fold     0 1150 0.0095     0.0027         NaN        NaN                  NaN                 NaN       NaN      468.7
+d_final_v3_fill  fold     1 1130 0.0126     0.0028         NaN        NaN                  NaN                 NaN       NaN      468.7
+d_final_v3_fill  fold     2 1080 0.0078     0.0027         NaN        NaN                  NaN                 NaN       NaN      468.7
+ d_final_v3_obs  fold     0 1150 0.0076     0.0027         NaN        NaN                  NaN                 NaN       NaN      468.7
+ d_final_v3_obs  fold     1 1130 0.0078     0.0029         NaN        NaN                  NaN                 NaN       NaN      468.7
+ d_final_v3_obs  fold     2 1080 0.0045     0.0029         NaN        NaN                  NaN                 NaN       NaN      468.7
+      metric           level group    n   mean  se_window  family_agg  se_boot80  pseudo_release_mean  pseudo_release_std  obs_mean  runtime_s
+final_og_thr threshold_curve  0.20 1680 0.8345     0.0042         NaN        NaN                  NaN                 NaN    0.8405      468.7
+final_og_thr threshold_curve  0.25 1680 0.8439     0.0041         NaN        NaN                  NaN                 NaN    0.8521      468.7
+final_og_thr threshold_curve  0.30 1680 0.8500     0.0041         NaN        NaN                  NaN                 NaN    0.8597      468.7
+final_og_thr threshold_curve  0.35 1680 0.8533     0.0041         NaN        NaN                  NaN                 NaN    0.8637      468.7
+final_og_thr threshold_curve  0.40 1680 0.8534     0.0041         NaN        NaN                  NaN                 NaN    0.8645      468.7
+final_og_thr threshold_curve  0.45 1680 0.8514     0.0042         NaN        NaN                  NaN                 NaN    0.8637      468.7
+final_og_thr threshold_curve  0.50 1680 0.8462     0.0043         NaN        NaN                  NaN                 NaN    0.8599      468.7
+final_og_thr threshold_curve  0.55 1680 0.8391     0.0045         NaN        NaN                  NaN                 NaN    0.8541      468.7
+final_og_thr threshold_curve  0.60 1680 0.8277     0.0046         NaN        NaN                  NaN                 NaN    0.8448      468.7
+final_og_thr threshold_curve  0.65 1680 0.8150     0.0047         NaN        NaN                  NaN                 NaN    0.8335      468.7
+final_og_thr threshold_curve  0.70 1680 0.7986     0.0050         NaN        NaN                  NaN                 NaN    0.8170      468.7
+{"runtime_s": 468.7, "checks": {"v3_fill_vs_exp3c": 1.1102230246251565e-16, "e1_obs_onset_vs_exp3c": 8.326672684688674e-17}, "family_fill": {"pers": 0.29300586621166874, "v3": 0.8019426343908502, "e1_040": 0.8060926833128853, "final": 0.8129232551051877}, "family_obs": {"pers": 0.2971117640839382, "v3": 0.8763582965607788, "e1_040": 0.8836062473968813, "final": 0.8838024625656442}}

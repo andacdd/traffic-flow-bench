@@ -1,0 +1,110 @@
+## Ağ dosyaları tutarlılığı (tüm paneller)
+     panel  links  fd_rows  topo_rows  links_not_in_fd  fd_not_in_links  sensored  unsensored  on_ramps  off_ramps  vf_links_vs_fd      vf_fd_vs_topo cap_links_vs_fd       cap_fd_vs_topo lanes_links_vs_fd  lanes_fd_vs_topo len_links_vs_fd  order_index_gaps
+D12_I405_N     89       89         89                0                0        50          39        31         23 0 fark, max 0.0  89 fark, max 15.9 0 fark, max 0.0 89 fark, max 12401.6   0 fark, max 0.0  55 fark, max 4.0 0 fark, max 0.0                 0
+D12_I405_S     44       44         44                0                0        44           0        27         20 0 fark, max 0.0  44 fark, max 16.3 0 fark, max 0.0 44 fark, max 16822.4   0 fark, max 0.0  25 fark, max 6.0 0 fark, max 0.0                 0
+  D12_I5_N    258      258        258                0                0        93         165        63         49 0 fark, max 0.0 258 fark, max 19.6 0 fark, max 0.0 258 fark, max 8800.0   0 fark, max 0.0 213 fark, max 4.0 0 fark, max 0.0                 0
+  D12_I5_S    100      100        100                0                0       100           0        53         54 0 fark, max 0.0 100 fark, max 21.2 0 fark, max 0.0 100 fark, max 5232.0   0 fark, max 0.0  78 fark, max 3.0 0 fark, max 0.0                 0
+  D7_I10_E    146      146        146                0                0       101          45        62         54 0 fark, max 0.0 146 fark, max 27.4 0 fark, max 0.0 146 fark, max 6668.8   0 fark, max 0.0  55 fark, max 4.0 0 fark, max 0.0                 0
+  D7_I10_W    107      107        107                0                0       107           0        60         55 0 fark, max 0.0 107 fark, max 26.6 0 fark, max 0.0 107 fark, max 7648.0   0 fark, max 0.0  33 fark, max 4.0 0 fark, max 0.0                 0
+ D7_I210_E    297      297        297                0                0        75         222        56         42 0 fark, max 0.0 297 fark, max 18.4 0 fark, max 0.0 297 fark, max 5675.2   0 fark, max 0.0 101 fark, max 3.0 0 fark, max 0.0                 0
+ D7_I210_W     81       81         81                0                0        81           0        62         45 0 fark, max 0.0  81 fark, max 22.3 0 fark, max 0.0  81 fark, max 7190.4   0 fark, max 0.0  18 fark, max 2.0 0 fark, max 0.0                 0
+ D7_I405_N    352      352        352                0                0        96         256        61         42 0 fark, max 0.0 352 fark, max 22.3 0 fark, max 0.0 352 fark, max 7432.0   0 fark, max 0.0 186 fark, max 4.0 0 fark, max 0.0                 0
+ D7_I405_S    109      109        109                0                0       109           0        62         51 0 fark, max 0.0 109 fark, max 17.5 0 fark, max 0.0 109 fark, max 9260.8   0 fark, max 0.0  38 fark, max 4.0 0 fark, max 0.0                 0
+
+### D12_I5_N / train mainline
+dosya 60, satır 4,458,240, kolon 16
+kolonlar: ['corridor_id', 'date', 'timestamp', 'station_id', 'link_id', 'milepost', 'direction', 'speed_kmh', 'flow_vph', 'occupancy', 'density_occ_linear_vehpkm', 'pct_observed', 'is_observed', 'is_imputed', 'is_score_eligible', 'is_missing']
+
+null oranı (%):
+speed_kmh                    16.55
+flow_vph                     16.55
+occupancy                    16.55
+density_occ_linear_vehpkm    16.55
+
+(timestamp, link_id) tekrar: 0
+link başına station_id sayısı max: 1
+gün başına satır: min 74304, max 74304, beklenen 74304
+dakika ızgarası dışı: 0
+
+pct_observed bandı x değer var mı (speed notna oranı):
+        oran  deger_var
+band                   
+0      16.55        0.0
+1-74    7.07        1.0
+75-99  12.95        1.0
+100    63.44        1.0
+
+bayrak tutarlılığı:
+  is_imputed != (pct<100): 0
+  is_score_eligible != (pct>=75 & değer var): 0
+  is_missing=1 ama değer var: 0
+  is_observed=0 ama değer var: 0
+
+metrik dağılımları (değer olan hücreler):
+                               count      mean       std      min       1%       5%       50%       95%       99%        max
+speed_kmh                  3720573.0   113.385    18.003    5.833   24.823  108.385   117.386   120.502   120.750    120.750
+flow_vph                   3720573.0  4025.011  2038.197  445.605  591.910  719.550  4533.074  6607.926  7167.121  11194.975
+occupancy                  3720573.0     0.142     0.130    0.000    0.015    0.021     0.135     0.269     0.750      0.750
+density_occ_linear_vehpkm  3720573.0    40.419    37.010    0.000    4.326    6.078    38.580    76.730   213.750    213.750
+  speed==0: 0, flow==0: 0, negatif: 0
+  occupancy>1: 0
+
+fiziksel tutarlılık (değer olan hücreler):
+  speed > vf+5: 0.000%  (max fark 4.4 km/h)
+  flow > kapasite: 0.179%  (max oran 1.09)
+  k_lane > k_jam: 0.0000%
+  corr(q/v, density_occ): 0.9738
+  density_occ / (q/v) medyan: 0.998
+  serbest akışta |v - vf| medyan: 0.79 km/h, p95 4.80
+  eligible: n=3,405,414, kuyruk oranı 4.72%, hız std 18.01
+  pct 1-74 (imputed, eligible değil): n=315,159, kuyruk oranı 4.70%, hız std 17.98
+
+takılı sensör (aynı link, ardışık 6+ adım birebir aynı hız):
+  6+ uzunlukta tekrar sayısı: 4695, en uzun 92
+
+### D12_I5_N maske tutarlılığı (train)
+  eşleşen satır 4,458,240; maskelenmemiş hücrelerde değer farkı: 0.0
+  maskede kayıp ama tamda var: 24.79%
+  maskede var ama tamda yok: 0
+  task1 şablon kolonları: ['panel', 'timestamp', 'station_id', 'link_id', 'mask_regime', 'speed_kmh', 'flow_vph']
+
+### D12_I5_N / train ramp_states
+dosya 60, satır 1,935,360, kolonlar ['corridor_id', 'date', 'timestamp', 'station_id', 'ramp_link_id', 'ramp_type', 'flow_vph', 'pct_observed', 'is_observed', 'is_imputed', 'is_score_eligible', 'is_missing']
+null oranı (%): {'flow_vph': 20.53}
+  flow_vph:  {'count': 1538114.0, 'mean': 28.9, 'std': 33.4, 'min': 0.0, '1%': 0.0, '50%': 15.9, '99%': 146.5, 'max': 307.8}
+  flow_vph==0: 2.01%  | pct_observed<75 iken değer var: 3.90%
+  eligible oranı: 0.756; ramp sayısı 112
+
+### D12_I5_N / validation maske + Task2 boşlukları
+gün 31, satır 2,303,424, değer yok oranı 43.3%
+             gun    bos
+mask_regime            
+R1             8  0.340
+R2            13  0.401
+R3            10  0.549
+tüm linklerin boş olduğu zaman adımı: 180 (900 dk)
+Task2 pencere: 10 ({'queue_onset': 5, 'queue_ongoing': 5}); her biri 30 dk ufuk + 60 dk tampon = 18 adım boş beklenir
+
+### D12_I5_N / validation ramp_states
+dosya 31, satır 999,936, kolonlar ['corridor_id', 'date', 'timestamp', 'station_id', 'ramp_link_id', 'ramp_type', 'flow_vph', 'pct_observed', 'is_observed', 'is_imputed', 'is_score_eligible', 'is_missing']
+null oranı (%): {'flow_vph': 20.49}
+  flow_vph:  {'count': 795048.0, 'mean': 30.0, 'std': 38.7, 'min': 0.0, '1%': 0.0, '50%': 17.1, '99%': 178.4, 'max': 447.3}
+  flow_vph==0: 0.94%  | pct_observed<75 iken değer var: 3.91%
+  eligible oranı: 0.756; ramp sayısı 112
+
+### D12_I5_N / private maske + Task2 boşlukları
+gün 30, satır 2,229,120, değer yok oranı 42.2%
+             gun    bos
+mask_regime            
+R1             9  0.334
+R2            13  0.405
+R3             8  0.548
+tüm linklerin boş olduğu zaman adımı: 180 (900 dk)
+Task2 pencere: 10 ({'queue_onset': 5, 'queue_ongoing': 5}); her biri 30 dk ufuk + 60 dk tampon = 18 adım boş beklenir
+
+### D12_I5_N / private ramp_states
+dosya 30, satır 967,680, kolonlar ['corridor_id', 'date', 'timestamp', 'station_id', 'ramp_link_id', 'ramp_type', 'flow_vph', 'pct_observed', 'is_observed', 'is_imputed', 'is_score_eligible', 'is_missing']
+null oranı (%): {'flow_vph': 20.49}
+  flow_vph:  {'count': 769401.0, 'mean': 28.4, 'std': 31.4, 'min': 0.0, '1%': 0.0, '50%': 17.3, '99%': 146.2, 'max': 311.6}
+  flow_vph==0: 1.22%  | pct_observed<75 iken değer var: 3.91%
+  eligible oranı: 0.756; ramp sayısı 112

@@ -1,0 +1,58 @@
+{'panel': 'D12_I5_N', 'days': 273, 'on_win': 279, 'og_e1_win': 504, 'og_e1_cand': 13320} 17s
+{'panel': 'D12_I5_S', 'days': 273, 'on_win': 279, 'og_e1_win': 512, 'og_e1_cand': 13820} 10s
+{'panel': 'D7_I10_E', 'days': 273, 'on_win': 282, 'og_e1_win': 485, 'og_e1_cand': 11005} 12s
+{'panel': 'D7_I10_W', 'days': 273, 'on_win': 134, 'og_e1_win': 260, 'og_e1_cand': 1970} 8s
+{'panel': 'D7_I210_E', 'days': 273, 'on_win': 283, 'og_e1_win': 546, 'og_e1_cand': 2948} 19s
+{'panel': 'D7_I210_W', 'days': 273, 'on_win': 390, 'og_e1_win': 546, 'og_e1_cand': 12844} 9s
+{'panel': 'D7_I405_N', 'days': 273, 'on_win': 400, 'og_e1_win': 546, 'og_e1_cand': 21792} 22s
+{'panel': 'D7_I405_S', 'days': 273, 'on_win': 280, 'og_e1_win': 518, 'og_e1_cand': 13276} 10s
+trained onset 369,237 rows, ongoing 4,409,424 rows, 43s
+validation {'rows': 87000, 'windows': 80, 'mean': 0.06310344827586208, 'values': [0, 1], 'dup_keys': 0, 'runtime_s': 3.6}
+private {'rows': 87000, 'windows': 80, 'mean': 0.05986206896551724, 'values': [0, 1], 'dup_keys': 0, 'runtime_s': 3.4}
+{
+ "template_rows": 174000,
+ "template_keys_match": true,
+ "comparisons": [
+  {
+   "ref": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/v3_queue/queue_vp.csv",
+   "rows": 174000,
+   "missing_in_ref": 0,
+   "agree_all": 0.9946781609195402,
+   "queue_ongoing": {
+    "cells_new": 10402,
+    "cells_ref": 10012,
+    "agree": 0.9893563218390805,
+    "windows_identical": 12,
+    "windows": 80
+   },
+   "queue_onset": {
+    "cells_new": 296,
+    "cells_ref": 296,
+    "agree": 1.0,
+    "windows_identical": 80,
+    "windows": 80
+   }
+  },
+  {
+   "ref": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/v4_queue_nofreq/queue_vp.csv",
+   "rows": 174000,
+   "missing_in_ref": 0,
+   "agree_all": 0.9916839080459771,
+   "queue_ongoing": {
+    "cells_new": 10402,
+    "cells_ref": 10577,
+    "agree": 0.9839425287356321,
+    "windows_identical": 7,
+    "windows": 80
+   },
+   "queue_onset": {
+    "cells_new": 296,
+    "cells_ref": 312,
+    "agree": 0.9994252873563219,
+    "windows_identical": 61,
+    "windows": 80
+   }
+  }
+ ],
+ "runtime_s": 157.6
+}

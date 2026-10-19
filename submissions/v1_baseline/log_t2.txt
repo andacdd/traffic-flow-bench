@@ -1,0 +1,1 @@
+Wrote 174,000 rows to /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/v1_baseline/queue_all.csv

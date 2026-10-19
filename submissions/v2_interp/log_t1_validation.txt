@@ -1,0 +1,10 @@
+D12_I405_N: 203,337 satır, NaN 0, 6s
+D12_I405_S: 93,718 satır, NaN 0, 3s
+D12_I5_N: 588,468 satır, NaN 0, 14s
+D12_I5_S: 219,222 satır, NaN 0, 5s
+D7_I10_E: 337,512 satır, NaN 0, 8s
+D7_I10_W: 233,060 satır, NaN 0, 6s
+D7_I210_E: 625,014 satır, NaN 0, 16s
+D7_I210_W: 205,973 satır, NaN 0, 4s
+D7_I405_N: 673,133 satır, NaN 0, 18s
+D7_I405_S: 271,939 satır, NaN 0, 6s

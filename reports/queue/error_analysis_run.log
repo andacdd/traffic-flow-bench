@@ -1,0 +1,64 @@
+{"runtime_s": 117.8, "max_abs_diff_vs_cv": 1.1102230246251565e-16, "mean_iou": 0.8085117267944616, "worst100_iou_max": 0.0, "worst100_onset": 62}
+    condition          category  worst100_primary  worst100_secondary  worst100_loss_share  loss_sum  share_of_total_loss  share_within_condition  share_within_condition_no_thr  unobserved_truth_frac  mean_iou_drop  n_windows  n_worst100
+          all      onset_timing                 0                   0               0.0000   18.6840               0.0290                  0.0290                         0.0290                 0.0764         0.0056       3360         100
+          all      extent_under                16                   1               0.1326   60.4482               0.0940                  0.0940                         0.1303                 0.0463         0.0180       3360         100
+          all       extent_over                 2                   4               0.0288  300.5535               0.4671                  0.4671                         0.5071                 0.8536         0.0895       3360         100
+          all dissipation_early                26                   1               0.2570   68.5116               0.1065                  0.1065                         0.1400                 0.6470         0.0204       3360         100
+          all  dissipation_late                 0                   0               0.0000   51.8851               0.0806                  0.0806                         0.1057                 0.0355         0.0154       3360         100
+          all        wrong_link                52                   1               0.4529   48.4012               0.0752                  0.0752                         0.0879                 0.0916         0.0144       3360         100
+          all  threshold_effect                 4                  17               0.1287   94.9170               0.1475                  0.1475                         0.0000                 0.1269         0.0282       3360         100
+  queue_onset      onset_timing                 0                   0               0.0000   18.6840               0.0290                  0.0514                         0.0514                 0.0764         0.0111       1680          62
+  queue_onset      extent_under                 7                   0               0.0712   17.4014               0.0270                  0.0479                         0.0687                 0.0014         0.0104       1680          62
+  queue_onset       extent_over                 2                   4               0.0465  255.5463               0.3972                  0.7032                         0.7268                 0.9476         0.1521       1680          62
+  queue_onset dissipation_early                 0                   0               0.0000    0.0000               0.0000                  0.0000                         0.0000                 0.0000         0.0000       1680          62
+  queue_onset  dissipation_late                 0                   0               0.0000    0.0000               0.0000                  0.0000                         0.0000                 0.0000         0.0000       1680          62
+  queue_onset        wrong_link                52                   1               0.7305   47.5591               0.0739                  0.1309                         0.1531                 0.0905         0.0283       1680          62
+  queue_onset  threshold_effect                 1                  16               0.1517   24.2087               0.0376                  0.0666                         0.0000                 0.0779         0.0144       1680          62
+queue_ongoing      onset_timing                 0                   0               0.0000    0.0000               0.0000                  0.0000                         0.0000                 0.0000         0.0000       1680          38
+queue_ongoing      extent_under                 9                   1               0.2328   43.0469               0.0669                  0.1537                         0.2102                 0.0645         0.0256       1680          38
+queue_ongoing       extent_over                 0                   0               0.0000   45.0073               0.0700                  0.1607                         0.2219                 0.3200         0.0268       1680          38
+queue_ongoing dissipation_early                26                   1               0.6762   68.5116               0.1065                  0.2447                         0.3218                 0.6470         0.0408       1680          38
+queue_ongoing  dissipation_late                 0                   0               0.0000   51.8851               0.0806                  0.1853                         0.2429                 0.0355         0.0309       1680          38
+queue_ongoing        wrong_link                 0                   0               0.0000    0.8421               0.0013                  0.0030                         0.0032                 0.1562         0.0005       1680          38
+queue_ongoing  threshold_effect                 3                   1               0.0910   70.7083               0.1099                  0.2525                         0.0000                 0.1437         0.0421       1680          38
+    condition        descriptor  kind  worst    rest  worst_median  rest_median  std_diff  n_worst  n_rest
+queue_ongoing    prob_max_truth  mean  0.114   0.992         0.047        0.999    -6.390       38    1642
+queue_ongoing          prob_max  mean  0.122   0.992         0.054        0.999    -6.387       38    1642
+          all    prob_max_truth  mean  0.068   0.987         0.010        0.999    -5.451      100    3260
+  queue_onset    prob_max_truth  mean  0.040   0.983         0.001        0.999    -4.854       62    1618
+          all          prob_max  mean  0.369   0.988         0.213        0.999    -4.556      100    3260
+  queue_onset          prob_max  mean  0.521   0.985         0.518        0.999    -3.422       62    1618
+  queue_onset    onset_fallback share  0.419   0.004           NaN          NaN     3.041       62    1618
+queue_ongoing      first_q_step  mean  1.947   1.000         1.000        1.000     2.933       38    1642
+          all    onset_fallback share  0.260   0.002           NaN          NaN     2.658      100    3260
+  queue_onset       incident_hz share  0.613   0.057           NaN          NaN     2.081       62    1618
+  queue_onset near_thr_err_frac  mean  0.152   0.020         0.000        0.000     1.008       62    1618
+          all       incident_hz share  0.390   0.098           NaN          NaN     0.949      100    3260
+queue_ongoing near_thr_err_frac  mean  0.091   0.349         0.000        0.296    -0.864       38    1642
+queue_ongoing        pred_cells  mean  0.053 175.504         0.000       89.500    -0.662       38    1642
+  queue_onset    panel=D7_I10_W share  0.129   0.023           NaN          NaN     0.658       62    1618
+queue_ongoing             union  mean  8.526 184.096         5.000       93.000    -0.638       38    1642
+queue_ongoing    panel=D12_I5_N share  0.316   0.111           NaN          NaN     0.638       38    1642
+  queue_onset        pred_cells  mean  2.806   4.155         1.000        4.000    -0.635       62    1618
+queue_ongoing          hz_cells  mean  8.474 174.097         5.000       82.000    -0.634       38    1642
+queue_ongoing          hz_links  mean  3.237  32.951         1.000       18.000    -0.628       38    1642
+queue_ongoing         q_links_T  mean  1.763  30.811         1.000       14.000    -0.607       38    1642
+  queue_onset    panel=D12_I5_S share  0.290   0.116           NaN          NaN     0.534       62    1618
+          all    panel=D7_I10_W share  0.110   0.024           NaN          NaN     0.531      100    3260
+  queue_onset             union  mean  5.903   4.407         5.000        4.000     0.505       62    1618
+queue_ongoing      hist_q_cells  mean 57.921 290.472        43.500      142.500    -0.499       38    1642
+  queue_onset   panel=D7_I210_E share  0.000   0.161           NaN          NaN    -0.444       62    1618
+          all   panel=D7_I210_E share  0.000   0.160           NaN          NaN    -0.441      100    3260
+queue_ongoing   panel=D7_I210_E share  0.000   0.158           NaN          NaN    -0.438       38    1642
+queue_ongoing              hour  mean 17.421  15.924        18.500       17.000     0.437       38    1642
+          all        pred_cells  mean  1.760  90.460         1.000       11.000    -0.432      100    3260
+queue_ongoing    panel=D7_I10_E share  0.263   0.122           NaN          NaN     0.427       38    1642
+          all          hz_links  mean  3.150  18.331         2.500        5.000    -0.417      100    3260
+          all          hz_cells  mean  5.140  89.516         3.000       10.000    -0.416      100    3260
+          all             union  mean  6.900  94.913         5.000       12.000    -0.413      100    3260
+          all      first_q_step  mean  4.460   3.453         6.000        1.000     0.403      100    3260
+          all         q_links_T  mean  0.670  15.521         0.000        2.000    -0.401      100    3260
+queue_ongoing   panel=D7_I405_N share  0.026   0.173           NaN          NaN    -0.391       38    1642
+queue_ongoing         kuculuyor share  0.763   0.576           NaN          NaN     0.380       38    1642
+queue_ongoing   panel=D7_I210_W share  0.026   0.164           NaN          NaN    -0.374       38    1642
+queue_ongoing           buyuyor share  0.237   0.420           NaN          NaN    -0.372       38    1642

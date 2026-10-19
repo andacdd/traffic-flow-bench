@@ -1,0 +1,181 @@
+D12_I5_N {'panel': 'D12_I5_N', 'v3_on_win': 279, 'v3_og_win': 504, 'e1_og_cand': 13320, 'e1_og_win': 504, 'e2_on_cand_noog': 2244, 'e2_on_win': 281} 20s
+D12_I5_S {'panel': 'D12_I5_S', 'v3_on_win': 279, 'v3_og_win': 512, 'e1_og_cand': 13820, 'e1_og_win': 512, 'e2_on_cand_noog': 2253, 'e2_on_win': 285} 11s
+D7_I10_E {'panel': 'D7_I10_E', 'v3_on_win': 282, 'v3_og_win': 485, 'e1_og_cand': 11005, 'e1_og_win': 485, 'e2_on_cand_noog': 2130, 'e2_on_win': 286} 14s
+D7_I10_W {'panel': 'D7_I10_W', 'v3_on_win': 134, 'v3_og_win': 260, 'e1_og_cand': 1970, 'e1_og_win': 260, 'e2_on_cand_noog': 1091, 'e2_on_win': 134} 9s
+D7_I210_E {'panel': 'D7_I210_E', 'v3_on_win': 283, 'v3_og_win': 546, 'e1_og_cand': 2948, 'e1_og_win': 546, 'e2_on_cand_noog': 1969, 'e2_on_win': 286} 21s
+D7_I210_W {'panel': 'D7_I210_W', 'v3_on_win': 390, 'v3_og_win': 546, 'e1_og_cand': 12844, 'e1_og_win': 546, 'e2_on_cand_noog': 3156, 'e2_on_win': 397} 12s
+D7_I405_N {'panel': 'D7_I405_N', 'v3_on_win': 400, 'v3_og_win': 546, 'e1_og_cand': 21792, 'e1_og_win': 546, 'e2_on_cand_noog': 2881, 'e2_on_win': 401} 26s
+D7_I405_S {'panel': 'D7_I405_S', 'v3_on_win': 280, 'v3_og_win': 518, 'e1_og_cand': 13276, 'e1_og_win': 518, 'e2_on_cand_noog': 2208, 'e2_on_win': 280} 12s
+    panel  v3_on_win  v3_og_win  e1_og_cand  e1_og_win  e2_on_cand_noog  e2_on_win
+ D12_I5_N        279        504       13320        504             2244        281
+ D12_I5_S        279        512       13820        512             2253        285
+ D7_I10_E        282        485       11005        485             2130        286
+ D7_I10_W        134        260        1970        260             1091        134
+D7_I210_E        283        546        2948        546             1969        286
+D7_I210_W        390        546       12844        546             3156        397
+D7_I405_N        400        546       21792        546             2881        401
+D7_I405_S        280        518       13276        518             2208        280
+{'on': (442353, 2327, 369237), 'og': (4409424, 3917, 3680256), 'og_e1': (4409424, 3917, 3680743), 'on_e2': (445863, 2350, 372165)}
+persistence check 0.0 0.0
+fold 0 on|y 245650 5s
+fold 0 og|y 2448778 30s
+fold 0 og_e1|y 2438415 55s
+fold 0 on_e2|y 247276 61s
+fold 0 on|yf 294102 66s
+fold 0 og|yf 2933472 97s
+fold 1 on|y 245957 6s
+fold 1 og|y 2448820 30s
+fold 1 og_e1|y 2414061 54s
+fold 1 on_e2|y 248261 60s
+fold 1 on|yf 294799 65s
+fold 1 og|yf 2934912 93s
+fold 2 on|y 246867 5s
+fold 2 og|y 2462914 30s
+fold 2 og_e1|y 2509010 56s
+fold 2 on_e2|y 248793 61s
+fold 2 on|yf 295805 67s
+fold 2 og|yf 2950464 94s
+fold           0        1        2
+model                             
+og_e1|y  2438415  2414061  2509010
+og|y     2448778  2448820  2462914
+og|yf    2933472  2934912  2950464
+on_e2|y   247276   248261   248793
+on|y      245650   245957   246867
+on|yf     294102   294799   295805
+v3 vs cv_results max abs diff 1.1102230246251565e-16
+   metric     level         group    n   mean  se_window  family_agg  se_boot80  pseudo_release_mean  pseudo_release_std  obs_mean  runtime_s
+pers_fill   overall           all 3360 0.2975     0.0056      0.2930     0.0144               0.2884              0.0140       NaN      412.6
+pers_fill condition queue_ongoing 1680 0.5947     0.0047         NaN        NaN                  NaN                 NaN       NaN      412.6
+pers_fill condition   queue_onset 1680 0.0003     0.0003         NaN        NaN                  NaN                 NaN       NaN      412.6
+pers_fill      fold             0 1150 0.2979     0.0096         NaN        NaN                  NaN                 NaN       NaN      412.6
+pers_fill      fold             1 1130 0.2962     0.0097         NaN        NaN                  NaN                 NaN       NaN      412.6
+pers_fill      fold             2 1080 0.2985     0.0100         NaN        NaN                  NaN                 NaN       NaN      412.6
+ pers_obs   overall           all 3360 0.3020     0.0057      0.2971     0.0135               0.2945              0.0113       NaN      412.6
+ pers_obs condition queue_ongoing 1680 0.6037     0.0046         NaN        NaN                  NaN                 NaN       NaN      412.6
+ pers_obs condition   queue_onset 1680 0.0003     0.0003         NaN        NaN                  NaN                 NaN       NaN      412.6
+ pers_obs      fold             0 1150 0.3017     0.0097         NaN        NaN                  NaN                 NaN       NaN      412.6
+ pers_obs      fold             1 1130 0.3010     0.0098         NaN        NaN                  NaN                 NaN       NaN      412.6
+ pers_obs      fold             2 1080 0.3034     0.0101         NaN        NaN                  NaN                 NaN       NaN      412.6
+  v3_fill   overall           all 3360 0.8085     0.0040      0.8019     0.0254               0.7898              0.0298       NaN      412.6
+  v3_fill condition queue_ongoing 1680 0.8333     0.0047         NaN        NaN                  NaN                 NaN       NaN      412.6
+  v3_fill condition   queue_onset 1680 0.7837     0.0063         NaN        NaN                  NaN                 NaN       NaN      412.6
+  v3_fill      fold             0 1150 0.8146     0.0067         NaN        NaN                  NaN                 NaN       NaN      412.6
+  v3_fill      fold             1 1130 0.8007     0.0070         NaN        NaN                  NaN                 NaN       NaN      412.6
+  v3_fill      fold             2 1080 0.8102     0.0070         NaN        NaN                  NaN                 NaN       NaN      412.6
+   v3_obs   overall           all 3360 0.8879     0.0036      0.8764     0.0236               0.8698              0.0253       NaN      412.6
+   v3_obs condition queue_ongoing 1680 0.8511     0.0042         NaN        NaN                  NaN                 NaN       NaN      412.6
+   v3_obs condition   queue_onset 1680 0.9248     0.0057         NaN        NaN                  NaN                 NaN       NaN      412.6
+   v3_obs      fold             0 1150 0.8915     0.0059         NaN        NaN                  NaN                 NaN       NaN      412.6
+   v3_obs      fold             1 1130 0.8862     0.0064         NaN        NaN                  NaN                 NaN       NaN      412.6
+   v3_obs      fold             2 1080 0.8860     0.0063         NaN        NaN                  NaN                 NaN       NaN      412.6
+  e1_fill   overall           all 3360 0.8098     0.0040      0.8036     0.0251               0.7936              0.0315       NaN      412.6
+  e1_fill condition queue_ongoing 1680 0.8359     0.0048         NaN        NaN                  NaN                 NaN       NaN      412.6
+  e1_fill condition   queue_onset 1680 0.7837     0.0063         NaN        NaN                  NaN                 NaN       NaN      412.6
+  e1_fill      fold             0 1150 0.8161     0.0068         NaN        NaN                  NaN                 NaN       NaN      412.6
+  e1_fill      fold             1 1130 0.8019     0.0070         NaN        NaN                  NaN                 NaN       NaN      412.6
+  e1_fill      fold             2 1080 0.8113     0.0070         NaN        NaN                  NaN                 NaN       NaN      412.6
+   e1_obs   overall           all 3360 0.8929     0.0036      0.8814     0.0236               0.8768              0.0278       NaN      412.6
+   e1_obs condition queue_ongoing 1680 0.8610     0.0043         NaN        NaN                  NaN                 NaN       NaN      412.6
+   e1_obs condition   queue_onset 1680 0.9248     0.0057         NaN        NaN                  NaN                 NaN       NaN      412.6
+   e1_obs      fold             0 1150 0.8978     0.0060         NaN        NaN                  NaN                 NaN       NaN      412.6
+   e1_obs      fold             1 1130 0.8900     0.0063         NaN        NaN                  NaN                 NaN       NaN      412.6
+   e1_obs      fold             2 1080 0.8908     0.0064         NaN        NaN                  NaN                 NaN       NaN      412.6
+  e2_fill   overall           all 3360 0.8093     0.0040      0.8023     0.0265               0.7881              0.0330       NaN      412.6
+  e2_fill condition queue_ongoing 1680 0.8333     0.0047         NaN        NaN                  NaN                 NaN       NaN      412.6
+  e2_fill condition   queue_onset 1680 0.7853     0.0063         NaN        NaN                  NaN                 NaN       NaN      412.6
+  e2_fill      fold             0 1150 0.8143     0.0066         NaN        NaN                  NaN                 NaN       NaN      412.6
+  e2_fill      fold             1 1130 0.8013     0.0069         NaN        NaN                  NaN                 NaN       NaN      412.6
+  e2_fill      fold             2 1080 0.8123     0.0070         NaN        NaN                  NaN                 NaN       NaN      412.6
+   e2_obs   overall           all 3360 0.8889     0.0035      0.8769     0.0245               0.8691              0.0304       NaN      412.6
+   e2_obs condition queue_ongoing 1680 0.8511     0.0042         NaN        NaN                  NaN                 NaN       NaN      412.6
+   e2_obs condition   queue_onset 1680 0.9267     0.0055         NaN        NaN                  NaN                 NaN       NaN      412.6
+   e2_obs      fold             0 1150 0.8912     0.0058         NaN        NaN                  NaN                 NaN       NaN      412.6
+   e2_obs      fold             1 1130 0.8872     0.0062         NaN        NaN                  NaN                 NaN       NaN      412.6
+   e2_obs      fold             2 1080 0.8882     0.0063         NaN        NaN                  NaN                 NaN       NaN      412.6
+  e3_fill   overall           all 3360 0.8018     0.0040      0.7959     0.0258               0.7844              0.0352       NaN      412.6
+  e3_fill condition queue_ongoing 1680 0.8402     0.0043         NaN        NaN                  NaN                 NaN       NaN      412.6
+  e3_fill condition   queue_onset 1680 0.7634     0.0066         NaN        NaN                  NaN                 NaN       NaN      412.6
+  e3_fill      fold             0 1150 0.8072     0.0067         NaN        NaN                  NaN                 NaN       NaN      412.6
+  e3_fill      fold             1 1130 0.7971     0.0070         NaN        NaN                  NaN                 NaN       NaN      412.6
+  e3_fill      fold             2 1080 0.8011     0.0070         NaN        NaN                  NaN                 NaN       NaN      412.6
+   e3_obs   overall           all 3360 0.8734     0.0037      0.8620     0.0250               0.8576              0.0320       NaN      412.6
+   e3_obs condition queue_ongoing 1680 0.8486     0.0042         NaN        NaN                  NaN                 NaN       NaN      412.6
+   e3_obs condition   queue_onset 1680 0.8982     0.0062         NaN        NaN                  NaN                 NaN       NaN      412.6
+   e3_obs      fold             0 1150 0.8798     0.0061         NaN        NaN                  NaN                 NaN       NaN      412.6
+   e3_obs      fold             1 1130 0.8718     0.0067         NaN        NaN                  NaN                 NaN       NaN      412.6
+   e3_obs      fold             2 1080 0.8683     0.0067         NaN        NaN                  NaN                 NaN       NaN      412.6
+      metric     level         group    n    mean  se_window  family_agg  se_boot80  pseudo_release_mean  pseudo_release_std  obs_mean  runtime_s
+d_e1_v3_fill   overall           all 3360  0.0013     0.0014      0.0016     0.0084               0.0038              0.0057       NaN      412.6
+d_e1_v3_fill condition queue_ongoing 1680  0.0026     0.0029         NaN        NaN                  NaN                 NaN       NaN      412.6
+d_e1_v3_fill condition   queue_onset 1680  0.0000     0.0000         NaN        NaN                  NaN                 NaN       NaN      412.6
+ d_e1_v3_obs   overall           all 3360  0.0050     0.0015      0.0050     0.0088               0.0070              0.0052       NaN      412.6
+ d_e1_v3_obs condition queue_ongoing 1680  0.0099     0.0030         NaN        NaN                  NaN                 NaN       NaN      412.6
+ d_e1_v3_obs condition   queue_onset 1680  0.0000     0.0000         NaN        NaN                  NaN                 NaN       NaN      412.6
+d_e2_v3_fill   overall           all 3360  0.0008     0.0008      0.0004     0.0061              -0.0017              0.0074       NaN      412.6
+d_e2_v3_fill condition queue_ongoing 1680  0.0000     0.0000         NaN        NaN                  NaN                 NaN       NaN      412.6
+d_e2_v3_fill condition   queue_onset 1680  0.0016     0.0016         NaN        NaN                  NaN                 NaN       NaN      412.6
+ d_e2_v3_obs   overall           all 3360  0.0009     0.0009      0.0005     0.0066              -0.0007              0.0088       NaN      412.6
+ d_e2_v3_obs condition queue_ongoing 1680  0.0000     0.0000         NaN        NaN                  NaN                 NaN       NaN      412.6
+ d_e2_v3_obs condition   queue_onset 1680  0.0019     0.0018         NaN        NaN                  NaN                 NaN       NaN      412.6
+d_e3_v3_fill   overall           all 3360 -0.0067     0.0016     -0.0061     0.0097              -0.0054              0.0078       NaN      412.6
+d_e3_v3_fill condition queue_ongoing 1680  0.0069     0.0017         NaN        NaN                  NaN                 NaN       NaN      412.6
+d_e3_v3_fill condition   queue_onset 1680 -0.0203     0.0026         NaN        NaN                  NaN                 NaN       NaN      412.6
+ d_e3_v3_obs   overall           all 3360 -0.0145     0.0016     -0.0143     0.0103              -0.0122              0.0128       NaN      412.6
+ d_e3_v3_obs condition queue_ongoing 1680 -0.0025     0.0016         NaN        NaN                  NaN                 NaN       NaN      412.6
+ d_e3_v3_obs condition   queue_onset 1680 -0.0265     0.0028         NaN        NaN                  NaN                 NaN       NaN      412.6
+metric     e1_fill  e2_fill  e3_fill  pers_fill  v3_fill
+group                                                   
+D12_I5_N    0.8091   0.8112   0.7984     0.2555   0.8131
+D12_I5_S    0.7799   0.7868   0.7721     0.2794   0.7819
+D7_I10_E    0.7914   0.7525   0.7604     0.2922   0.7529
+D7_I10_W    0.7725   0.7666   0.7716     0.2755   0.7703
+D7_I210_E   0.8336   0.8453   0.8469     0.3387   0.8453
+D7_I210_W   0.8218   0.8261   0.8104     0.3063   0.8246
+D7_I405_N   0.8390   0.8328   0.8291     0.3062   0.8333
+D7_I405_S   0.7815   0.7974   0.7779     0.2902   0.7942
+metric              e1_thr  e2_thr  e3_thr  v3_thr
+cond          thr                                 
+queue_ongoing 0.20  0.8236  0.8186  0.8250  0.8186
+              0.25  0.8322  0.8252  0.8311  0.8252
+              0.30  0.8378  0.8297  0.8357  0.8297
+              0.35  0.8407  0.8329  0.8390  0.8329
+              0.40  0.8413  0.8346  0.8407  0.8346
+              0.45  0.8399  0.8348  0.8414  0.8348
+              0.50  0.8359  0.8333  0.8402  0.8333
+              0.55  0.8310  0.8312  0.8383  0.8312
+              0.60  0.8226  0.8271  0.8326  0.8271
+              0.65  0.8101  0.8213  0.8257  0.8213
+              0.70  0.7956  0.8140  0.8170  0.8140
+queue_onset   0.20  0.7821  0.7837  0.7670  0.7821
+              0.25  0.7829  0.7843  0.7679  0.7829
+              0.30  0.7840  0.7856  0.7652  0.7840
+              0.35  0.7837  0.7853  0.7634  0.7837
+              0.40  0.7848  0.7855  0.7587  0.7848
+              0.45  0.7837  0.7843  0.7535  0.7837
+              0.50  0.7826  0.7838  0.7461  0.7826
+              0.55  0.7817  0.7826  0.7359  0.7817
+              0.60  0.7817  0.7803  0.7214  0.7817
+    condition          category  share_of_total_loss_e1  mean_iou_drop_e1  share_of_total_loss_v3  mean_iou_drop_v3
+          all      onset_timing                  0.0292            0.0056                  0.0290            0.0056
+          all      extent_under                  0.0802            0.0153                  0.0940            0.0180
+          all       extent_over                  0.4587            0.0873                  0.4671            0.0895
+          all dissipation_early                  0.1566            0.0298                  0.1065            0.0204
+          all  dissipation_late                  0.0445            0.0085                  0.0806            0.0154
+          all        wrong_link                  0.0768            0.0146                  0.0752            0.0144
+          all  threshold_effect                  0.1540            0.0293                  0.1475            0.0282
+  queue_onset      onset_timing                  0.0292            0.0111                  0.0290            0.0111
+  queue_onset      extent_under                  0.0272            0.0104                  0.0270            0.0104
+  queue_onset       extent_over                  0.3998            0.1521                  0.3972            0.1521
+  queue_onset dissipation_early                  0.0000            0.0000                  0.0000            0.0000
+  queue_onset  dissipation_late                  0.0000            0.0000                  0.0000            0.0000
+  queue_onset        wrong_link                  0.0744            0.0283                  0.0739            0.0283
+  queue_onset  threshold_effect                  0.0379            0.0144                  0.0376            0.0144
+queue_ongoing      onset_timing                  0.0000            0.0000                  0.0000            0.0000
+queue_ongoing      extent_under                  0.0530            0.0202                  0.0669            0.0256
+queue_ongoing       extent_over                  0.0589            0.0224                  0.0700            0.0268
+queue_ongoing dissipation_early                  0.1566            0.0596                  0.1065            0.0408
+queue_ongoing  dissipation_late                  0.0445            0.0169                  0.0806            0.0309
+queue_ongoing        wrong_link                  0.0024            0.0009                  0.0013            0.0005
+queue_ongoing  threshold_effect                  0.1161            0.0442                  0.1099            0.0421
+{"runtime_s": 412.6, "v3_check": 1.1102230246251565e-16, "family_fill": {"v3": 0.8019426343908502, "e1": 0.8035914527378323, "e2": 0.8023352857485668, "e3": 0.7958568992444965}, "best": "e1", "errcat": {"max_abs_diff_vs_exp": 1.1102230246251565e-16, "runtime_s": 121.8}}

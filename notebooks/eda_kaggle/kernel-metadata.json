@@ -1,0 +1,16 @@
+{
+  "id": "andacdemirdelen/traffic-flow-bench-guided-eda-of-all-10-corridors",
+  "title": "Traffic Flow Bench: Guided EDA of All 10 Corridors",
+  "code_file": "traffic-flow-bench-eda.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": false,
+  "keywords": ["exploratory data analysis", "time series"],
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": ["2026-ieee-big-data-traffic-flow-bench"],
+  "model_sources": []
+}

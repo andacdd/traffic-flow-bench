@@ -1,0 +1,24 @@
+{
+  "n_windows": 3360,
+  "n_samples": 336,
+  "n_pseudo_releases": 9,
+  "official_in_generated": 73,
+  "onset_first_q_at_T30": 0.9839285714285714,
+  "runtime_s": 38.2,
+  "rule": "joint",
+  "pers_row": "T",
+  "condition_rule_check": {
+    "train": {
+      "elig_rule_agree": 1.0,
+      "all_rule_agree": 1.0
+    },
+    "validation": {
+      "elig_rule_agree": 1.0,
+      "all_rule_agree": 1.0
+    },
+    "private": {
+      "elig_rule_agree": 1.0,
+      "all_rule_agree": 1.0
+    }
+  }
+}

@@ -1,0 +1,12 @@
+[Task1 evaluator] D7_I10_E
+[Task1 evaluator] D7_I10_W
+[Task1 evaluator] D7_I210_E
+[Task1 evaluator] D7_I210_W
+[Task1 evaluator] D7_I405_N
+[Task1 evaluator] D7_I405_S
+[Task1 evaluator] D12_I5_N
+[Task1 evaluator] D12_I5_S
+[Task1 evaluator] D12_I405_N
+[Task1 evaluator] D12_I405_S
+Wrote /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/reference/trafficflowbench-public/reports/task1_eval_validation.csv
+Overall S_state = 0.732028

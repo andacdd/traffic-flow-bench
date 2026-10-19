@@ -1,0 +1,71 @@
+[Task1 submission] D7_I10_E
+[D7_I10_E] profile files 50/273
+[D7_I10_E] profile files 100/273
+[D7_I10_E] profile files 150/273
+[D7_I10_E] profile files 200/273
+[D7_I10_E] profile files 250/273
+  wrote 2,815,381 target rows
+[Task1 submission] D7_I10_W
+[D7_I10_W] profile files 50/273
+[D7_I10_W] profile files 100/273
+[D7_I10_W] profile files 150/273
+[D7_I10_W] profile files 200/273
+[D7_I10_W] profile files 250/273
+  wrote 2,156,021 target rows
+[Task1 submission] D7_I210_E
+[D7_I210_E] profile files 50/273
+[D7_I210_E] profile files 100/273
+[D7_I210_E] profile files 150/273
+[D7_I210_E] profile files 200/273
+[D7_I210_E] profile files 250/273
+  wrote 6,061,039 target rows
+[Task1 submission] D7_I210_W
+[D7_I210_W] profile files 50/273
+[D7_I210_W] profile files 100/273
+[D7_I210_W] profile files 150/273
+[D7_I210_W] profile files 200/273
+[D7_I210_W] profile files 250/273
+  wrote 1,569,035 target rows
+[Task1 submission] D7_I405_N
+[D7_I405_N] profile files 50/273
+[D7_I405_N] profile files 100/273
+[D7_I405_N] profile files 150/273
+[D7_I405_N] profile files 200/273
+[D7_I405_N] profile files 250/273
+  wrote 7,114,278 target rows
+[Task1 submission] D7_I405_S
+[D7_I405_S] profile files 50/273
+[D7_I405_S] profile files 100/273
+[D7_I405_S] profile files 150/273
+[D7_I405_S] profile files 200/273
+[D7_I405_S] profile files 250/273
+  wrote 2,127,937 target rows
+[Task1 submission] D12_I5_N
+[D12_I5_N] profile files 50/273
+[D12_I5_N] profile files 100/273
+[D12_I5_N] profile files 150/273
+[D12_I5_N] profile files 200/273
+[D12_I5_N] profile files 250/273
+  wrote 5,148,741 target rows
+[Task1 submission] D12_I5_S
+[D12_I5_S] profile files 50/273
+[D12_I5_S] profile files 100/273
+[D12_I5_S] profile files 150/273
+[D12_I5_S] profile files 200/273
+[D12_I5_S] profile files 250/273
+  wrote 2,049,512 target rows
+[Task1 submission] D12_I405_N
+[D12_I405_N] profile files 50/273
+[D12_I405_N] profile files 100/273
+[D12_I405_N] profile files 150/273
+[D12_I405_N] profile files 200/273
+[D12_I405_N] profile files 250/273
+  wrote 1,793,853 target rows
+[Task1 submission] D12_I405_S
+[D12_I405_S] profile files 50/273
+[D12_I405_S] profile files 100/273
+[D12_I405_S] profile files 150/273
+[D12_I405_S] profile files 200/273
+[D12_I405_S] profile files 250/273
+  wrote 947,966 target rows
+Wrote 31,783,763 rows to /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/baseline/state_train.csv

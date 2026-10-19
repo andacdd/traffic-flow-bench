@@ -1,0 +1,38 @@
+{
+  "features_identical": {
+    "Xtr": true,
+    "Btr": true,
+    "yv": true,
+    "yq": true,
+    "Xte": true,
+    "Bte": true,
+    "Rte": true,
+    "vf_te": true,
+    "vc_te": true
+  },
+  "max_abs_diff": 2.220446049250313e-16,
+  "per_metric": {
+    "S_state": 1.1102230246251565e-16,
+    "rmse_v": 2.220446049250313e-16,
+    "rmse_q_lane": 0.0,
+    "S_FD": 1.1102230246251565e-16,
+    "E_LWR": 5.551115123125783e-17,
+    "S_LWR": 0.0,
+    "S_physics": 0.0,
+    "q_rmse_v": 0.0,
+    "q_mae_k": 0.0
+  },
+  "new": {
+    "S_state": {
+      "R1": 0.944165,
+      "R2": 0.946471,
+      "R3": 0.935036
+    },
+    "S_physics": {
+      "R1": 0.792291,
+      "R2": 0.707888,
+      "R3": 0.504781
+    }
+  },
+  "runtime_s": 270.8
+}
