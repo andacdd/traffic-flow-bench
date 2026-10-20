@@ -1,0 +1,26 @@
+[odme dual] validation D7_I10_E paths=4278 meas=137 0.15s
+[odme dual] validation D7_I10_W paths=5050 meas=100 0.26s
+[odme dual] validation D7_I210_E paths=2628 meas=294 0.25s
+[odme dual] validation D7_I210_W paths=3321 meas=81 0.19s
+[odme dual] validation D7_I405_N paths=4560 meas=350 0.28s
+[odme dual] validation D7_I405_S paths=4656 meas=96 0.26s
+[odme dual] validation D12_I5_N paths=4278 meas=257 0.18s
+[odme dual] validation D12_I5_S paths=5050 meas=100 0.23s
+[odme dual] validation D12_I405_N paths=903 meas=81 0.02s
+[odme dual] validation D12_I405_S paths=630 meas=35 0.01s
+[odme dual] private D7_I10_E paths=4278 meas=137 0.19s
+[odme dual] private D7_I10_W paths=5050 meas=100 0.25s
+[odme dual] private D7_I210_E paths=2628 meas=294 0.16s
+[odme dual] private D7_I210_W paths=3321 meas=81 0.16s
+[odme dual] private D7_I405_N paths=4560 meas=350 0.33s
+[odme dual] private D7_I405_S paths=4656 meas=96 0.29s
+[odme dual] private D12_I5_N paths=4278 meas=257 0.17s
+[odme dual] private D12_I5_S paths=5050 meas=100 0.28s
+[odme dual] private D12_I405_N paths=903 meas=81 0.03s
+[odme dual] private D12_I405_S paths=630 meas=35 0.02s
+           n_paths        n_meas         solve_s           kkt_active      kkt_zero     
+               max    sum    max   sum       max       sum        max  sum      max  sum
+split                                                                                   
+private       5050  35354    350  1531  0.333075  1.887464        0.0  0.0      0.0  0.0
+validation    5050  35354    350  1531  0.284317  1.847355        0.0  0.0      0.0  0.0
+total 4.0s

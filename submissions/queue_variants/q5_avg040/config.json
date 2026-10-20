@@ -1,0 +1,31 @@
+{
+  "variant": "q5_avg040",
+  "onset_src": "v4",
+  "thr_onset": 0.3,
+  "ongoing_src": "avg",
+  "thr_ongoing": 0.4,
+  "rounds": 400,
+  "m2": {
+    "fold": "production",
+    "holdout": 203102,
+    "best_iter": 700
+  },
+  "q1_sources": null,
+  "check": {
+    "variant": "q5_avg040",
+    "rows": 174000,
+    "template_rows": 174000,
+    "keys_ok": true,
+    "pos_onset": 312,
+    "pos_onset_v4": 312,
+    "agree_onset": 1.0,
+    "diffcells_onset": 0,
+    "windows_changed_onset": 0,
+    "pos_ongoing": 10417,
+    "pos_ongoing_v4": 10577,
+    "agree_ongoing": 0.9973563218390804,
+    "diffcells_ongoing": 230,
+    "windows_changed_ongoing": 53,
+    "changes": "ongoing_only"
+  }
+}

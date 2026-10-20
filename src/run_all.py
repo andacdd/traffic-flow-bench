@@ -72,7 +72,9 @@ def plan(a, P):
     if "queue" in a.stages:
         script = "task2_predict_v2.py" if a.queue == "v4" else "queue_final_predict.py"
         steps["queue"] = [py(SRC / script, "--release-root", rel, "--out", P["queue_dir"])]
-    if "odme" in a.stages:
+    if "odme" in a.stages and a.odme_solver == "dual":
+        steps["odme"] = [py(SRC / "odme_dual_predict.py", "--release-root", rel, "--out-dir", P["odme_dir"], *[x for s in SPLITS for x in ("--split", s)])]
+    elif "odme" in a.stages:
         steps["odme"] = [py(repo / "src" / "task4" / "build_task4_odme_artifacts.py", "--release-root", rel, "--split", s, "--output-root", P["odme_dir"] / s)
                          for s in SPLITS]
     if "merge" in a.stages:
@@ -170,6 +172,7 @@ def main():
     ap.add_argument("--state", choices=list(STATE_SCRIPTS), default="A")
     ap.add_argument("--queue", choices=["v4", "final"], default="final")
     ap.add_argument("--odme", choices=["own"], default="own")
+    ap.add_argument("--odme-solver", choices=["official", "dual"], default="official")
     ap.add_argument("--threads", type=int, default=4)
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--stages", nargs="*", choices=STAGES, default=STAGES)

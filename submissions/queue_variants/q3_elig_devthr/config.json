@@ -1,0 +1,27 @@
+{
+  "variant": "q3_elig_devthr",
+  "onset_src": "q3",
+  "thr_onset": 0.25,
+  "ongoing_src": "q3",
+  "thr_ongoing": 0.45,
+  "rounds": 400,
+  "m2": null,
+  "q1_sources": null,
+  "check": {
+    "variant": "q3_elig_devthr",
+    "rows": 174000,
+    "template_rows": 174000,
+    "keys_ok": true,
+    "pos_onset": 319,
+    "pos_onset_v4": 312,
+    "agree_onset": 0.9997586206896552,
+    "diffcells_onset": 21,
+    "windows_changed_onset": 14,
+    "pos_ongoing": 10364,
+    "pos_ongoing_v4": 10577,
+    "agree_ongoing": 0.9949080459770115,
+    "diffcells_ongoing": 443,
+    "windows_changed_ongoing": 66,
+    "changes": "both"
+  }
+}

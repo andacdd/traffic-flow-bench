@@ -113,6 +113,10 @@
 | 2026-10-20 | A2 | State LE (L + M2 ortalaması) | S_state 0.9397, phys 0.7117, J +0.0037±0.0013 (30/30 birim) | - |
 | 2026-10-20 | A2 | S4 = S3 + state LE (run_all) | beklenen +0.0036 | 0.84565 (+0.00348) |
 | 2026-10-20 | A2 | S5 = S2 + state LE (queue v4, run_all merge) | beklenen ≈ 0.859 | **0.85929** (S2'ye +0.00347; EN İYİ) |
+| 2026-10-20 | T | P1 = S5 + final ongoing (v4 onset korunur) | dev +0.013 | 0.85208 (-0.00721) |
+| 2026-10-20 | T | ODME dual çözücü run_all'da (--odme-solver dual) | S5 ile compare PASS (max |Δf| 2.8e-11), ODME 1408 sn -> 4.8 sn | - |
+| 2026-10-20 | T | State B1 eligible/kalite özellikleri (LE'ye karşı) | J -0.00001 (nötr) | - |
+| 2026-10-20 | T | State B3 mask augmentation +%50 satır | S_state +.0005, phys +.0049, J +.0009±.0011 (30/30 birim) | - |
 | 2026-10-20 | A4 | Physics kalıntı ACF (gözlem - med5 düzgün) | hız lag1 -0.220 vs iid null -0.225; AR(6) R² 0.09 < null 0.18 -> tahmin edilebilir pay ≈ 0 | - |
 
 ### Adım 1 — Queue ölçüm teşhisi (2026-10-20, src/queue_diag2.py, reports/queue/adv_*, maskmimic_*, lomo_*, leakage_audit.md)
@@ -125,6 +129,33 @@
 - KABUL ÖLÇÜTÜ SAĞLANMADI: persistence dev-LB farkı 0.02 içinde, v3 +0.07..+0.16. Açıklanmayan ~0.06: ya Mart/Nisan senaryosunda kuyruk dinamiği farklı (daha küçük kuyruklar), ya da LB truth (queue_true) bizim tanımımızdan farklı; persistence onset'te her truth altında ~0 olduğu için bunları ayıramaz
 - config/synthetic_release_v1.json scenario_contract: capacity_multiplier 1.2, incident_severity 1.0, val/private seed organizatörde (train için ayrı değer verilmemiş -> farklı olduğu kanıtlanmadı). Organizatör: val persistence pencere IoU std 0.3752
 - Kural gereği queue modeline dokunulmuyor. Önerilen tek değişkenli LB probu: v3 submission'ında sadece onset satırları persistence (hepsi 0) -> Δ = 0.30*0.5*onset_v3 -> v3'ün LB onset ve ongoing IoU'su ayrışır (submissions/probe_v3_onset_pers, hazır; 19 Eki'de günlük limit (5/5) nedeniyle 400 aldı, 20 Eki'de gönderilecek)
+
+### P1 sonucu (2026-10-20)
+- Δ = -0.00721 = 0.15 * (final_og - v4_og) -> final ongoing, v4 ongoing'den LB'de 0.048 KÖTÜ
+- S3 kaybı (-0.0455 queue) = 0.5*(Δon + Δog) -> Δon (v3 onset - v4 onset) ≈ -0.043. Yani S3'te HEM onset (v3, freq'li) HEM ongoing (E1 + fill etiket + thr .40) v4'ten kötüydü; dev ikisini de iyi göstermişti
+- v4 onset LB ≈ 0.714 + 0.043 ≈ 0.757. Dersler: freq özellikleri onset'te zararlı (Faz 2 bulgusuyla tutarlı); ongoing'de fill etiket/E1/thr .40 paketi zararlı. Dev set queue model seçimi için güvenilmez (3/3 karşılaştırmada yön yanlış)
+- Sonraki queue probları (S5'e göre): q2b (sadece eşik .45) fill etiketi içermediği için P1'den ayrı bilgi verir; q4 onset
+
+### State tuning (2026-10-20, src/task1_resid3.py, reports/phys/resid3_*)
+- B1 nötr. B3 tüm 30 birimde pozitif ama küçük (+0.0009 J ≈ +0.0009 LB); üretim scripti yok. B2 (early-stop) iptal edildi; yarıda kalan koşuda L dv modeli 2000 turda hâlâ iyileşiyordu -> daha çok tur state'e katkı verebilir (ileride)
+- ODME artık saniyeler içinde (dual), sonuç official ile 1e-10 içinde aynı
+
+### Queue aday varyantları (2026-10-20, src/queue_variants.py, submissions/queue_variants/<ad>/, reports/queue/variants_*)
+- v4 yeniden eğitimi gönderilen dosyayla 0 hücre farkla aynı. 763 sn
+- Dev (aile, fill / elig; v4 .7929 / .8649), v4'e fark (SE80):
+  - q1_final_og (v4 onset + final ongoing, SADECE ongoing değişir): +.0138 / +.0132 (SE .009), 3/3 kat — ama dev daha önce final'i ters sıralamıştı
+  - q2a ongoing thr .40: +.0014 ; q2b .45: +.0011 (sadece ongoing)
+  - q3 eligible-only etiket+ağırlık: ±.001 (nötr); q3og (sadece ongoing) +.0005; q3on (sadece onset) -.0011
+  - q4 anubisyy onset özellikleri thr .55 (sadece onset): -.0014 / -.0026
+  - q5 ongoing iki model ortalaması: .35 -.0009, .40 +.0012, .45 +.0004
+- Q1 dışındakiler dev'de ~1 SE içinde, LB gürültüsünün çok altında -> dev ayırt edemiyor. Ongoing eşik eğrileri .40-.45'te tepe (public notebook'larla aynı yön)
+- Tek değişkenli prob adayları (S5'e göre): sadece ongoing -> q1, q2a/b, q3og, q5; sadece onset -> q3on, q4
+
+### anubisyy notebook karşılaştırması (2026-10-20, reports/anubisyy_comparison.md)
+- Onların LB yolu: 0.84833 -> 0.86025 (ODME sıkı çözüm +0.012) -> 0.86446 (state +0.004) -> 0.86517 (onset blend +0.0007). ODME bizimle eşdeğer (biz kesin çözüyoruz)
+- Queue farkları: onset sadece T-60..T-5 girdi (T satırı yok), FREQ YOK, raw lag 1/2/3/6/9/12 + milepost ±2 komşu, LGBM+CatBoost blend, thr 0.55; ongoing tek LGBM, thr 0.40; etiket/aday/kayıp sadece ELIGIBLE hücrelerde, satır ağırlığı 1000/eligible hücre, ufuk eligible kapsaması >= %60 şartı
+- Yeni yorum: S3 final queue'nun onset'i v3 onset'iydi (freq'li). v4 ≈ 0.77 ise final ≈ 0.7245 -> final ongoing ≈ 0.735 > v3 ongoing 0.723; kaybın kaynağı ONSET (freq özellikleri LB'de onset'i bozuyor; Faz 2'de de freq onset'te zararlıydı). Bu, v4'ün mutlak değerine bağlı bir çıkarım
+- Test: S5 + queue (v4 onset + final ongoing) = S5'e göre sadece ongoing satırları değişir -> final_ongoing - v4_ongoing doğrudan ölçülür
 
 ### LB sonuçları 20 Eki (S3, S4)
 - S3 (S2 + final queue) 0.84217: final queue, v4 queue'dan LB'de 0.0455 kötü (0.01365/0.30). Dev'de final v4'ten +0.020 iyiydi -> dev sırayı TERS çevirdi, fark LB gürültüsünün (±0.015 queue) 3 katı. Adım 1 kuralı doğrulandı: dev ölçütü sağlanmadan queue değişikliği LB'de güvenilmez. Şüpheli: ongoing için fill etiketleri ve/veya E1 seçici pencereleri + eşik 0.40

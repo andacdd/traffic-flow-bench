@@ -1,0 +1,57 @@
+{
+  "variant": "B1",
+  "panels": [
+    "D12_I405_N",
+    "D12_I405_S",
+    "D12_I5_N",
+    "D12_I5_S",
+    "D7_I10_E",
+    "D7_I10_W",
+    "D7_I210_E",
+    "D7_I210_W",
+    "D7_I405_N",
+    "D7_I405_S"
+  ],
+  "folds": [
+    1,
+    2,
+    3
+  ],
+  "args": {
+    "release_root": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/data/kaggle_public",
+    "out_dir": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/reports/phys",
+    "a_cache_dir": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/cache/task1_resid",
+    "l_cache_dir": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/cache/task1_resid2",
+    "cache_dir": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/cache/task1_resid3",
+    "le_ref": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/reports/phys/resid2_cv_LE.csv",
+    "variant": "B1",
+    "panels": null,
+    "folds": [
+      1,
+      2,
+      3
+    ],
+    "sample_per_panel": 300000,
+    "threads": 4,
+    "rounds": 400,
+    "es_max_rounds": 2000,
+    "es_lr": 0.05,
+    "es_patience": 100,
+    "aug_frac": 0.5,
+    "seed": 42,
+    "reuse_cache": false,
+    "check_rows": false,
+    "summary_only": false
+  },
+  "stages": {
+    "load": 208.8,
+    "quality_load": 28.1,
+    "prep": 13.9,
+    "train": 2087.9,
+    "predict": 2271.3,
+    "proxy_load": 143.1,
+    "score": 109.4
+  },
+  "runtime_s": 4867.8,
+  "peak_gb": 6.63
+}

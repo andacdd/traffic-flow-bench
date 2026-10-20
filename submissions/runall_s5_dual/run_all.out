@@ -1,0 +1,58 @@
+[odme] /opt/miniconda3/bin/python -I /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/src/odme_dual_predict.py --release-root /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/data/kaggle_public --out-dir /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s5_dual/odme --split validation --split private
+[odme] 4.8s -> /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s5_dual/odme/odme_vp.csv
+[merge] /opt/miniconda3/bin/python -I /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/reference/trafficflowbench-public/src/merge_submissions.py --state /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s4/state/state_vp.csv --queue /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/v4_queue_nofreq/queue_vp.csv --odme /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s5_dual/odme/odme_vp.csv --key /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/data/kaggle_public/submission_key.csv --output /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s5_dual/submission.csv
+[merge] 29.1s -> /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s5_dual/submission.csv
+{
+ "new": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s5_dual/submission.csv",
+ "ref": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s5/submission.csv",
+ "rows_new": 6980503,
+ "rows_ref": 6980503,
+ "same_id_task_order": true,
+ "state": {
+  "rows": 6735795,
+  "share_rows_differ": 0.0,
+  "speed_kmh": {
+   "max_abs_diff": 0.0,
+   "mean_abs_diff": 0.0,
+   "nan_ref": 0
+  },
+  "flow_vph": {
+   "max_abs_diff": 0.0,
+   "mean_abs_diff": 0.0,
+   "nan_ref": 0
+  },
+  "rmse_speed_kmh": 0.0,
+  "rmse_flow_vph_per_lane": 0.0
+ },
+ "queue": {
+  "rows": 174000,
+  "share_rows_differ": 0.0,
+  "queue_pred": {
+   "max_abs_diff": 0.0,
+   "mean_abs_diff": 0.0,
+   "nan_ref": 0
+  },
+  "agreement": 1.0
+ },
+ "odme": {
+  "rows": 70708,
+  "share_rows_differ": 0.0,
+  "path_flow": {
+   "max_abs_diff": 2.779643182293512e-11,
+   "mean_abs_diff": 7.128560016778593e-14,
+   "nan_ref": 0
+  },
+  "relative_l1": 3.214241346172897e-15
+ },
+ "rule": "state RMSE < 1% of 25 km/h and 600 veh/h/lane; queue agreement >= 99%; odme relative L1 < 1%",
+ "checks": {
+  "state_speed": true,
+  "state_flow": true,
+  "queue": true,
+  "odme": true
+ },
+ "pass": true,
+ "runtime_s": 8.3
+}
+COMPARE PASS
+total 44.4s -> /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s5_dual/manifest.json

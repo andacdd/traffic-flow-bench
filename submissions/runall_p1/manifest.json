@@ -1,0 +1,104 @@
+{
+  "args": {
+    "release_root": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/data/kaggle_public",
+    "repo_root": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/reference/trafficflowbench-public",
+    "out_dir": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_p1",
+    "state": "LE",
+    "queue": "v4",
+    "odme": "own",
+    "odme_solver": "official",
+    "threads": 4,
+    "seed": 42,
+    "stages": [
+      "merge"
+    ],
+    "state_vp": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s4/state/state_vp.csv",
+    "queue_vp": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/queue_variants/q1_final_og/queue_vp.csv",
+    "odme_vp": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/odme/odme_vp.csv",
+    "compare": null,
+    "dry_run": false
+  },
+  "argv": [
+    "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/src/run_all.py",
+    "--release-root",
+    "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/data/kaggle_public",
+    "--repo-root",
+    "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/reference/trafficflowbench-public",
+    "--out-dir",
+    "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_p1",
+    "--state",
+    "LE",
+    "--queue",
+    "v4",
+    "--odme",
+    "own",
+    "--stages",
+    "merge",
+    "--state-vp",
+    "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s4/state/state_vp.csv",
+    "--queue-vp",
+    "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/queue_variants/q1_final_og/queue_vp.csv",
+    "--odme-vp",
+    "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/odme/odme_vp.csv"
+  ],
+  "versions": {
+    "python": "3.14.6",
+    "numpy": "2.5.1",
+    "pandas": "2.3.3",
+    "pyarrow": "24.0.0",
+    "lightgbm": "4.7.0",
+    "scipy": "1.18.0"
+  },
+  "git": {
+    "project": {
+      "path": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench",
+      "commit": "945a9020e670141e53574e3fc3724e0f2ad60a1e",
+      "dirty": true
+    },
+    "official": {
+      "path": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/reference/trafficflowbench-public",
+      "commit": "f9e3fbc35c066419726987e470448f33d4c72fd9",
+      "dirty": false
+    }
+  },
+  "inputs": {
+    "submission_key.csv": "8232c9ce6682fdd3120e6729a30e4514866ab492ef7b167ad3952e00478bd071",
+    "sample_submission.csv": "89e19bb6d96fa6f62a4ce01b1c22e4c5610ff7d4a10750aac5943411858d4ba5"
+  },
+  "inputs_external": {
+    "state_vp": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s4/state/state_vp.csv",
+    "queue_vp": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/queue_variants/q1_final_og/queue_vp.csv",
+    "odme_vp": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/odme/odme_vp.csv"
+  },
+  "stages": {
+    "merge": {
+      "status": "ok",
+      "runtime_s": 30.5,
+      "child_peak_gb_so_far": 2.24,
+      "log": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_p1/merge.log",
+      "output": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_p1/submission.csv",
+      "output_sha256": "bfc135c69c36966cabb2009b5756853a3eb75c072d3df5a48f58778f7122fa06",
+      "output_bytes": 402163054
+    }
+  },
+  "outputs": {
+    "state_vp": {
+      "path": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s4/state/state_vp.csv",
+      "sha256": "7816640f09fb21e70d549b69358d1042a80571b453c999601fcc2648c0ee585e"
+    },
+    "queue_vp": {
+      "path": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/queue_variants/q1_final_og/queue_vp.csv",
+      "sha256": "6d41aab76818b534224222be3e7eb3314544ed8560b42076cbf9cdd195ed1e11"
+    },
+    "odme_vp": {
+      "path": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/odme/odme_vp.csv",
+      "sha256": "02294d181bb1572b154fb3e6b25e0a2ce95323a7ae50b0f6d9d4ca684929ae7f"
+    },
+    "submission": {
+      "path": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_p1/submission.csv",
+      "sha256": "bfc135c69c36966cabb2009b5756853a3eb75c072d3df5a48f58778f7122fa06"
+    }
+  },
+  "runtime_s": 33.0,
+  "child_peak_gb": 2.24
+}

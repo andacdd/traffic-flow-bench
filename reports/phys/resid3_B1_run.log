@@ -1,0 +1,78 @@
+D12_I405_N fold 1: train 300,000 es 51,161 held-out 599,092 | peak 1.83 GB
+D12_I405_N fold 2: train 300,000 es 50,375 held-out 585,188 | peak 1.86 GB
+D12_I405_N fold 3: train 300,000 es 51,556 held-out 609,573 | peak 2.02 GB
+D12_I405_S fold 1: train 300,000 es 48,981 held-out 330,061 | peak 2.02 GB
+D12_I405_S fold 2: train 300,000 es 46,622 held-out 296,353 | peak 2.02 GB
+D12_I405_S fold 3: train 300,000 es 49,635 held-out 321,552 | peak 2.02 GB
+D12_I5_N fold 1: train 300,000 es 44,648 held-out 1,703,996 | peak 4.48 GB
+D12_I5_N fold 2: train 300,000 es 46,287 held-out 1,788,526 | peak 4.48 GB
+D12_I5_N fold 3: train 300,000 es 50,730 held-out 1,656,219 | peak 4.48 GB
+D12_I5_S fold 1: train 300,000 es 45,615 held-out 672,205 | peak 4.48 GB
+D12_I5_S fold 2: train 300,000 es 46,461 held-out 698,413 | peak 4.48 GB
+D12_I5_S fold 3: train 300,000 es 52,074 held-out 678,894 | peak 4.48 GB
+D7_I10_E fold 1: train 300,000 es 50,781 held-out 899,583 | peak 4.48 GB
+D7_I10_E fold 2: train 300,000 es 53,047 held-out 971,901 | peak 4.48 GB
+D7_I10_E fold 3: train 300,000 es 46,988 held-out 943,897 | peak 4.48 GB
+D7_I10_W fold 1: train 300,000 es 47,389 held-out 765,606 | peak 4.48 GB
+D7_I10_W fold 2: train 300,000 es 44,013 held-out 657,342 | peak 4.48 GB
+D7_I10_W fold 3: train 300,000 es 44,923 held-out 733,073 | peak 4.48 GB
+D7_I210_E fold 1: train 300,000 es 53,969 held-out 2,068,251 | peak 5.08 GB
+D7_I210_E fold 2: train 300,000 es 52,364 held-out 1,913,448 | peak 5.08 GB
+D7_I210_E fold 3: train 300,000 es 46,297 held-out 2,079,340 | peak 5.08 GB
+D7_I210_W fold 1: train 300,000 es 48,146 held-out 504,638 | peak 5.08 GB
+D7_I210_W fold 2: train 300,000 es 48,524 held-out 517,265 | peak 5.08 GB
+D7_I210_W fold 3: train 300,000 es 45,521 held-out 547,132 | peak 5.08 GB
+D7_I405_N fold 1: train 300,000 es 48,050 held-out 2,500,382 | peak 5.39 GB
+D7_I405_N fold 2: train 300,000 es 46,274 held-out 2,276,347 | peak 5.39 GB
+D7_I405_N fold 3: train 300,000 es 45,829 held-out 2,337,549 | peak 5.39 GB
+D7_I405_S fold 1: train 300,000 es 49,764 held-out 708,606 | peak 5.39 GB
+D7_I405_S fold 2: train 300,000 es 49,792 held-out 704,152 | peak 5.39 GB
+D7_I405_S fold 3: train 300,000 es 53,514 held-out 715,179 | peak 5.39 GB
+  fold 1 B1: train matrix (3000000, 218) es rows 488,504 peak 5.39 GB
+  fold 1 B1 L dv trained 400 rounds 180s peak 5.39 GB
+  fold 1 B1 L dq trained 400 rounds 385s peak 5.39 GB
+  fold 1 B1 M2 dv trained 400 rounds 544s peak 5.39 GB
+  fold 1 B1 M2 dq trained 400 rounds 715s peak 5.39 GB
+fold 1 trained+predicted | {'load': 102, 'quality_load': 28, 'prep': 14, 'train': 715, 'predict': 777} | peak 5.39 GB
+  fold 2 B1: train matrix (3000000, 218) es rows 483,759 peak 5.39 GB
+  fold 2 B1 L dv trained 400 rounds 179s peak 5.39 GB
+  fold 2 B1 L dq trained 400 rounds 385s peak 5.39 GB
+  fold 2 B1 M2 dv trained 400 rounds 545s peak 5.39 GB
+  fold 2 B1 M2 dq trained 400 rounds 714s peak 5.39 GB
+fold 2 trained+predicted | {'load': 102, 'quality_load': 28, 'prep': 14, 'train': 1429, 'predict': 1523} | peak 5.39 GB
+  fold 3 B1: train matrix (3000000, 218) es rows 487,067 peak 5.39 GB
+  fold 3 B1 L dv trained 400 rounds 163s peak 5.39 GB
+  fold 3 B1 L dq trained 400 rounds 351s peak 5.39 GB
+  fold 3 B1 M2 dv trained 400 rounds 500s peak 5.39 GB
+  fold 3 B1 M2 dq trained 400 rounds 659s peak 5.39 GB
+fold 3 trained+predicted | {'load': 102, 'quality_load': 28, 'prep': 14, 'train': 2088, 'predict': 2271} | peak 5.39 GB
+variant  S_state   S_FD  S_LWR  S_physics      J  q_rmse_v  q_rmse_q_lane  q_mae_k  q_bias_rel  nq_rmse_v  nq_rmse_q_lane  nq_mae_k guard
+     B1   0.9397 0.9874 0.5739     0.7117 0.4357    4.3684        47.2422   9.9908      0.0016     1.4858         30.5626    0.8980    ok
+   B1_L   0.9391 0.9874 0.5664     0.7067 0.4347    4.4173        47.6095  10.4022      0.0024     1.4975         30.8500    0.9080    ok
+  B1_M2   0.9396 0.9874 0.5725     0.7108 0.4355    4.4173        47.2675  10.2394      0.0014     1.4901         30.4387    0.8938    ok
+ LE_ref   0.9397 0.9874 0.5739     0.7117 0.4357    4.3606        47.2684   9.9849      0.0016     1.4847         30.5819    0.8982    ok
+variant  d_S_state_mean  d_S_state_std  d_S_state_nwin  d_S_state_n  d_S_physics_mean  d_S_physics_std  d_S_physics_nwin  d_S_physics_n  d_J_mean  d_J_std  d_J_nwin  d_J_n  J_gain_over_2std
+     B1        -0.00001        0.00007              10           30          -0.00000          0.00031                13             30  -0.00001  0.00005        14     30             False
+   B1_L        -0.00055        0.00014               0           30          -0.00502          0.00234                 0             30  -0.00095  0.00038         0     30             False
+  B1_M2        -0.00009        0.00018              11           30          -0.00093          0.00143                11             30  -0.00017  0.00026         9     30             False
+ LE_ref         0.00000        0.00000               0           30           0.00000          0.00000                 0             30   0.00000  0.00000         0     30             False
+        S_state                 S_physics                   S_LWR                 q_rmse_v                 q_mae_k                  nq_rmse_v                
+regime       R1      R2      R3        R1      R2      R3      R1      R2      R3       R1      R2      R3      R1      R2       R3        R1      R2      R3
+variant                                                                                                                                                      
+B1       0.9427  0.9410  0.9354    0.8195  0.7363  0.5794  0.7357  0.6107  0.3752   3.8069  4.0666  5.2317  9.4582  9.4638  11.0503    1.4129  1.4494  1.5951
+B1_L     0.9422  0.9404  0.9348    0.8163  0.7316  0.5723  0.7309  0.6037  0.3645   3.8435  4.1189  5.2897  9.8620  9.8711  11.4736    1.4248  1.4614  1.6064
+B1_M2    0.9426  0.9409  0.9353    0.8188  0.7355  0.5782  0.7347  0.6095  0.3733   3.8747  4.1147  5.2625  9.7327  9.6804  11.3053    1.4170  1.4533  1.6000
+LE_ref   0.9428  0.9410  0.9354    0.8195  0.7362  0.5795  0.7357  0.6107  0.3753   3.8021  4.0565  5.2230  9.4548  9.4528  11.0472    1.4107  1.4485  1.5948
+variant         B1    B1_L   B1_M2  LE_ref
+panel                                     
+D12_I405_N  0.4460  0.4453  0.4458  0.4460
+D12_I405_S  0.4389  0.4383  0.4389  0.4389
+D12_I5_N    0.4339  0.4325  0.4337  0.4339
+D12_I5_S    0.4268  0.4252  0.4262  0.4268
+D7_I10_E    0.4370  0.4361  0.4371  0.4371
+D7_I10_W    0.4440  0.4434  0.4442  0.4440
+D7_I210_E   0.4384  0.4380  0.4386  0.4385
+D7_I210_W   0.4329  0.4322  0.4326  0.4330
+D7_I405_N   0.4232  0.4220  0.4228  0.4232
+D7_I405_S   0.4352  0.4342  0.4351  0.4352
+stages {'load': 209, 'quality_load': 28, 'prep': 14, 'train': 2088, 'predict': 2271, 'proxy_load': 143, 'score': 109} total 4868s peak 6.63 GB

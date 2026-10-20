@@ -1,0 +1,94 @@
+{
+  "timing": {
+    "build_s": 143.6,
+    "cv_s": 447.7,
+    "dev_eval_s": 5.2,
+    "prod_train_s": 152.3,
+    "prod_predict_s": 11.9,
+    "total_s": 760.7
+  },
+  "peak_rss_gb": 5.82,
+  "checks": {
+    "v4_fill_vs_cv_results_maxabs": 1.1102230246251565e-16,
+    "q1_ongoing_fill_vs_final_cv_maxabs": 1.1102230246251565e-16,
+    "v4_repro_agree_vs_submitted": 1.0,
+    "v4_repro_cells_diff": 0
+  },
+  "thr_q3_dev": [
+    0.25,
+    0.45
+  ],
+  "m2": [
+    {
+      "fold": 0,
+      "holdout": 203102,
+      "best_iter": 700
+    },
+    {
+      "fold": 1,
+      "holdout": 203102,
+      "best_iter": 700
+    },
+    {
+      "fold": 2,
+      "holdout": 203011,
+      "best_iter": 700
+    },
+    {
+      "fold": "production",
+      "holdout": 203102,
+      "best_iter": 700
+    }
+  ],
+  "counts": {
+    "on": {
+      "rows": 442353,
+      "windows": 2327,
+      "labeled": 369237
+    },
+    "og": {
+      "rows": 4409424,
+      "windows": 3917,
+      "labeled": 3681137
+    },
+    "on3": {
+      "rows": 442353,
+      "windows": 2327,
+      "labeled": 337808
+    },
+    "og3": {
+      "rows": 4409424,
+      "windows": 3917,
+      "labeled": 3369284
+    },
+    "on4": {
+      "rows": 442353,
+      "windows": 2327,
+      "labeled": 369237
+    },
+    "og_e1": {
+      "rows": 4409424,
+      "windows": 3917,
+      "labeled": 4409424
+    }
+  },
+  "panels": [
+    "D12_I5_N",
+    "D12_I5_S",
+    "D7_I10_E",
+    "D7_I10_W",
+    "D7_I210_E",
+    "D7_I210_W",
+    "D7_I405_N",
+    "D7_I405_S"
+  ],
+  "rounds": 400,
+  "versions": {
+    "python": "3.14.6",
+    "numpy": "2.5.1",
+    "pandas": "2.3.3",
+    "pyarrow": "24.0.0",
+    "lightgbm": "4.7.0",
+    "scipy": "1.18.0"
+  }
+}

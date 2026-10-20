@@ -1,0 +1,32 @@
+D12_I405_N fold 1: train 300,000 es 51,161 held-out 599,092 | peak 1.43 GB
+D12_I405_N fold 2: train 300,000 es 50,375 held-out 585,188 | peak 1.43 GB
+D12_I405_N fold 3: train 300,000 es 51,556 held-out 609,573 | peak 1.43 GB
+D12_I405_S fold 1: train 300,000 es 48,981 held-out 330,061 | peak 1.43 GB
+D12_I405_S fold 2: train 300,000 es 46,622 held-out 296,353 | peak 1.43 GB
+D12_I405_S fold 3: train 300,000 es 49,635 held-out 321,552 | peak 1.43 GB
+D12_I5_N fold 1: train 300,000 es 44,648 held-out 1,703,996 | peak 3.78 GB
+D12_I5_N fold 2: train 300,000 es 46,287 held-out 1,788,526 | peak 3.78 GB
+D12_I5_N fold 3: train 300,000 es 50,730 held-out 1,656,219 | peak 3.78 GB
+D12_I5_S fold 1: train 300,000 es 45,615 held-out 672,205 | peak 3.78 GB
+D12_I5_S fold 2: train 300,000 es 46,461 held-out 698,413 | peak 3.78 GB
+D12_I5_S fold 3: train 300,000 es 52,074 held-out 678,894 | peak 3.78 GB
+D7_I10_E fold 1: train 300,000 es 50,781 held-out 899,583 | peak 3.78 GB
+D7_I10_E fold 2: train 300,000 es 53,047 held-out 971,901 | peak 3.78 GB
+D7_I10_E fold 3: train 300,000 es 46,988 held-out 943,897 | peak 3.78 GB
+D7_I10_W fold 1: train 300,000 es 47,389 held-out 765,606 | peak 3.78 GB
+D7_I10_W fold 2: train 300,000 es 44,013 held-out 657,342 | peak 3.78 GB
+D7_I10_W fold 3: train 300,000 es 44,923 held-out 733,073 | peak 3.78 GB
+D7_I210_E fold 1: train 300,000 es 53,969 held-out 2,068,251 | peak 4.63 GB
+D7_I210_E fold 2: train 300,000 es 52,364 held-out 1,913,448 | peak 4.63 GB
+D7_I210_E fold 3: train 300,000 es 46,297 held-out 2,079,340 | peak 4.63 GB
+D7_I210_W fold 1: train 300,000 es 48,146 held-out 504,638 | peak 4.63 GB
+D7_I210_W fold 2: train 300,000 es 48,524 held-out 517,265 | peak 4.63 GB
+D7_I210_W fold 3: train 300,000 es 45,521 held-out 547,132 | peak 4.63 GB
+D7_I405_N fold 1: train 300,000 es 48,050 held-out 2,500,382 | peak 5.34 GB
+D7_I405_N fold 2: train 300,000 es 46,274 held-out 2,276,347 | peak 5.34 GB
+D7_I405_N fold 3: train 300,000 es 45,829 held-out 2,337,549 | peak 5.34 GB
+D7_I405_S fold 1: train 300,000 es 49,764 held-out 708,606 | peak 5.34 GB
+D7_I405_S fold 2: train 300,000 es 49,792 held-out 704,152 | peak 5.34 GB
+D7_I405_S fold 3: train 300,000 es 53,514 held-out 715,179 | peak 5.34 GB
+  fold 1 B2: train matrix (3000000, 197) es rows 488,504 peak 5.34 GB
+  fold 1 L dv early stop best_iteration 1998 l2 2.9121 554s

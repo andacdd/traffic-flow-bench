@@ -8,6 +8,8 @@
 
 ## Durum
 
+> Başka bir LLM/oturumda devam etmek için önce [`HANDOFF.md`](HANDOFF.md) dosyasını okuyun.
+
 En iyi public LB: **0.85929** (S5: LE state = lead/lag LightGBM + ikinci model ortalaması, v4 LGBM queue, kendi-sayım NNLS ODME; `src/run_all.py --state LE --queue v4 --odme own`). Tüm deneyler, kararlar ve bulgular `NOTES.md` içinde (deney tablosu + faz bölümleri).
 
 ## Klasör yapısı
