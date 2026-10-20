@@ -1,0 +1,14 @@
+D12_I405_N: train rows 300,000 | 24s | {'load': 9, 'train_features': 20, 'split_load': 1, 'split_features': 4} | peak 1.70 GB
+D12_I405_S: train rows 300,000 | 17s | {'load': 15, 'train_features': 34, 'split_load': 3, 'split_features': 7} | peak 1.70 GB
+D12_I5_N: train rows 300,000 | 54s | {'load': 40, 'train_features': 79, 'split_load': 6, 'split_features': 16} | peak 3.89 GB
+D12_I5_S: train rows 300,000 | 27s | {'load': 51, 'train_features': 102, 'split_load': 8, 'split_features': 20} | peak 3.89 GB
+D7_I10_E: train rows 300,000 | 36s | {'load': 67, 'train_features': 132, 'split_load': 10, 'split_features': 26} | peak 3.89 GB
+D7_I10_W: train rows 300,000 | 29s | {'load': 79, 'train_features': 156, 'split_load': 12, 'split_features': 30} | peak 3.89 GB
+D7_I210_E: train rows 300,000 | 61s | {'load': 107, 'train_features': 207, 'split_load': 15, 'split_features': 40} | peak 4.87 GB
+D7_I210_W: train rows 300,000 | 24s | {'load': 117, 'train_features': 227, 'split_load': 17, 'split_features': 44} | peak 4.87 GB
+D7_I405_N: train rows 300,000 | 70s | {'load': 150, 'train_features': 286, 'split_load': 21, 'split_features': 55} | peak 5.17 GB
+D7_I405_S: train rows 300,000 | 28s | {'load': 162, 'train_features': 310, 'split_load': 23, 'split_features': 60} | peak 5.17 GB
+trained dv,dq on 3,000,000 rows | {'load': 162, 'train_features': 310, 'split_load': 23, 'split_features': 60, 'train': 272}
+validation {'rows': 3451376, 'template_rows': 3451376, 'nan': 0, 'speed_min': 5.0, 'speed_max': 120.75, 'flow_min': 357.6315681497132, 'runtime_s': 96.1}
+private {'rows': 3284419, 'template_rows': 3284419, 'nan': 0, 'speed_min': 5.0, 'speed_max': 120.75, 'flow_min': 355.2122935137309, 'runtime_s': 88.8}
+total 851.6s peak 5.17 GB

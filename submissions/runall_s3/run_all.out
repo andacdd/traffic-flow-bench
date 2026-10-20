@@ -1,0 +1,81 @@
+[state] /opt/miniconda3/bin/python -I /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/src/task1_resid_predict.py --release-root /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/data/kaggle_public --out-dir /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/state --cache-dir /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/state/cache --threads 4 --seed 42
+[state] 853.7s -> /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/state/state_vp.csv
+[queue] /opt/miniconda3/bin/python -I /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/src/queue_final_predict.py --release-root /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/data/kaggle_public --out /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/queue
+[queue] 279.9s -> /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/queue/queue_vp.csv
+[odme] /opt/miniconda3/bin/python -I /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/reference/trafficflowbench-public/src/task4/build_task4_odme_artifacts.py --release-root /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/data/kaggle_public --split validation --output-root /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/odme/validation
+[odme] /opt/miniconda3/bin/python -I /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/reference/trafficflowbench-public/src/task4/build_task4_odme_artifacts.py --release-root /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/data/kaggle_public --split private --output-root /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/odme/private
+[odme] 1481.1s -> /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/odme/odme_vp.csv
+[merge] /opt/miniconda3/bin/python -I /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/reference/trafficflowbench-public/src/merge_submissions.py --state /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/state/state_vp.csv --queue /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/queue/queue_vp.csv --odme /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/odme/odme_vp.csv --key /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/data/kaggle_public/submission_key.csv --output /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/submission.csv
+[merge] 29.3s -> /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/submission.csv
+{
+ "new": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/submission.csv",
+ "ref": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/s3_queue_final/submission.csv",
+ "rows_new": 6980503,
+ "rows_ref": 6980503,
+ "same_id_task_order": true,
+ "state": {
+  "rows": 6735795,
+  "share_rows_differ": 0.0,
+  "speed_kmh": {
+   "max_abs_diff": 0.0,
+   "mean_abs_diff": 0.0,
+   "nan_ref": 0
+  },
+  "flow_vph": {
+   "max_abs_diff": 0.0,
+   "mean_abs_diff": 0.0,
+   "nan_ref": 0
+  },
+  "rmse_speed_kmh": 0.0,
+  "rmse_flow_vph_per_lane": 0.0
+ },
+ "queue": {
+  "rows": 174000,
+  "share_rows_differ": 0.0,
+  "queue_pred": {
+   "max_abs_diff": 0.0,
+   "mean_abs_diff": 0.0,
+   "nan_ref": 0
+  },
+  "agreement": 1.0
+ },
+ "odme": {
+  "rows": 70708,
+  "share_rows_differ": 0.0,
+  "path_flow": {
+   "max_abs_diff": 0.0,
+   "mean_abs_diff": 0.0,
+   "nan_ref": 0
+  },
+  "relative_l1": 0.0
+ },
+ "rule": "state RMSE < 1% of 25 km/h and 600 veh/h/lane; queue agreement >= 99%; odme relative L1 < 1%",
+ "checks": {
+  "state_speed": true,
+  "state_flow": true,
+  "queue": true,
+  "odme": true
+ },
+ "pass": true,
+ "runtime_s": 7.9
+}
+COMPARE PASS
+total 2655.5s -> /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/manifest.json
+     2656.20 real      4514.30 user        69.70 sys
+          5167906816  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             4651047  page reclaims
+                2334  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               69337  voluntary context switches
+             3826724  involuntary context switches
+        156672960160  instructions retired
+         39594588925  cycles elapsed
+          1803996064  peak memory footprint

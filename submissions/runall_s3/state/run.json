@@ -1,0 +1,61 @@
+{
+  "panels": [
+    "D12_I405_N",
+    "D12_I405_S",
+    "D12_I5_N",
+    "D12_I5_S",
+    "D7_I10_E",
+    "D7_I10_W",
+    "D7_I210_E",
+    "D7_I210_W",
+    "D7_I405_N",
+    "D7_I405_S"
+  ],
+  "train_rows": 3000000,
+  "params": {
+    "objective": "regression",
+    "learning_rate": 0.05,
+    "num_leaves": 63,
+    "min_data_in_leaf": 100,
+    "feature_fraction": 0.8,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 1,
+    "lambda_l2": 1.0,
+    "verbose": -1,
+    "deterministic": true,
+    "force_col_wise": true,
+    "num_threads": 4,
+    "seed": 42
+  },
+  "rounds": 400,
+  "sample_per_panel": 300000,
+  "base": "interp v:0.6 + LGBM dv,dq (exp A)",
+  "validation": {
+    "rows": 3451376,
+    "template_rows": 3451376,
+    "nan": 0,
+    "speed_min": 5.0,
+    "speed_max": 120.75,
+    "flow_min": 357.6315681497132,
+    "runtime_s": 96.1
+  },
+  "private": {
+    "rows": 3284419,
+    "template_rows": 3284419,
+    "nan": 0,
+    "speed_min": 5.0,
+    "speed_max": 120.75,
+    "flow_min": 355.2122935137309,
+    "runtime_s": 88.8
+  },
+  "vp_rows": 6735795,
+  "stages": {
+    "load": 162.0,
+    "train_features": 309.7,
+    "split_load": 23.1,
+    "split_features": 59.6,
+    "train": 272.1
+  },
+  "runtime_s": 851.6,
+  "peak_gb": 5.17
+}

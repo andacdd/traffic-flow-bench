@@ -1,0 +1,98 @@
+   weights     condition                 metric    value  unweighted  target_valpriv
+state_only         onset          auc_oof_5seed   0.6312         NaN             NaN
+state_only         onset              ess_share   0.3974         NaN             NaN
+state_only       ongoing          auc_oof_5seed   0.6495         NaN             NaN
+state_only       ongoing              ess_share   0.3939         NaN             NaN
+state_only           all              pers_fill   0.2898      0.2930             NaN
+state_only queue_ongoing              pers_fill   0.5786      0.5947             NaN
+state_only   queue_onset              pers_fill   0.0012      0.0003             NaN
+state_only           all               pers_obs   0.2910      0.2971             NaN
+state_only queue_ongoing               pers_obs   0.5812      0.6037             NaN
+state_only   queue_onset               pers_obs   0.0012      0.0003             NaN
+state_only           all              pers_elig   0.3019      0.3049             NaN
+state_only queue_ongoing              pers_elig   0.5804      0.6027             NaN
+state_only   queue_onset              pers_elig   0.0199      0.0122             NaN
+state_only           all           v3_base_fill   0.7903      0.8019             NaN
+state_only queue_ongoing           v3_base_fill   0.8335      0.8333             NaN
+state_only   queue_onset           v3_base_fill   0.7530      0.7837             NaN
+state_only           all            v3_base_obs   0.8584      0.8764             NaN
+state_only queue_ongoing            v3_base_obs   0.8447      0.8511             NaN
+state_only   queue_onset            v3_base_obs   0.8843      0.9248             NaN
+state_only           all           v3_base_elig   0.8592      0.8779             NaN
+state_only queue_ongoing           v3_base_elig   0.8449      0.8513             NaN
+state_only   queue_onset           v3_base_elig   0.8851      0.9251             NaN
+state_only           all             final_fill   0.7963      0.8129             NaN
+state_only queue_ongoing             final_fill   0.8446      0.8534             NaN
+state_only   queue_onset             final_fill   0.7530      0.7837             NaN
+state_only           all              final_obs   0.8633      0.8838             NaN
+state_only queue_ongoing              final_obs   0.8534      0.8645             NaN
+state_only   queue_onset              final_obs   0.8843      0.9248             NaN
+state_only           all                v4_fill   0.7814      0.7929             NaN
+state_only queue_ongoing                v4_fill   0.8283      0.8272             NaN
+state_only   queue_onset                v4_fill   0.7398      0.7719             NaN
+state_only           all                 v4_obs   0.8463      0.8639             NaN
+state_only queue_ongoing                 v4_obs   0.8359      0.8395             NaN
+state_only   queue_onset                 v4_obs   0.8678      0.9114             NaN
+state_only           all          v3_mimic_elig   0.8589      0.8772             NaN
+state_only queue_ongoing          v3_mimic_elig   0.8472      0.8509             NaN
+state_only   queue_onset          v3_mimic_elig   0.8834      0.9253             NaN
+state_only           all       v3deg_mimic_elig   0.8593      0.8756             NaN
+state_only queue_ongoing       v3deg_mimic_elig   0.8479      0.8531             NaN
+state_only   queue_onset       v3deg_mimic_elig   0.8821      0.9229             NaN
+state_only         onset   balance_hist_q_cells   0.0113      0.0036          0.0000
+state_only       ongoing   balance_hist_q_cells 222.4336    285.2119        203.6000
+state_only         onset     balance_q_links_T5   0.0085      0.0024          0.0000
+state_only       ongoing     balance_q_links_T5  18.9316     23.0327         17.5125
+state_only         onset      balance_r_T5_mean   0.9972      0.9977          0.9975
+state_only       ongoing      balance_r_T5_mean   0.9099      0.8886          0.9098
+state_only         onset balance_day_min_r_mean   0.9681      0.9668          0.9696
+state_only       ongoing balance_day_min_r_mean   0.8535      0.8151          0.8572
+   no_mask         onset          auc_oof_5seed   0.6081         NaN             NaN
+   no_mask         onset              ess_share   0.4292         NaN             NaN
+   no_mask       ongoing          auc_oof_5seed   0.6829         NaN             NaN
+   no_mask       ongoing              ess_share   0.4252         NaN             NaN
+   no_mask           all              pers_fill   0.2866      0.2930             NaN
+   no_mask queue_ongoing              pers_fill   0.5734      0.5947             NaN
+   no_mask   queue_onset              pers_fill   0.0014      0.0003             NaN
+   no_mask           all               pers_obs   0.2880      0.2971             NaN
+   no_mask queue_ongoing               pers_obs   0.5765      0.6037             NaN
+   no_mask   queue_onset               pers_obs   0.0014      0.0003             NaN
+   no_mask           all              pers_elig   0.2988      0.3049             NaN
+   no_mask queue_ongoing              pers_elig   0.5756      0.6027             NaN
+   no_mask   queue_onset              pers_elig   0.0185      0.0122             NaN
+   no_mask           all           v3_base_fill   0.7873      0.8019             NaN
+   no_mask queue_ongoing           v3_base_fill   0.8273      0.8333             NaN
+   no_mask   queue_onset           v3_base_fill   0.7541      0.7837             NaN
+   no_mask           all            v3_base_obs   0.8556      0.8764             NaN
+   no_mask queue_ongoing            v3_base_obs   0.8386      0.8511             NaN
+   no_mask   queue_onset            v3_base_obs   0.8858      0.9248             NaN
+   no_mask           all           v3_base_elig   0.8564      0.8779             NaN
+   no_mask queue_ongoing           v3_base_elig   0.8388      0.8513             NaN
+   no_mask   queue_onset           v3_base_elig   0.8865      0.9251             NaN
+   no_mask           all             final_fill   0.7923      0.8129             NaN
+   no_mask queue_ongoing             final_fill   0.8365      0.8534             NaN
+   no_mask   queue_onset             final_fill   0.7541      0.7837             NaN
+   no_mask           all              final_obs   0.8592      0.8838             NaN
+   no_mask queue_ongoing              final_obs   0.8447      0.8645             NaN
+   no_mask   queue_onset              final_obs   0.8858      0.9248             NaN
+   no_mask           all                v4_fill   0.7792      0.7929             NaN
+   no_mask queue_ongoing                v4_fill   0.8222      0.8272             NaN
+   no_mask   queue_onset                v4_fill   0.7416      0.7719             NaN
+   no_mask           all                 v4_obs   0.8443      0.8639             NaN
+   no_mask queue_ongoing                 v4_obs   0.8300      0.8395             NaN
+   no_mask   queue_onset                 v4_obs   0.8700      0.9114             NaN
+   no_mask           all          v3_mimic_elig   0.8575      0.8772             NaN
+   no_mask queue_ongoing          v3_mimic_elig   0.8428      0.8509             NaN
+   no_mask   queue_onset          v3_mimic_elig   0.8856      0.9253             NaN
+   no_mask           all       v3deg_mimic_elig   0.8572      0.8756             NaN
+   no_mask queue_ongoing       v3deg_mimic_elig   0.8429      0.8531             NaN
+   no_mask   queue_onset       v3deg_mimic_elig   0.8841      0.9229             NaN
+   no_mask         onset   balance_hist_q_cells   0.0119      0.0036          0.0000
+   no_mask       ongoing   balance_hist_q_cells 232.0849    285.2119        203.6000
+   no_mask         onset     balance_q_links_T5   0.0096      0.0024          0.0000
+   no_mask       ongoing     balance_q_links_T5  19.5224     23.0327         17.5125
+   no_mask         onset      balance_r_T5_mean   0.9971      0.9977          0.9975
+   no_mask       ongoing      balance_r_T5_mean   0.9082      0.8886          0.9098
+   no_mask         onset balance_day_min_r_mean   0.9681      0.9668          0.9696
+   no_mask       ongoing balance_day_min_r_mean   0.8482      0.8151          0.8572
+runtime 6.2

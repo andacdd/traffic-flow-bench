@@ -1,0 +1,143 @@
+/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/src/phys_acf.py:98: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(D, axis=0)
+D12_I405_N slots (78624, 89) elig 5345830 targets 1793853 30s peak 1.50 GB
+/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/src/phys_acf.py:98: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(D, axis=0)
+D12_I405_S slots (78624, 44) elig 2642882 targets 947966 16s peak 1.50 GB
+/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/src/phys_acf.py:98: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(D, axis=0)
+D12_I5_N slots (78624, 258) elig 15496899 targets 5148741 91s peak 2.09 GB
+/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/src/phys_acf.py:98: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(D, axis=0)
+D12_I5_S slots (78624, 100) elig 6006551 targets 2049512 32s peak 2.09 GB
+/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/src/phys_acf.py:98: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(D, axis=0)
+D7_I10_E slots (78624, 146) elig 8769564 targets 2815381 45s peak 2.09 GB
+/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/src/phys_acf.py:98: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(D, axis=0)
+D7_I10_W slots (78624, 107) elig 6427009 targets 2156021 34s peak 2.09 GB
+/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/src/phys_acf.py:98: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(D, axis=0)
+D7_I210_E slots (78624, 297) elig 17839455 targets 6061039 103s peak 2.37 GB
+/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/src/phys_acf.py:98: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(D, axis=0)
+D7_I210_W slots (78624, 81) elig 4865305 targets 1569035 26s peak 2.37 GB
+/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/src/phys_acf.py:98: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(D, axis=0)
+D7_I405_N slots (78624, 352) elig 21143057 targets 7114278 115s peak 2.71 GB
+/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/src/phys_acf.py:98: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(D, axis=0)
+D7_I405_S slots (78624, 109) elig 6547141 targets 2127937 35s peak 2.71 GB
+    filter qty  lag  acf_med  acf_white_med  excess_vs_white  frac_sig  frac_sig_vs_white
+interp_v06   N    1    0.327            NaN              NaN     0.997              0.000
+interp_v06   N    2    0.205            NaN              NaN     0.984              0.000
+interp_v06   N    3    0.131            NaN              NaN     0.932              0.000
+interp_v06  kl    1    0.327            NaN              NaN     0.997              0.000
+interp_v06  kl    2    0.205            NaN              NaN     0.984              0.000
+interp_v06  kl    3    0.131            NaN              NaN     0.932              0.000
+interp_v06  ql    1    0.151            NaN              NaN     1.000              0.000
+interp_v06  ql    2    0.098            NaN              NaN     0.998              0.000
+interp_v06  ql    3    0.052            NaN              NaN     0.888              0.000
+interp_v06   v    1    0.250            NaN              NaN     0.998              0.000
+interp_v06   v    2    0.158            NaN              NaN     0.993              0.000
+interp_v06   v    3    0.094            NaN              NaN     0.941              0.000
+     mean3   N    1   -0.532         -0.666            0.135     1.000              1.000
+     mean3   N    2    0.066          0.166           -0.100     0.892              0.991
+     mean3   N    3   -0.017          0.001           -0.018     0.627              0.629
+     mean3  kl    1   -0.532         -0.666            0.135     1.000              1.000
+     mean3  kl    2    0.066          0.166           -0.100     0.892              0.991
+     mean3  kl    3   -0.017          0.001           -0.018     0.627              0.629
+     mean3  ql    1   -0.591         -0.666            0.075     1.000              1.000
+     mean3  ql    2    0.095          0.166           -0.071     0.974              0.996
+     mean3  ql    3   -0.010          0.001           -0.010     0.431              0.439
+     mean3   v    1   -0.616         -0.666            0.050     1.000              0.749
+     mean3   v    2    0.123          0.166           -0.044     0.917              0.717
+     mean3   v    3   -0.005          0.001           -0.006     0.291              0.301
+      med5   N    1   -0.191         -0.225            0.035     0.985              0.840
+      med5   N    2   -0.267         -0.290            0.023     1.000              0.660
+      med5   N    3    0.055          0.103           -0.047     0.942              0.889
+      med5  kl    1   -0.191         -0.225            0.035     0.985              0.840
+      med5  kl    2   -0.267         -0.290            0.023     1.000              0.660
+      med5  kl    3    0.055          0.103           -0.047     0.942              0.889
+      med5  ql    1   -0.183         -0.225            0.042     0.983              0.893
+      med5  ql    2   -0.270         -0.290            0.020     1.000              0.600
+      med5  ql    3    0.045          0.103           -0.058     0.833              0.979
+      med5   v    1   -0.220         -0.225            0.005     0.989              0.299
+      med5   v    2   -0.286         -0.290            0.004     0.993              0.310
+      med5   v    3    0.099          0.103           -0.004     0.957              0.246
+    filter  cls  lag  acf_med  acf_white_med  excess_vs_white
+interp_v06  all    1    0.327            NaN              NaN
+interp_v06  all    2    0.205            NaN              NaN
+interp_v06 cong    1    0.286            NaN              NaN
+interp_v06 cong    2    0.164            NaN              NaN
+interp_v06 free    1    0.191            NaN              NaN
+interp_v06 free    2    0.123            NaN              NaN
+     mean3  all    1   -0.532         -0.666            0.135
+     mean3  all    2    0.066          0.166           -0.100
+     mean3 cong    1   -0.261         -0.667            0.406
+     mean3 cong    2    0.093          0.165           -0.072
+     mean3 free    1   -0.501         -0.666            0.165
+     mean3 free    2    0.083          0.166           -0.083
+      med5  all    1   -0.191         -0.225            0.035
+      med5  all    2   -0.267         -0.290            0.023
+      med5 cong    1   -0.153         -0.226            0.073
+      med5 cong    2   -0.229         -0.289            0.059
+      med5 free    1   -0.196         -0.225            0.029
+      med5 free    2   -0.275         -0.290            0.015
+filter  pair  cls  count    25%    50%    75%
+ mean3 ql-kl  all 1583.0  0.610  0.778  0.876
+ mean3 ql-kl cong 1420.0  0.078  0.579  0.721
+ mean3 ql-kl free 1583.0  0.667  0.848  0.903
+ mean3  v-kl  all 1583.0 -0.566 -0.421 -0.373
+ mean3  v-kl cong 1420.0 -0.854 -0.655 -0.490
+ mean3  v-kl free 1583.0 -0.568 -0.421 -0.376
+ mean3  v-ql  all 1583.0 -0.040 -0.005  0.009
+ mean3  v-ql cong 1420.0 -0.450 -0.157  0.092
+ mean3  v-ql free 1583.0 -0.014 -0.002  0.010
+  med5 ql-kl  all 1583.0  0.683  0.810  0.867
+  med5 ql-kl cong 1353.0 -0.111  0.373  0.631
+  med5 ql-kl free 1583.0  0.833  0.868  0.889
+  med5  v-kl  all 1583.0 -0.345 -0.318 -0.239
+  med5  v-kl cong 1339.0 -0.835 -0.483 -0.372
+  med5  v-kl free 1583.0 -0.346 -0.331 -0.250
+  med5  v-ql  all 1583.0 -0.006  0.001  0.007
+  med5  v-ql cong 1343.0  0.005  0.067  0.329
+  med5  v-ql free 1583.0 -0.005  0.001  0.006
+qty              N     kl     ql      v  white
+filter cls                                    
+mean3  all   0.419  0.410  0.588  0.471  0.732
+       cong  0.380  0.379  0.493  0.295  0.732
+       free  0.458  0.442  0.599  0.543  0.732
+med5   all   0.090  0.078  0.107  0.113  0.182
+       cong  0.082  0.070  0.053  0.142  0.181
+       free  0.100  0.091  0.117  0.145  0.182
+filter   qty  ratio_all  ratio_target
+  med5 white      0.819         0.819
+  med5     v      0.880         0.879
+  med5    ql      0.887         0.887
+  med5    kl      0.923         0.922
+  med5     N      0.912         0.912
+ mean3 white      0.412         0.412
+ mean3     v      0.549         0.549
+ mean3    ql      0.510         0.510
+ mean3    kl      0.602         0.602
+ mean3     N      0.595         0.595
+total 535s peak 2.71 GB
+      536.08 real       420.63 user       114.26 sys
+          2713288704  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             6316199  page reclaims
+                1975  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                3667  voluntary context switches
+              445100  involuntary context switches
+       5127573322716  instructions retired
+       1698453879538  cycles elapsed
+          4166309216  peak memory footprint

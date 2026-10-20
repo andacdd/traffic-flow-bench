@@ -1,0 +1,97 @@
+                     comparison condition   features  n_pos  n_neg   auc  auc_se_hanley
+                 dev_vs_valpriv       all        all    160   3360 0.841          0.020
+                 dev_vs_valpriv       all    no_mask    160   3360 0.642          0.024
+                 dev_vs_valpriv       all  mask_only    160   3360 0.813          0.021
+                 dev_vs_valpriv       all state_only    160   3360 0.643          0.024
+                 dev_vs_valpriv     onset        all     80   1680 0.596          0.034
+                 dev_vs_valpriv     onset    no_mask     80   1680 0.578          0.034
+                 dev_vs_valpriv     onset  mask_only     80   1680 0.561          0.034
+                 dev_vs_valpriv     onset state_only     80   1680 0.590          0.034
+                 dev_vs_valpriv   ongoing        all     80   1680 0.978          0.011
+                 dev_vs_valpriv   ongoing    no_mask     80   1680 0.687          0.034
+                 dev_vs_valpriv   ongoing  mask_only     80   1680 0.948          0.017
+                 dev_vs_valpriv   ongoing state_only     80   1680 0.618          0.034
+devNonOfficial_vs_officialTrain       all        all     80   3287 0.689          0.033
+devNonOfficial_vs_officialTrain       all    no_mask     80   3287 0.467          0.032
+devNonOfficial_vs_officialTrain       all  mask_only     80   3287 0.718          0.033
+devNonOfficial_vs_officialTrain       all state_only     80   3287 0.474          0.032
+devNonOfficial_vs_officialTrain     onset        all     40   1641 0.503          0.046
+devNonOfficial_vs_officialTrain     onset    no_mask     40   1641 0.378          0.041
+devNonOfficial_vs_officialTrain     onset  mask_only     40   1641 0.553          0.047
+devNonOfficial_vs_officialTrain     onset state_only     40   1641 0.371          0.040
+devNonOfficial_vs_officialTrain   ongoing        all     40   1646 0.837          0.040
+devNonOfficial_vs_officialTrain   ongoing    no_mask     40   1646 0.568          0.048
+devNonOfficial_vs_officialTrain   ongoing  mask_only     40   1646 0.846          0.039
+devNonOfficial_vs_officialTrain   ongoing state_only     40   1646 0.588          0.048
+       officialTrain_vs_valpriv       all        all    160     80 0.737          0.032
+       officialTrain_vs_valpriv       all    no_mask    160     80 0.434          0.040
+       officialTrain_vs_valpriv       all  mask_only    160     80 0.737          0.032
+       officialTrain_vs_valpriv       all state_only    160     80 0.474          0.040
+       officialTrain_vs_valpriv     onset        all     80     40 0.417          0.056
+       officialTrain_vs_valpriv     onset    no_mask     80     40 0.443          0.056
+       officialTrain_vs_valpriv     onset  mask_only     80     40 0.408          0.056
+       officialTrain_vs_valpriv     onset state_only     80     40 0.442          0.056
+       officialTrain_vs_valpriv   ongoing        all     80     40 0.936          0.022
+       officialTrain_vs_valpriv   ongoing    no_mask     80     40 0.401          0.056
+       officialTrain_vs_valpriv   ongoing  mask_only     80     40 0.918          0.024
+       officialTrain_vs_valpriv   ongoing state_only     80     40 0.426          0.056
+    comparison condition   features             feature  gain_share
+dev_vs_valpriv       all    no_mask      day_min_r_mean       0.089
+dev_vs_valpriv       all    no_mask           fc_T5_std       0.088
+dev_vs_valpriv       all    no_mask                 tod       0.082
+dev_vs_valpriv       all    no_mask          fc_T5_mean       0.075
+dev_vs_valpriv       all    no_mask           fc_T5_max       0.071
+dev_vs_valpriv       all    no_mask            r_T5_min       0.070
+dev_vs_valpriv       all    no_mask           r_T5_mean       0.067
+dev_vs_valpriv       all    no_mask        fc_hist_mean       0.067
+dev_vs_valpriv       all state_only           fc_T5_std       0.102
+dev_vs_valpriv       all state_only      day_min_r_mean       0.094
+dev_vs_valpriv       all state_only          fc_T5_mean       0.087
+dev_vs_valpriv       all state_only        fc_hist_mean       0.084
+dev_vs_valpriv       all state_only           fc_T5_max       0.081
+dev_vs_valpriv       all state_only            r_T5_min       0.075
+dev_vs_valpriv       all state_only           r_T5_mean       0.073
+dev_vs_valpriv       all state_only r_hist_minlink_mean       0.069
+dev_vs_valpriv     onset    no_mask            r_T_mean       0.089
+dev_vs_valpriv     onset    no_mask           fc_T5_std       0.088
+dev_vs_valpriv     onset    no_mask      day_min_r_mean       0.087
+dev_vs_valpriv     onset    no_mask          fc_T5_mean       0.084
+dev_vs_valpriv     onset    no_mask           r_T5_mean       0.084
+dev_vs_valpriv     onset    no_mask            r_T5_std       0.081
+dev_vs_valpriv     onset    no_mask           fc_T5_max       0.081
+dev_vs_valpriv     onset    no_mask r_hist_minlink_mean       0.077
+dev_vs_valpriv     onset state_only           fc_T5_std       0.096
+dev_vs_valpriv     onset state_only           fc_T5_max       0.095
+dev_vs_valpriv     onset state_only           r_T5_mean       0.093
+dev_vs_valpriv     onset state_only      day_min_r_mean       0.088
+dev_vs_valpriv     onset state_only            r_T_mean       0.088
+dev_vs_valpriv     onset state_only            r_T5_std       0.087
+dev_vs_valpriv     onset state_only r_hist_minlink_mean       0.087
+dev_vs_valpriv     onset state_only         r_hist_mean       0.083
+dev_vs_valpriv   ongoing    no_mask                 tod       0.096
+dev_vs_valpriv   ongoing    no_mask           fc_T5_std       0.088
+dev_vs_valpriv   ongoing    no_mask            r_T5_min       0.085
+dev_vs_valpriv   ongoing    no_mask      day_min_r_mean       0.078
+dev_vs_valpriv   ongoing    no_mask           fc_T5_max       0.071
+dev_vs_valpriv   ongoing    no_mask        fc_hist_mean       0.070
+dev_vs_valpriv   ongoing    no_mask          fc_T5_mean       0.065
+dev_vs_valpriv   ongoing    no_mask           o_T5_mean       0.064
+dev_vs_valpriv   ongoing state_only           fc_T5_std       0.107
+dev_vs_valpriv   ongoing state_only            r_T5_min       0.095
+dev_vs_valpriv   ongoing state_only        fc_hist_mean       0.091
+dev_vs_valpriv   ongoing state_only      day_min_r_mean       0.088
+dev_vs_valpriv   ongoing state_only           fc_T5_max       0.073
+dev_vs_valpriv   ongoing state_only          fc_T5_mean       0.072
+dev_vs_valpriv   ongoing state_only           o_T5_mean       0.068
+dev_vs_valpriv   ongoing state_only r_hist_minlink_mean       0.059
+                        hist_q_cells  hist_q_links  q_links_T5  r_T5_mean  fc_T5_mean  day_min_r_mean  gap_max      tod
+cond    src                                                                                                            
+ongoing dev                  285.212        34.565      23.033      0.889       0.654           0.815    7.589  196.608
+        official_train       323.725        37.950      27.050      0.866       0.675           0.808    7.900  192.425
+        private              196.350        23.425      16.800      0.909       0.662           0.856   15.625  190.825
+        val                  210.850        25.250      18.225      0.911       0.664           0.858   16.950  184.725
+onset   dev                    0.004         0.004       0.002      0.998       0.552           0.967    7.086  113.111
+        official_train         0.000         0.000       0.000      0.996       0.577           0.968    7.250  121.500
+        private                0.000         0.000       0.000      0.999       0.568           0.970    7.850  113.200
+        val                    0.000         0.000       0.000      0.996       0.575           0.970    7.425  116.275
+runtime 46.0

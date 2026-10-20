@@ -1,0 +1,76 @@
+[state] /opt/miniconda3/bin/python -I /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/src/task1_resid2_predict.py --release-root /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/data/kaggle_public --out-dir /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s4/state --cache-dir /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s4/state/cache --threads 4 --seed 42
+[state] 1432.5s -> /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s4/state/state_vp.csv
+[merge] /opt/miniconda3/bin/python -I /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/reference/trafficflowbench-public/src/merge_submissions.py --state /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s4/state/state_vp.csv --queue /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/queue/queue_vp.csv --odme /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/odme/odme_vp.csv --key /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/data/kaggle_public/submission_key.csv --output /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s4/submission.csv
+[merge] 29.9s -> /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s4/submission.csv
+{
+ "new": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s4/submission.csv",
+ "ref": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s3/submission.csv",
+ "rows_new": 6980503,
+ "rows_ref": 6980503,
+ "same_id_task_order": true,
+ "state": {
+  "rows": 6735795,
+  "share_rows_differ": 1.0,
+  "speed_kmh": {
+   "max_abs_diff": 44.58373417402983,
+   "mean_abs_diff": 0.19119602814718997,
+   "nan_ref": 0
+  },
+  "flow_vph": {
+   "max_abs_diff": 1288.755299131435,
+   "mean_abs_diff": 24.712892517072156,
+   "nan_ref": 0
+  },
+  "rmse_speed_kmh": 0.7344162915929838,
+  "rmse_flow_vph_per_lane": 8.950566918761071
+ },
+ "queue": {
+  "rows": 174000,
+  "share_rows_differ": 0.0,
+  "queue_pred": {
+   "max_abs_diff": 0.0,
+   "mean_abs_diff": 0.0,
+   "nan_ref": 0
+  },
+  "agreement": 1.0
+ },
+ "odme": {
+  "rows": 70708,
+  "share_rows_differ": 0.0,
+  "path_flow": {
+   "max_abs_diff": 0.0,
+   "mean_abs_diff": 0.0,
+   "nan_ref": 0
+  },
+  "relative_l1": 0.0
+ },
+ "rule": "state RMSE < 1% of 25 km/h and 600 veh/h/lane; queue agreement >= 99%; odme relative L1 < 1%",
+ "checks": {
+  "state_speed": false,
+  "state_flow": false,
+  "queue": true,
+  "odme": true
+ },
+ "pass": false,
+ "runtime_s": 8.0
+}
+COMPARE FAIL
+total 1473.1s -> /Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_s4/manifest.json
+     1473.79 real      4546.28 user        75.83 sys
+          5129814016  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             4976266  page reclaims
+                7401  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               42727  voluntary context switches
+             8558867  involuntary context switches
+        160240009675  instructions retired
+         40995137352  cycles elapsed
+          1797507880  peak memory footprint

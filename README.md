@@ -8,7 +8,7 @@
 
 ## Durum
 
-En iyi public LB: **0.85582** (S2: interp + LightGBM kalıntı state, LGBM queue, kendi-sayım NNLS ODME). Tüm deneyler, kararlar ve bulgular `NOTES.md` içinde (deney tablosu + faz bölümleri).
+En iyi public LB: **0.85929** (S5: LE state = lead/lag LightGBM + ikinci model ortalaması, v4 LGBM queue, kendi-sayım NNLS ODME; `src/run_all.py --state LE --queue v4 --odme own`). Tüm deneyler, kararlar ve bulgular `NOTES.md` içinde (deney tablosu + faz bölümleri).
 
 ## Klasör yapısı
 

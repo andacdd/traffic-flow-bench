@@ -1,0 +1,82 @@
+{
+  "panels": [
+    "D12_I405_N",
+    "D12_I405_S",
+    "D12_I5_N",
+    "D12_I5_S",
+    "D7_I10_E",
+    "D7_I10_W",
+    "D7_I210_E",
+    "D7_I210_W",
+    "D7_I405_N",
+    "D7_I405_S"
+  ],
+  "train_rows": 3000000,
+  "n_features": 197,
+  "params": {
+    "L": {
+      "objective": "regression",
+      "learning_rate": 0.05,
+      "num_leaves": 63,
+      "min_data_in_leaf": 100,
+      "feature_fraction": 0.8,
+      "bagging_fraction": 0.8,
+      "bagging_freq": 1,
+      "lambda_l2": 1.0,
+      "verbose": -1,
+      "deterministic": true,
+      "force_col_wise": true,
+      "num_threads": 4,
+      "seed": 42
+    },
+    "M2": {
+      "objective": "regression",
+      "learning_rate": 0.05,
+      "num_leaves": 127,
+      "min_data_in_leaf": 200,
+      "feature_fraction": 0.5,
+      "bagging_fraction": 0.7,
+      "bagging_freq": 1,
+      "lambda_l2": 5.0,
+      "verbose": -1,
+      "deterministic": true,
+      "force_col_wise": true,
+      "num_threads": 4,
+      "seed": 1042
+    }
+  },
+  "rounds": 400,
+  "sample_per_panel": 300000,
+  "base": "interp v:0.6 + mean of ('L', 'M2') LGBM dv,dq (exp LE)",
+  "validation": {
+    "rows": 3451376,
+    "template_rows": 3451376,
+    "nan": 0,
+    "speed_min": 5.0,
+    "speed_max": 120.75,
+    "flow_min": 365.0733425548682,
+    "flow_max": 11399.878534155132,
+    "runtime_s": 251.9
+  },
+  "private": {
+    "rows": 3284419,
+    "template_rows": 3284419,
+    "nan": 0,
+    "speed_min": 5.0,
+    "speed_max": 120.75,
+    "flow_min": 349.18365647329983,
+    "flow_max": 11746.692949020482,
+    "runtime_s": 241.3
+  },
+  "vp_rows": 6735795,
+  "stages": {
+    "load": 101.0,
+    "train_features": 193.1,
+    "split_load": 15.2,
+    "split_features": 44.8,
+    "train": 685.0,
+    "predict": 493.1
+  },
+  "runtime_s": 1431.1,
+  "peak_gb": 5.13
+}

@@ -1,0 +1,101 @@
+D12_I5_N {'on': 279, 'og': 504} 12s
+D12_I5_S {'on': 279, 'og': 512} 7s
+D7_I10_E {'on': 282, 'og': 485} 8s
+D7_I10_W {'on': 134, 'og': 260} 6s
+D7_I210_E {'on': 283, 'og': 546} 14s
+D7_I210_W {'on': 390, 'og': 546} 7s
+D7_I405_N {'on': 400, 'og': 546} 16s
+D7_I405_S {'on': 280, 'og': 518} 7s
+persistence check {'pers_fill_maxdiff': 0.0, 'pers_obs_maxdiff': 0.0} {'on': (442353, 2327), 'og': (4409424, 3917)}
+lomo 2030-06 train windows 2081 3496 dev 350 34s
+lomo 2030-07 train windows 2064 3481 dev 410 34s
+lomo 2030-08 train windows 2055 3459 dev 390 34s
+lomo 2030-09 train windows 2057 3477 dev 390 34s
+lomo 2030-10 train windows 2061 3471 dev 380 42s
+lomo 2030-11 train windows 2083 3495 dev 360 38s
+lomo 2030-12 train windows 2067 3473 dev 380 35s
+lomo 2031-01 train windows 2055 3463 dev 390 35s
+lomo 2031-02 train windows 2093 3521 dev 310 36s
+forward 2030-09 train windows 781 1315 dev 390 18s
+forward 2030-10 train windows 1051 1755 dev 380 23s
+forward 2030-11 train windows 1317 2201 dev 360 28s
+forward 2030-12 train windows 1561 2623 dev 380 32s
+forward 2031-01 train windows 1821 3067 dev 390 37s
+forward 2031-02 train windows 2093 3521 dev 310 41s
+fold3 fold0 train windows 1546 2602 dev 1150 31s
+fold3 fold1 train windows 1547 2609 dev 1130 30s
+fold3 fold2 train windows 1561 2623 dev 1080 31s
+checks {'pers_fill_maxdiff': 0.0, 'pers_obs_maxdiff': 0.0, 'v3fold3_fill_vs_cv_results_maxdiff': 1.1102230246251565e-16}
+                       model truth     level         group    n    mean  family_agg  se_window  runtime_s
+                        pers  fill   overall           all 3360  0.2975      0.2930     0.0056      672.0
+                        pers  fill condition queue_ongoing 1680  0.5947         NaN     0.0047      672.0
+                        pers  fill condition   queue_onset 1680  0.0003         NaN     0.0003      672.0
+                        pers   obs   overall           all 3360  0.3020      0.2971     0.0057      672.0
+                        pers   obs condition queue_ongoing 1680  0.6037         NaN     0.0046      672.0
+                        pers   obs condition   queue_onset 1680  0.0003         NaN     0.0003      672.0
+                        pers  elig   overall           all 3360  0.3075      0.3049     0.0058      672.0
+                        pers  elig condition queue_ongoing 1680  0.6027         NaN     0.0047      672.0
+                        pers  elig condition   queue_onset 1680  0.0122         NaN     0.0027      672.0
+                     v3fold3  fill   overall           all 3360  0.8085      0.8019     0.0040      672.0
+                     v3fold3  fill condition queue_ongoing 1680  0.8333         NaN     0.0047      672.0
+                     v3fold3  fill condition   queue_onset 1680  0.7837         NaN     0.0063      672.0
+                     v3fold3   obs   overall           all 3360  0.8879      0.8764     0.0036      672.0
+                     v3fold3   obs condition queue_ongoing 1680  0.8511         NaN     0.0042      672.0
+                     v3fold3   obs condition   queue_onset 1680  0.9248         NaN     0.0057      672.0
+                     v3fold3  elig   overall           all 3360  0.8882      0.8779     0.0036      672.0
+                     v3fold3  elig condition queue_ongoing 1680  0.8513         NaN     0.0042      672.0
+                     v3fold3  elig condition   queue_onset 1680  0.9251         NaN     0.0057      672.0
+                      v3lomo  fill   overall           all 3360  0.8128      0.8065     0.0039      672.0
+                      v3lomo  fill condition queue_ongoing 1680  0.8364         NaN     0.0046      672.0
+                      v3lomo  fill condition   queue_onset 1680  0.7892         NaN     0.0062      672.0
+                      v3lomo   obs   overall           all 3360  0.8931      0.8816     0.0035      672.0
+                      v3lomo   obs condition queue_ongoing 1680  0.8552         NaN     0.0040      672.0
+                      v3lomo   obs condition   queue_onset 1680  0.9311         NaN     0.0054      672.0
+                      v3lomo  elig   overall           all 3360  0.8937      0.8833     0.0035      672.0
+                      v3lomo  elig condition queue_ongoing 1680  0.8553         NaN     0.0041      672.0
+                      v3lomo  elig condition   queue_onset 1680  0.9320         NaN     0.0055      672.0
+                   v3forward  fill   overall           all 2210  0.8025      0.7950     0.0050      672.0
+                   v3forward  fill condition queue_ongoing 1105  0.8288         NaN     0.0059      672.0
+                   v3forward  fill condition   queue_onset 1105  0.7763         NaN     0.0079      672.0
+                   v3forward   obs   overall           all 2210  0.8827      0.8688     0.0045      672.0
+                   v3forward   obs condition queue_ongoing 1105  0.8452         NaN     0.0054      672.0
+                   v3forward   obs condition   queue_onset 1105  0.9202         NaN     0.0072      672.0
+                   v3forward  elig   overall           all 2210  0.8826      0.8687     0.0046      672.0
+                   v3forward  elig condition queue_ongoing 1105  0.8453         NaN     0.0054      672.0
+                   v3forward  elig condition   queue_onset 1105  0.9199         NaN     0.0072      672.0
+  delta_v3lomo_minus_v3fold3  fill   overall           all 3360  0.0043      0.0045     0.0011      672.0
+delta_v3forward_minus_v3lomo  fill   overall           all 2210 -0.0078     -0.0082     0.0016      672.0
+  delta_v3lomo_minus_v3fold3   obs   overall           all 3360  0.0052      0.0053     0.0013      672.0
+delta_v3forward_minus_v3lomo   obs   overall           all 2210 -0.0094     -0.0097     0.0018      672.0
+  delta_v3lomo_minus_v3fold3  elig   overall           all 3360  0.0055      0.0054     0.0013      672.0
+delta_v3forward_minus_v3lomo  elig   overall           all 2210 -0.0098     -0.0102     0.0019      672.0
+model      pers  v3fold3  v3forward  v3lomo
+group                                      
+2030-06  0.2955   0.8291        NaN  0.8314
+2030-07  0.2955   0.7996        NaN  0.8002
+2030-08  0.3027   0.8174        NaN  0.8238
+2030-09  0.3030   0.7999     0.7921  0.8048
+2030-10  0.2917   0.7834     0.7675  0.7836
+2030-11  0.2935   0.8198     0.8141  0.8236
+2030-12  0.2948   0.8148     0.8148  0.8219
+2031-01  0.3011   0.8135     0.8196  0.8197
+2031-02  0.2999   0.8005     0.8086  0.8086
+runtime 672.1
+      673.57 real      1869.83 user        75.97 sys
+          4804395008  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+             2867245  page reclaims
+                  52  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               18667  voluntary context switches
+            20321390  involuntary context switches
+      25179637128924  instructions retired
+       6029355671588  cycles elapsed
+          3766113416  peak memory footprint

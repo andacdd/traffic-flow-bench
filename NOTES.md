@@ -105,7 +105,58 @@
 | 2026-10-19 | 4 | Final queue (v3 onset + E1 ongoing + fill etiket + thr 0.40) | dev fam fill 0.8129 (v3 +0.011, v4 +0.020), 3/3 kat + | - |
 | 2026-10-19 | 4 | S1 = v5 + ODME kendi sayım | val S_link 0.9646 -> 0.9999 | 0.83707 (+0.0316) |
 | 2026-10-19 | 4 | S2 = S1 + state A | CV S_state +0.028, phys +0.092 (beklenen +0.024) | 0.85582 (+0.0188) |
-| 2026-10-19 | 4 | S3 = S2 + final queue | dev queue +0.020 vs v4 | bekliyor |
+| 2026-10-19 | 4 | S3 = S2 + final queue (run_all ile byte-özdeş yeniden üretildi) | dev queue +0.020 vs v4 | 0.84217 (-0.01365 -> final queue LB'de v4'ten ~0.046 KÖTÜ) |
+| 2026-10-20 | A1 | Queue ölçüm teşhisi (adversarial/maske/LOMO/sızıntı) | açığın ~0.02'si açıklandı; v3 dev-LB +0.083 -> ölçüt SAĞLANMADI | - |
+| 2026-10-20 | A1 | LB probu: v3'te onset satırları = persistence (tek değişken) | - | 0.66642 (v3 0.77351'e göre -0.10709) |
+| 2026-10-20 | A2 | State L (±5..60 dk lead/lag, 122 özellik) | S_state 0.9391, phys 0.7070, J +0.0028±0.0009 | - |
+| 2026-10-20 | A2 | State E (A + M2 ortalaması) | S_state 0.9389, phys 0.7084, J +0.0029 | - |
+| 2026-10-20 | A2 | State LE (L + M2 ortalaması) | S_state 0.9397, phys 0.7117, J +0.0037±0.0013 (30/30 birim) | - |
+| 2026-10-20 | A2 | S4 = S3 + state LE (run_all) | beklenen +0.0036 | 0.84565 (+0.00348) |
+| 2026-10-20 | A2 | S5 = S2 + state LE (queue v4, run_all merge) | beklenen ≈ 0.859 | **0.85929** (S2'ye +0.00347; EN İYİ) |
+| 2026-10-20 | A4 | Physics kalıntı ACF (gözlem - med5 düzgün) | hız lag1 -0.220 vs iid null -0.225; AR(6) R² 0.09 < null 0.18 -> tahmin edilebilir pay ≈ 0 | - |
+
+### Adım 1 — Queue ölçüm teşhisi (2026-10-20, src/queue_diag2.py, reports/queue/adv_*, maskmimic_*, lomo_*, leakage_audit.md)
+- Çapalar: v2 queue = organizatör persistence'ı (87000 hücre %100 aynı) -> LB ≈ 0.3017; v3 = 0.3017 + 0.12508/0.30 = 0.7187. v4 ve final queue LB'de hiç izole edilmedi
+- a) Adversarial: dev vs val+private pencere AUC 0.841 (onset 0.60, ongoing 0.98) — ayrımın çoğu maske artefaktı (val'de aynı gün önceki pencerenin ufuk+tampon boşluğu 18 satır: gap_max 16.9 vs 7.6). Sadece durum özellikleri: AUC 0.643; val/private ongoing kuyrukları daha küçük (geçmiş kuyruk hücresi 285/211/196). Hücre düzeyi AUC ≈ 0.5. Dev vs resmi train pencereleri durum özellikleriyle 0.474 (üreteç doğru)
+  - Dev'i val'e benzetecek şekilde yeniden ağırlıklandırma: v3 0.802 -> 0.790 (açığın 0.012'si)
+- b) Maske taklidi: release formatı sorun değil (geçmiş maskesiz, 1-74% hücreler değerli, T satırı rejim oranında maskeli, boşluk dağılımları aynı). Bozulmuş girdiyle v3 +0.0002
+- c) LOMO (9 kat): v3 0.8065 (3 kattan +0.0045). Aylar 0.784-0.831. İleri zincirleme -0.008 (daha az veriyle karışık)
+- d) Sızıntı: T sonrası veri kullanan özellik yok. Freq profilleri dev'de sonraki ayları da içerir (val'de sadece önceki) — küçük. Resmi scorer sadece eligible hücreleri sayar; dev eligible truth ile v3 0.878 -> açık +0.159'a büyür, persistence yine tutar (0.305)
+- KABUL ÖLÇÜTÜ SAĞLANMADI: persistence dev-LB farkı 0.02 içinde, v3 +0.07..+0.16. Açıklanmayan ~0.06: ya Mart/Nisan senaryosunda kuyruk dinamiği farklı (daha küçük kuyruklar), ya da LB truth (queue_true) bizim tanımımızdan farklı; persistence onset'te her truth altında ~0 olduğu için bunları ayıramaz
+- config/synthetic_release_v1.json scenario_contract: capacity_multiplier 1.2, incident_severity 1.0, val/private seed organizatörde (train için ayrı değer verilmemiş -> farklı olduğu kanıtlanmadı). Organizatör: val persistence pencere IoU std 0.3752
+- Kural gereği queue modeline dokunulmuyor. Önerilen tek değişkenli LB probu: v3 submission'ında sadece onset satırları persistence (hepsi 0) -> Δ = 0.30*0.5*onset_v3 -> v3'ün LB onset ve ongoing IoU'su ayrışır (submissions/probe_v3_onset_pers, hazır; 19 Eki'de günlük limit (5/5) nedeniyle 400 aldı, 20 Eki'de gönderilecek)
+
+### LB sonuçları 20 Eki (S3, S4)
+- S3 (S2 + final queue) 0.84217: final queue, v4 queue'dan LB'de 0.0455 kötü (0.01365/0.30). Dev'de final v4'ten +0.020 iyiydi -> dev sırayı TERS çevirdi, fark LB gürültüsünün (±0.015 queue) 3 katı. Adım 1 kuralı doğrulandı: dev ölçütü sağlanmadan queue değişikliği LB'de güvenilmez. Şüpheli: ongoing için fill etiketleri ve/veya E1 seçici pencereleri + eşik 0.40
+- S4 (S3 + LE) 0.84565: +0.00348, beklenti +0.0036 ile birebir -> state/physics proxy'leri LB'ye iyi aktarılıyor
+- S5 (S2 queue v4 + LE state) = 0.85929, beklentiyle birebir; LE'nin etkisi iki farklı queue ile de +0.0035 (S3->S4 ve S2->S5) -> bileşenler toplanabilir. En iyi submission: submissions/runall_s5/submission.csv
+
+### Adım 2 — State lead/lag + ensemble (2026-10-20, src/task1_resid2.py, reports/phys/resid2_*)
+- Aynı 3 kat ay-CV, A ile eşli. M2 = farklı parametreli/seed'li LightGBM + L özellikleri (CatBoost kullanılmadı). E = A+M2 ortalaması, LE = L+M2 ortalaması
+- LE en iyi: S_state 0.9365 -> 0.9397, S_LWR 0.549 -> 0.574, physics 0.695 -> 0.712, J 0.4320 -> 0.4357 (fark std 0.0013, 30 kat×panel biriminde)
+- Rejim (A -> LE): S_state R1 .9401/.9428, R2 .9380/.9410, R3 .9313/.9354; physics R1 .810/.820, R2 .722/.736, R3 .553/.580. 10/10 panel iyileşti
+- Kuyruklu hücreler: rmse_v 4.73 -> 4.36, MAE k 10.95 -> 9.98, k bias +0.16% (guard ok, kuyruk silinmiyor)
+- Beklenen LB ≈ +0.35*0.0032 + 0.15*0.0168 ≈ +0.0036 (S2'deki %78 aktarımla ~+0.003)
+- Not: koşu 16.4 saat sürdü; tahmin süresinin büyük kısmı gece uykusu (uyanıkken kat başına tahmin ~28 dk)
+
+### Adım 1 — LB probu sonucu (2026-10-20)
+- Δ = -0.10709 = 0.30 * 0.5 * (onset_v3 - onset_pers); onset_pers ≈ 0 -> v3 LB onset IoU ≈ 0.714; v3 queue 0.7187 -> v3 LB ongoing ≈ 0.723. Persistence LB ongoing ≈ 2*0.3017 = 0.603
+- Dev'e karşı (fill truth): onset 0.784 -> LB 0.714 (dev +0.07 iyimser); ongoing 0.833 -> LB 0.723 (dev +0.11 iyimser). Persistence ongoing dev 0.595 vs LB 0.603 tutuyor
+- Sonuç: açık iki koşulda da var, büyüğü ongoing'de ve modele özgü (persistence tutarken model tutmuyor) -> val ongoing dinamiği (daha küçük kuyruklar, adversarial bulgusu) model davranışını bozuyor; truth tanımı farkı onset'te de olası
+
+### Adım 3 — Tek giriş script'i (2026-10-20, src/run_all.py)
+- Aşamalar subprocess ile mevcut script'leri çağırır (model kodu kopyalanmaz): state (task1_resid_predict), queue (final | v4), odme (resmi builder, split başına, *_public_reference birleştirme), merge (resmi merge_submissions). manifest.json: argümanlar, versiyonlar, iki repo commit'i, girdi/çıktı sha256, aşama süreleri ve bellek
+- --compare: task bazında fark + proxy (state RMSE, queue uyuşma, odme rel L1); geçme kuralı: hız RMSE < 0.25, akış/şerit RMSE < 6, queue uyuşma >= %99, odme rel L1 < %1
+- Hafif test (odme+merge, mevcut state_A ve v4 queue CSV'leri): submission S2 ile BYTE-ÖZDEŞ, compare PASS. ODME 1408 sn (tek çekirdek)
+- Tam yeniden üretim (~39 dk, tepe ~4.1 GB) onay bekliyor; bundan sonraki her submit run_all.py'dan çıkacak
+
+### Adım 4a — Physics kapanış testi (2026-10-20, src/phys_acf.py, reports/phys/acf_*)
+- 10 panel, 1583 link, 535 sn. Merkezli filtre beyaz gürültüye de ACF verdiği için null = aynı maske+filtreden geçmiş iid gürültü
+- Hız gürültüsü fiilen beyaz (lag1 -0.220 vs null -0.225); N'de küçük fazlalık (serbest +0.029, kuyruklu +0.073) yavaş sinyal sızıntısı deseni, renkli gürültü değil
+- Aynı hücrede hız-akış gürültü korelasyonu ≈ 0 (serbest 0.001, kuyruklu 0.067)
+- AR(6) açıklanan varyans N 0.09, null 0.18 -> gerçek kalıntı null'dan DAHA az tahmin edilebilir. S_LWR vekili (|ΔN| AR ile/olmadan) 0.912 vs null 0.819 -> pay yok
+- r2 (gözlem - v06) yavaş sönen düzgün interpolasyon hatası; A modeli bunu zaten kâhin seviyesine indirdi
+- KARAR: physics için yeni modelleme yok. 0.70 tavanı ölçüm gürültüsü kaynaklı. Physics = A'nın tam eğitimi (yapıldı)
 
 ### Faz 4 — Birleştirme ve submit planı (2026-10-19)
 - Üretim: src/task1_resid_predict.py (state A, 9 ay, 3M satır, seed 42; CV yolu resid_cv_A ile 2.2e-16 birebir; yeniden tahmin bit-özdeş), src/queue_final_predict.py (onset v3 aynen, 80/80 pencere v3 ile özdeş), ODME = repo *_public_reference (kendi sayım+kendi prior, λ=0.05). Versiyonlar: python 3.14.6, numpy 2.5.1, pandas 2.3.3, pyarrow 24.0.0, lightgbm 4.7.0, scipy 1.18.0 (versions.json her çıktı klasöründe)

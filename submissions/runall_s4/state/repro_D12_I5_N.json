@@ -1,0 +1,10 @@
+{
+  "panel": "D12_I5_N",
+  "validation_features_identical": true,
+  "validation_keys_identical": true,
+  "validation_max_abs_diff": 1.8189894035458565e-12,
+  "private_features_identical": true,
+  "private_keys_identical": true,
+  "private_max_abs_diff": 1.8189894035458565e-12,
+  "runtime_s": 88.6
+}

@@ -1,0 +1,79 @@
+checks D12_I5_N 7s
+checks D12_I5_S 3s
+checks D7_I10_E 4s
+checks D7_I10_W 3s
+checks D7_I210_E 7s
+checks D7_I210_W 3s
+checks D7_I405_N 9s
+checks D7_I405_S 3s
+split                                        private     train validation
+hist_rows_ok_mean                                1.0       1.0        1.0
+hist_rows_ok_max                                True      True       True
+hist_cells_differ_vs_masked_mean                 0.0       0.0        0.0
+hist_cells_differ_vs_masked_max                    0         0          0
+hist_pct_hist_vs_masked_differ_mean              0.0       0.0        0.0
+hist_pct_hist_vs_masked_differ_max                 0         0          0
+hist_nan_pct0_mean                          359.2625     359.7   363.5625
+hist_nan_pct0_max                                759       746        779
+hist_nan_pct1_74_mean                            0.0       0.0        0.0
+hist_nan_pct1_74_max                               0         0          0
+hist_nan_pct75_mean                              0.0       0.0        0.0
+hist_nan_pct75_max                                 0         0          0
+hist_cells_pct1_74_mean                        153.3  154.0625   152.9625
+hist_cells_pct1_74_max                           330       313        326
+rowT_nan_share_elig_mean                    0.306009  0.336462   0.333624
+rowT_nan_share_elig_max                     0.581395  0.571429   0.666667
+rowT_nan_share_pct1_74_mean                      0.0       0.0        0.0
+rowT_nan_share_pct1_74_max                       0.0       0.0        0.0
+horizon_buffer_all_nan_share_mean                1.0  0.424394        1.0
+horizon_buffer_all_nan_share_max                 1.0  0.564552        1.0
+after_buffer_nan_share_elig_mean            0.303433  0.335271   0.331799
+after_buffer_nan_share_elig_max             0.539554   0.53629   0.528811
+n_other_windows_same_day_mean                  1.075     0.975        1.0
+n_other_windows_same_day_max                       2         2          2
+n_other_before_mean                           0.5375    0.4875        0.5
+n_other_before_max                                 2         2          2
+history_overlaps_other_horizon_buffer_mean       0.0       0.0        0.0
+history_overlaps_other_horizon_buffer_max          0         0          0
+min_abs_origin_gap_steps_mean                68.9375   66.1125    68.6875
+min_abs_origin_gap_steps_max                     186       162        168
+train_hist_vs_full_differ_mean                   NaN       0.0        NaN
+train_hist_vs_full_differ_max                    NaN       0.0        NaN
+train_horizon_nan_share_masked_mean              NaN  0.424394        NaN
+train_horizon_nan_share_masked_max               NaN  0.564552        NaN
+train_horizon_nan_share_full_mean                NaN  0.165537        NaN
+train_horizon_nan_share_full_max                 NaN  0.188333        NaN
+     split regime  days  blank_rate  mean_run  mid_pct_present  run_1  run_2  run_3  run_4  run_5  run_6  run_7  run_8  run_9  run_10+  geom_run1_expected
+   private     R1    86      0.1998    1.1873              1.0 0.8422 0.1330 0.0208 0.0034 0.0005 0.0001 0.0000 0.0000 0.0000   0.0000              0.8002
+   private     R2    93      0.3000    1.3101              1.0 0.7634 0.1803 0.0430 0.0101 0.0024 0.0006 0.0001 0.0000 0.0000   0.0000              0.7000
+   private     R3    61      0.5003    1.6529              1.0 0.6045 0.2394 0.0944 0.0374 0.0146 0.0059 0.0023 0.0009 0.0004   0.0003              0.4997
+     train     R1   242      0.1998    1.1872              1.0 0.8422 0.1329 0.0209 0.0033 0.0005 0.0001 0.0000 0.0000 0.0000   0.0000              0.8002
+     train     R2   252      0.3000    1.3101              1.0 0.7636 0.1804 0.0427 0.0101 0.0024 0.0006 0.0001 0.0000 0.0000   0.0000              0.7000
+     train     R3   234      0.4999    1.6513              1.0 0.6055 0.2390 0.0942 0.0372 0.0146 0.0058 0.0022 0.0009 0.0003   0.0002              0.5001
+validation     R1    82      0.1999    1.1865              1.0 0.8426 0.1328 0.0208 0.0033 0.0005 0.0001 0.0000 0.0000 0.0000   0.0000              0.8001
+validation     R2    82      0.3001    1.3084              1.0 0.7642 0.1798 0.0427 0.0101 0.0024 0.0006 0.0001 0.0000 0.0000   0.0000              0.6999
+validation     R3    84      0.4997    1.6488              1.0 0.6064 0.2385 0.0940 0.0372 0.0144 0.0057 0.0023 0.0008 0.0004   0.0002              0.5003
+regime       R1   R2   R3
+split                    
+private      86   93   61
+train       717  756  711
+validation   82   82   84
+runtime 41.4
+       43.33 real        48.02 user         4.73 sys
+           904282112  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              181826  page reclaims
+                 327  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+               12894  voluntary context switches
+              136783  involuntary context switches
+        580140796269  instructions retired
+        159714893705  cycles elapsed
+           992970624  peak memory footprint

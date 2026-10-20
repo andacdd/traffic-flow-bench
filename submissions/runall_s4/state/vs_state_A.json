@@ -1,0 +1,25 @@
+{
+  "ref": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/state_A/state_vp.csv",
+  "same_key_order": true,
+  "mean_abs_diff_speed_kmh": 0.19119602814718997,
+  "mean_speed_kmh_new": 111.28358729882312,
+  "mean_speed_kmh_ref": 111.26045105327904,
+  "share_changed_speed_kmh": 0.989163862617553,
+  "mean_abs_diff_flow_vph": 24.712892517072156,
+  "mean_flow_vph_new": 3918.560745378751,
+  "mean_flow_vph_ref": 3918.8599700823415,
+  "share_changed_flow_vph": 1.0,
+  "share_cells_changed": 1.0,
+  "by_regime": {
+    "dv": {
+      "R1": 0.1758,
+      "R2": 0.1902,
+      "R3": 0.1997
+    },
+    "dq": {
+      "R1": 24.8739,
+      "R2": 25.0074,
+      "R3": 24.4017
+    }
+  }
+}
