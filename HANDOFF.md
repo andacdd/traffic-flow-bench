@@ -59,7 +59,7 @@ Hazır dosyalar `submissions/queue_variants/<ad>/queue_vp.csv` (S5'e göre tek d
 2. `q4_onset055` — anubisyy tipi onset özellikleri (sadece onset)
 3. ODME λ=100 probu (yerelde ölçülemez; günde en fazla 1 λ)
 4. `q5_avg040` — ongoing iki model ortalaması
-5. State B3 (mask augmentation, CV J +0.0009) için üretim script'i yaz (`task1_resid3.py` temel alınır)
+5. State B3 (mask augmentation, CV J +0.0009): üretim script'i yazıldı (`task1_resid3_predict.py`, `run_all.py --state B3`), henüz çalıştırılmadı. Önce `--stages state --state B3` ile üret, `task3_fast.py`/`score_task1.py` ile LE'ye karşı kontrol et, sonra S5'e göre tek değişkenli LB probu (`--stages merge --state-vp ... --queue-vp <S5> --odme-vp <S5>`)
 6. State: daha çok tur + early-stop (B2 yarıda kaldı; 2000 turda hâlâ iyileşiyordu)
 7. Final rapor (rubrik: teknik %40, analiz/insight %40, netlik %20) — `reports/` altındaki tablolar ve grafikler kullanılacak
 

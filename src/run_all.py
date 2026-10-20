@@ -19,7 +19,7 @@ sys.path.insert(0, str(SRC))
 STAGES = ["state", "queue", "odme", "merge"]
 SPLITS = ["validation", "private"]
 SPEED_NORM, FLOW_NORM, TOL = 25.0, 600.0, 0.01
-STATE_SCRIPTS = {"A": "task1_resid_predict", "LE": "task1_resid2_predict"}
+STATE_SCRIPTS = {"A": "task1_resid_predict", "LE": "task1_resid2_predict", "B3": "task1_resid3_predict"}
 STAGE_MODULES = {"state": {k: [v] for k, v in STATE_SCRIPTS.items()}, "queue": {"v4": ["task2_predict_v2"], "final": ["queue_final_predict"]}}
 
 
