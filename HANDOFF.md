@@ -75,8 +75,8 @@ Ortam: python 3.14 (miniconda), numpy 2.5, pandas 2.3, lightgbm 4.7, catboost 1.
 
 ## 6. Sıradaki adımlar (öncelik sırasıyla)
 
-1. `blend3_s_og50` + private onset q9 haftalık = final ikinci aday dosyasını üret (submit gerekmez; public 0.87018 olmalı)
-2. Farklı özellik setli ikinci kendi state modeli: gün ızgarası (link × 288) üzerinde 2B model (U-Net tarzı, torch gerekir, CPU) ya da anubisyy tarzı kalite özellikleri ile yeni LGBM; ay-CV'de J ve LE ile korelasyon ölçülür
+1. YAPILDI: `blend3_s_og50_q9` (final 2. aday) ve U-Net state (torch 2.14.1 + MPS; fold-1 LE+C+UN v33q20 +0.0055 J). Submit bekleyen: `blend4_un_og50` (beklenen ~0.871), `runall_un33` (~0.867), `blend4_un_og50_q9`
+2. LB sonucuna göre: U-Net harman ağırlığı / anubisyy payı probu; U-Net iyileştirme (daha geniş, LE-kanallı varyant, fold 2-3 CV)
 3. Ongoing için farklı özellik setli ikinci kendi model (anubisyy 36 özellik fikri, kendi kodumuzla), ağırlıklı dev ile ölçülür
 4. State harman ağırlığı (anubisyy payı 0.4/0.6) ve ongoing harman ağırlığı/eşiği LB probları
 5. Final rapor (rubrik: teknik %40, analiz/insight %40, netlik %20) — `reports/` tabloları; olay hafızası, physics tavanı, seçici analizi ana bulgular

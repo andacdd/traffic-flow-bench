@@ -21,7 +21,7 @@ SCORE_PANELS = ["D12_I5_N", "D7_I405_N", "D7_I210_W"]
 
 def build_panel(rel, p, fold, out):
     P = tr.Panel(rel, p)
-    hold = np.isin(P.month, tr.FOLDS[fold])
+    hold = np.isin(P.month, tr.FOLDS.get(fold, []))
     prof = P.profiles(~hold)
     reg = np.zeros((P.D, T, P.L), dtype=np.uint8)
     reg[P.td, P.tt, P.tl] = P.treg
