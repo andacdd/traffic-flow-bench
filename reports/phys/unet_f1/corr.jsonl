@@ -1,0 +1,3 @@
+{"panel": "D12_I5_N", "corr_err_v_LE_UN": 0.6158433378391681, "corr_err_q_LE_UN": 0.7546667445589232, "corr_err_v_LE_C": 0.9492398976371903, "corr_err_q_LE_C": 0.9723685715593415}
+{"panel": "D7_I405_N", "corr_err_v_LE_UN": 0.7263913765767922, "corr_err_q_LE_UN": 0.8339251639036676, "corr_err_v_LE_C": 0.9640390068473007, "corr_err_q_LE_C": 0.983289844545726}
+{"panel": "D7_I210_W", "corr_err_v_LE_UN": 0.7326779229739776, "corr_err_q_LE_UN": 0.8267230316425161, "corr_err_v_LE_C": 0.9657568001637282, "corr_err_q_LE_C": 0.9837572618626558}
