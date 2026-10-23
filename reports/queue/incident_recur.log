@@ -1,0 +1,35 @@
+D12_I5_N train
+D12_I5_N validation
+D12_I5_N private
+D12_I5_S train
+D12_I5_S validation
+D12_I5_S private
+D7_I10_E train
+D7_I10_E validation
+D7_I10_E private
+D7_I10_W train
+D7_I10_W validation
+D7_I10_W private
+D7_I210_E train
+D7_I210_E validation
+D7_I210_E private
+D7_I210_W train
+D7_I210_W validation
+D7_I210_W private
+D7_I405_N train
+D7_I405_N validation
+D7_I405_N private
+D7_I405_S train
+D7_I405_S validation
+D7_I405_S private
+                p_given_prior  p_base    lift
+split      lag                               
+private    1           0.2172  0.0779  2.7881
+           3           0.1859  0.0779  2.3861
+           7           0.1490  0.0779  1.9131
+train      1           0.0329  0.0264  1.2450
+           3           0.0240  0.0264  0.9082
+           7           0.0354  0.0264  1.3421
+validation 1           0.2690  0.0692  3.8900
+           3           0.2293  0.0692  3.3153
+           7           0.1778  0.0692  2.5706

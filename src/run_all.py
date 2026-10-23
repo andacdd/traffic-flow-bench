@@ -19,7 +19,8 @@ sys.path.insert(0, str(SRC))
 STAGES = ["state", "queue", "odme", "merge"]
 SPLITS = ["validation", "private"]
 SPEED_NORM, FLOW_NORM, TOL = 25.0, 600.0, 0.01
-STATE_SCRIPTS = {"A": "task1_resid_predict", "LE": "task1_resid2_predict"}
+STATE_SCRIPTS = {"A": "task1_resid_predict", "LE": "task1_resid2_predict", "LEB3": "task1_resid2_predict"}
+STATE_EXTRA = {"LEB3": ["--aug-frac", "0.5"]}
 STAGE_MODULES = {"state": {k: [v] for k, v in STATE_SCRIPTS.items()}, "queue": {"v4": ["task2_predict_v2"], "final": ["queue_final_predict"]}}
 
 
@@ -68,7 +69,7 @@ def plan(a, P):
     steps = {}
     if "state" in a.stages:
         steps["state"] = [py(SRC / f"{STATE_SCRIPTS[a.state]}.py", "--release-root", rel, "--out-dir", P["state_dir"], "--cache-dir", P["state_dir"] / "cache",
-                             "--threads", a.threads, "--seed", a.seed)]
+                             "--threads", a.threads, "--seed", a.seed, *STATE_EXTRA.get(a.state, []))]
     if "queue" in a.stages:
         script = "task2_predict_v2.py" if a.queue == "v4" else "queue_final_predict.py"
         steps["queue"] = [py(SRC / script, "--release-root", rel, "--out", P["queue_dir"])]

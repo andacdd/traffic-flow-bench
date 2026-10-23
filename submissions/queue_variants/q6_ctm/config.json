@@ -1,0 +1,19 @@
+{
+  "variant": "v4 onset + v4 ongoing + CTM zsh6 features",
+  "thr_ongoing": 0.35,
+  "rounds": 400,
+  "stats": {
+    "validation": {
+      "rows": 43500,
+      "mean": 0.12544827586206897
+    },
+    "private": {
+      "rows": 43500,
+      "mean": 0.11632183908045977
+    },
+    "replaced_rows": 87000,
+    "changed_rows": 476,
+    "base_ongoing_mean": 0.12157471264367817,
+    "ctm_gain_share": 0.026143014658012383
+  }
+}

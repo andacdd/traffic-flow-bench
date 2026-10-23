@@ -1,74 +1,91 @@
 # HANDOFF — Traffic Flow Bench (başka bir LLM/oturum için giriş noktası)
 
-Son güncelleme: 2026-10-20. Ayrıntılı geçmiş, tüm deneyler ve gerekçeler: `NOTES.md` (deney tablosu + faz bölümleri). Bu dosya "şu an neredeyiz, sırada ne var" özetidir.
+Son güncelleme: 2026-10-23. Ayrıntılı geçmiş, tüm deneyler ve gerekçeler `NOTES.md` içinde (deney tablosu + faz bölümleri). Terimler `GLOSSARY.md` içinde. Bu dosya "şu an neredeyiz, sırada ne var" özetidir.
+
+## 0. Devam etme promptu (yeni oturuma aynen yapıştır)
+
+```
+/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench projesine devam ediyoruz (Kaggle 2026 IEEE Big Data Traffic Flow Bench). Önce HANDOFF.md, sonra GLOSSARY.md ve NOTES.md'nin "Deney tablosu" bölümünün son 25 satırını oku. Cevaplar Türkçe. Python: /opt/miniconda3/bin/python3, kaggle: /opt/miniconda3/bin/kaggle (PATH'te değiller). Submit, paket kurma, veri indirme ve ağır iş öncesi bana sor. Kodda yorum satırı yok. En iyi public LB 0.87018 (submissions/blend3_s_og50). Hedef: birinci olmak (lider ~0.924). Sıradaki adım HANDOFF.md §6'daki listenin ilk maddesi; başlamadan önce planı bana 3-5 satırda söyle.
+```
 
 ## 1. Durum
 
-- Yarışma: Kaggle "2026 IEEE Big Data - Traffic Flow Bench" (dosya tabanlı, tek CSV submit, günde 5 hak). Kullanıcı: `andacdemirdelen`
+- Yarışma: Kaggle "2026 IEEE Big Data - Traffic Flow Bench" (dosya tabanlı, tek CSV submit, günde 5 hak, gün 00:00 UTC'de yenilenir). Kullanıcı: `andacdemirdelen`. Repo: https://github.com/andacdd/traffic-flow-bench
 - Metrik: `S_total = 0.35 S_state + 0.30 S_queue + 0.15 S_physics + 0.20 S_ODME`
-- **En iyi public LB: 0.85929 (S5)** — `submissions/runall_s5/submission.csv`. Lider 0.924, public notebook'lar 0.865–0.871
-- Takvim: **25 Eki 23:59 AoE** ödül kayıt e-postası (kullanıcı gönderir, trafficflowbench@gmail.com), **6 Kas** son submit, **10 Kas** kod + PDF rapor (seçilen submission %1 içinde yeniden üretilmeli)
+- **En iyi public LB: 0.87018** — `submissions/blend3_s_og50/submission.csv`
+- **En iyi tamamen kendi modelimiz: 0.86559** — `submissions/runall_lec50/submission.csv`
+- Görev dökümü (tahmini): state ~0.92, queue ~0.774 (onset ~0.757, ongoing ~0.79), physics ~0.72 (gürültü tabanı), ODME ~0.994
+- Takvim: **25 Eki 23:59 AoE** ödül kayıt e-postası (kullanıcı gönderir: trafficflowbench@gmail.com, konu "Traffic Flow Bench Registration"), **6 Kas** son submit, **10 Kas** kod + PDF rapor (seçilen submission %1 içinde yeniden üretilmeli). Ödül = 0.85·LB + 0.15·rapor
 
-## 2. Yeniden üretim
+## 2. Submit geçmişi (son)
+
+| Submission | LB | Not |
+|---|---|---|
+| runall_b3_eiou | 0.86502 | Kendi: LEB3 state + v4 queue + EIoU karar + dual ODME |
+| runall_q9_refit_onset_daily | 0.86377 | Günlük onset refit; val'de 2 pencere az veriyle bozuldu |
+| blend_s50 | 0.86890 | State 0.5 bizim + 0.5 anubisyy public çıktısı |
+| blend_s50_og50 | 0.87007 | + ongoing olasılık 0.5/0.5 (anubisyy ongoing LGBM), EIoU |
+| blend_s50_og50_on50 / onfull | 0.86955 / 0.86963 | Onset harmanı zararlı; bizim onset kalır |
+| runall_lec50 | 0.86559 | Kendi CatBoost state (aynı özellikler) ile LE 50/50 |
+| **blend3_s_og50** | **0.87018** | State 0.25 LE + 0.25 CatBoost + 0.5 anubisyy, OG50 |
+
+Final seçimi için adaylar: `blend3_s_og50` (en iyi public) ve `blend_s50_og50_q9` (aynı + private onset olay hafızası, 11 private pencere; public değişmez). İkinci adayın üstüne blend3 state'i de taşınmalı (henüz yapılmadı).
+
+## 3. Yeniden üretim
 
 ```bash
 git clone https://github.com/jacky850/trafficflowbench-public.git reference/trafficflowbench-public
 git -C reference/trafficflowbench-public checkout f9e3fbc
 kaggle competitions download 2026-ieee-big-data-traffic-flow-bench -p data
 unzip data/2026-ieee-big-data-traffic-flow-bench.zip -d data
+kaggle kernels output anubisyy/catboost-lgbm-nnls-pipeline-top-50-0-86517 -p reference/anubisyy_output
+kaggle datasets download anubisyy/trafficflowbench-086517-public-assets -f <dosya> -p reference/anubisyy_assets
 ```
 
-S5'i baştan üretmek (state ~25 dk, queue ~3 dk, ODME dual ~5 sn, merge ~30 sn; tepe ~5–7 GB RAM):
+anubisyy asset dosyaları: ongoing_lgb.txt, onset_lgb.txt, onset.cbm, onset_settings.json, queue_features.py, queue_ongoing.py, base_panel.py, config.py (lisans CC0).
 
-```bash
-cd /private/tmp && python -I "<proje>/src/run_all.py" --release-root "<proje>/data/kaggle_public" --repo-root "<proje>/reference/trafficflowbench-public" --out-dir "<proje>/submissions/runall_new" --state LE --queue v4 --odme own --odme-solver dual --threads 4 --seed 42 --compare "<proje>/submissions/runall_s5/submission.csv"
-```
+Zincir:
+1. Kendi state: `run_all.py --state LEB3` (LE + mask augmentation 0.5), önbellek `submissions/runall_b3/state/cache`
+2. Kendi CatBoost state: `src/task1_cat_predict.py --cache-dir submissions/runall_b3/state/cache --base-vp submissions/runall_b3/state/state_vp.csv --out-dir submissions/state_cat` (~4 saat CPU)
+3. Kendi queue: `src/task2_predict_sel.py` -> `submissions/queue_variants/q7_sel/eiou/queue_vp.csv` (+ `probs_*.npz`)
+4. Birleştirme: `run_all.py --stages merge --state-vp ... --queue-vp ... --odme-vp submissions/runall_s3/odme/odme_vp.csv`
+5. Harman: `src/blend_public.py` (state ağırlığı), `src/anubisyy_ongoing_probs.py` + `src/blend_ongoing.py` (ongoing olasılık ortalaması, EIoU)
+6. Private onset olay hafızası: `src/online_refit_predict.py --base-queue ... --out submissions/queue_variants/q9_refit_onset` (haftalık; günlük `--daily` val'de zararlı)
 
-Ortam: python 3.14.6, numpy 2.5.1, pandas 2.3.3, pyarrow 24.0.0, lightgbm 4.7.0, scipy 1.18.0 (CatBoost kurulu değil). Script'ler `-I` ile `/private/tmp`'den çalıştırılır.
+Ortam: python 3.14 (miniconda), numpy 2.5, pandas 2.3, lightgbm 4.7, catboost 1.2.10, scipy 1.18. torch kurulu değil, GPU yok.
 
-## 3. Mevcut çözüm (S5)
+## 4. Bilinen gerçekler
 
-| Görev | Yöntem | Kod | Durum |
-|---|---|---|---|
-| Task 1 state | Kalıntı interpolasyonu (zaman+uzay, `--reconcile v:0.6`) tabanı + LightGBM kalıntı modeli; LE = lead/lag (±5..60 dk) modeli L ile ikinci model M2'nin ortalaması | `task1_interp.py`, `task1_resid2.py`, `task1_resid2_predict.py` | CV S_state 0.9397; LB'ye aktarımı ~%97 |
-| Task 3 physics | Ayrı submission yok; state'ten hesaplanır | `task3_fast.py` (resmi scorer'la birebir proxy) | ~0.71; tavan ölçüm gürültüsü (ACF ile kanıtlandı), kapatıldı |
-| Task 2 queue | v4: LightGBM, hibrit girdi, frekans özelliği YOK; onset sadece T+30 (eşik 0.30, top-1 fallback), ongoing eşik 0.35 | `task2_model.py`, `task2_diag.py`, `task2_predict_v2.py` | LB onset ≈ 0.757; ongoing bilinmiyor |
-| Task 4 ODME | min ‖Af−c‖² + 0.05‖f−b‖², f≥0, split'in KENDİ sayımı ve prior'ı, kesin çözüm (dual) | `odme_dual_predict.py`, `odme_scan.py` | Kendi sayım +0.032 LB getirdi; gizli terimler yerelde ölçülemez |
+- **Physics kapalı:** resmi scorer korunumda organizatörün gizli sınır akışlarını kullanır; maskeli bloklarda kalıntı ≈ Σ|Δgürültü|. Kâhin 0.71, biz ~0.72. Sadece state ensemble'ı küçük artış verir (gürültü ortalaması).
+- **Queue açığı 0.068 (S_total):** onset nadir (olay) 0.029, ongoing normal 0.018, ongoing nadir 0.013, onset normal 0.009.
+- **Olay tekrarı:** eval aylarında nadir kuyruk aynı linkte ertesi gün tekrar eder (lift val 3.9, private 2.8; train 1.25). Olay hafızası özelliği + eval ayı refit, Mart geri testinde nadir onset'i 0.52 -> 0.73 yapar. Resmi onset pencereleri ayın 1-9. günlerinde olduğu için public LB'de görünmez; private'ta etkili.
+- Maskeli parquet dosyaları **tarih değil mask_regime sırasında**; gün komşuluğu takvimle kurulmalı (`online_refit.calendar`).
+- Eval split ufukları maskeli dosyada boş (cov 0); resmi val pencereleri yerelde puanlanamaz.
+- Normal onset kuyruğu train frekansının en yüksek linklerinde başlar (kâhin-k top-freq IoU 0.78).
+- Çeşitlilik **özellik setinden** gelir: aynı özelliklerle CatBoost LB'de +0.0006, farklı pipeline (anubisyy) +0.0039.
+- Ödül incelemesi: T sonrası satırlar silinip yeniden koşulur; eval ayı T öncesi günleri ile refit serbest (host #748789, raporda beyan); kopya kontrolü var — anubisyy (CC0) harmanı raporda açıkça belirtilmeli.
 
-## 4. Bilinen gerçekler (LB çapaları)
+## 5. Kurallar
 
-- Persistence queue LB ≈ 0.3017 (onset ~0, ongoing ~0.603)
-- v3 queue (frekans özellikli): 0.7187 (onset 0.714, ongoing 0.723)
-- v4 onset ≈ 0.757 (v3'ten +0.043). Final ongoing (seçici pencere + fill etiket + eşik 0.40) v4 ongoing'den −0.048
-- State LE etkisi iki farklı queue ile de +0.0035 -> bileşenler toplanabilir
-- Physics: kâhin komşu-ortalaması 0.699 ≈ modelimiz; kalıntı gürültüsü beyaz -> modelleme ile aşılamaz
-
-## 5. Kurallar (kullanıcı tercihleri ve dersler)
-
-- **Dev set queue model seçimi için GÜVENİLMEZ:** 3/3 karşılaştırmada LB yönünü ters gösterdi (modelleri 0.07–0.11 iyimser ölçüyor; persistence'ı ise tutturuyor). Queue kararları yalnızca tek değişkenli LB probu ile
-- Her LB probu S5'e göre TEK değişken değiştirir; sonuç `NOTES.md` deney tablosuna yazılır. LB queue gürültüsü ±0.015 (S_total'de ±0.0045)
-- State/physics/ODME-S_link yerelde güvenilir ölçülür (`task3_fast.py`, `score_task1.py`)
-- Kodda yorum satırı yok. Cevaplar Türkçe. Çıktılar proje klasöründe
-- Submit, veri/paket indirme, GPU/ağır paralel iş ve bilgisayar/sistem ayarı (uyku engelleme vb.) öncesi kullanıcıya SOR
-- Seed ve versiyon sabit; her submit `run_all.py`'dan çıkar (manifest.json yazar)
+- Cevaplar Türkçe. Kodda yorum satırı yok. Çıktılar proje klasöründe
+- Submit, paket/veri indirme, ağır iş, sistem ayarı öncesi kullanıcıya SOR
+- Her LB probu tek değişken; sonuç `NOTES.md` deney tablosuna yazılır
+- Queue kararları için ölçüt: ağırlıklı dev (ρ=0.28 val, 0.4 private) veya Mart hafta-ileri geri testi; düz dev LB'yi ters gösterir
+- Kullanıcı küçük kazançlı "öğretici" probları istemez; büyük artış arar
 
 ## 6. Sıradaki adımlar (öncelik sırasıyla)
 
-Hazır dosyalar `submissions/queue_variants/<ad>/queue_vp.csv` (S5'e göre tek değişken; `run_all.py --stages merge --queue-vp ...` ile birleştirilir):
-1. `q2b_og045` — ongoing eşik 0.45 (sadece ongoing; fill etiket içermez)
-2. `q4_onset055` — anubisyy tipi onset özellikleri (sadece onset)
-3. ODME λ=100 probu (yerelde ölçülemez; günde en fazla 1 λ)
-4. `q5_avg040` — ongoing iki model ortalaması
-5. State B3 (mask augmentation, CV J +0.0009) için üretim script'i yaz (`task1_resid3.py` temel alınır)
-6. State: daha çok tur + early-stop (B2 yarıda kaldı; 2000 turda hâlâ iyileşiyordu)
-7. Final rapor (rubrik: teknik %40, analiz/insight %40, netlik %20) — `reports/` altındaki tablolar ve grafikler kullanılacak
+1. `blend3_s_og50` + private onset q9 haftalık = final ikinci aday dosyasını üret (submit gerekmez; public 0.87018 olmalı)
+2. Farklı özellik setli ikinci kendi state modeli: gün ızgarası (link × 288) üzerinde 2B model (U-Net tarzı, torch gerekir, CPU) ya da anubisyy tarzı kalite özellikleri ile yeni LGBM; ay-CV'de J ve LE ile korelasyon ölçülür
+3. Ongoing için farklı özellik setli ikinci kendi model (anubisyy 36 özellik fikri, kendi kodumuzla), ağırlıklı dev ile ölçülür
+4. State harman ağırlığı (anubisyy payı 0.4/0.6) ve ongoing harman ağırlığı/eşiği LB probları
+5. Final rapor (rubrik: teknik %40, analiz/insight %40, netlik %20) — `reports/` tabloları; olay hafızası, physics tavanı, seçici analizi ana bulgular
 
 ## 7. Dosya haritası
 
-- `src/run_all.py` — tek giriş: state / queue / odme / merge aşamaları, `--compare` ile %1 kontrolü
-- `src/queue_devset.py` — organizatör seçicisini taklit eden kalibre dev set (persistence'ı tutturur)
-- `src/queue_cv.py`, `queue_variants.py`, `queue_diag2.py` — queue CV, varyantlar, teşhis (adversarial, maske, LOMO)
-- `src/task1_resid*.py` — state ay-CV ve üretim
-- `reports/odme/`, `reports/phys/`, `reports/queue/` — tüm faz tabloları/grafikleri (final rapora girecek)
-- `reports/anubisyy_comparison.md`, `reports/queue/public_notebooks_summary.md` — public notebook analizleri
-- `submissions/runall_s5/` — en iyi submission + manifest
+- `src/run_all.py` — tek giriş: state / queue / odme / merge, `--compare` ile %1 kontrolü
+- `src/task1_resid*.py`, `src/task1_cat*.py` — state ay-CV ve üretim (LGBM, CatBoost)
+- `src/task2_predict_sel.py` — üretim queue (v4 + EIoU), `src/online_refit*.py` — olay hafızası + refit, `src/refit_rarity.py`, `src/incident_recur.py`, `src/onset_anatomy.py` — queue analizleri
+- `src/blend_*.py`, `src/anubisyy_*_probs.py` — public notebook harmanı
+- `reports/queue/refit/`, `reports/phys/cat_f1/` — son geri testler
+- `reference/public_notebooks/` — indirilmiş public notebook'lar (git dışı)

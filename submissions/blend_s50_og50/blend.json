@@ -1,0 +1,17 @@
+{
+  "agree_pub_labels_at_0.4": 1.0,
+  "ongoing_cells": 87000,
+  "pos_before": 10342,
+  "pos_after": 10408,
+  "changed": 752,
+  "args": {
+    "release_root": "data/kaggle_public",
+    "base_sub": "submissions/blend_s50/submission.csv",
+    "ours_probs": "submissions/queue_variants/q7_sel",
+    "pub_probs": "reports/queue/anubisyy/ongoing_probs.parquet",
+    "pub_queue": "reference/anubisyy_output/predictions/queue.csv",
+    "out": "submissions/blend_s50_og50",
+    "w": 0.5,
+    "rule": "eiou"
+  }
+}

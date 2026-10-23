@@ -1,0 +1,28 @@
+  D12_I405_N: aug 150,000 of 1,108,254 candidates
+D12_I405_N: train rows 450,000 | 24s | {'load': 6, 'aug_features': 7, 'train_features': 21, 'split_load': 1, 'split_features': 3} | peak 2.12 GB
+  D12_I405_S: aug 150,000 of 565,523 candidates
+D12_I405_S: train rows 450,000 | 17s | {'load': 10, 'aug_features': 12, 'train_features': 35, 'split_load': 2, 'split_features': 6} | peak 2.26 GB
+  D12_I5_N: aug 150,000 of 3,200,344 candidates
+D12_I5_N: train rows 450,000 | 49s | {'load': 26, 'aug_features': 25, 'train_features': 77, 'split_load': 4, 'split_features': 13} | peak 4.48 GB
+  D12_I5_S: aug 150,000 of 1,261,716 candidates
+D12_I5_S: train rows 450,000 | 27s | {'load': 35, 'aug_features': 32, 'train_features': 101, 'split_load': 6, 'split_features': 16} | peak 4.48 GB
+  D7_I10_E: aug 150,000 of 1,786,079 candidates
+D7_I10_E: train rows 450,000 | 35s | {'load': 47, 'aug_features': 41, 'train_features': 132, 'split_load': 8, 'split_features': 21} | peak 4.48 GB
+  D7_I10_W: aug 150,000 of 1,327,095 candidates
+D7_I10_W: train rows 450,000 | 32s | {'load': 57, 'aug_features': 50, 'train_features': 159, 'split_load': 9, 'split_features': 25} | peak 4.48 GB
+  D7_I210_E: aug 150,000 of 3,708,712 candidates
+D7_I210_E: train rows 450,000 | 58s | {'load': 77, 'aug_features': 64, 'train_features': 209, 'split_load': 12, 'split_features': 33} | peak 4.48 GB
+  D7_I210_W: aug 150,000 of 997,845 candidates
+D7_I210_W: train rows 450,000 | 24s | {'load': 85, 'aug_features': 71, 'train_features': 230, 'split_load': 13, 'split_features': 36} | peak 4.48 GB
+  D7_I405_N: aug 150,000 of 4,417,501 candidates
+D7_I405_N: train rows 450,000 | 64s | {'load': 107, 'aug_features': 88, 'train_features': 285, 'split_load': 16, 'split_features': 45} | peak 5.30 GB
+  D7_I405_S: aug 150,000 of 1,343,922 candidates
+D7_I405_S: train rows 450,000 | 27s | {'load': 115, 'aug_features': 95, 'train_features': 309, 'split_load': 17, 'split_features': 49} | peak 5.30 GB
+  L dv trained 271s peak 6.34 GB
+  L dq trained 294s peak 6.34 GB
+  M2 dv trained 204s peak 6.34 GB
+  M2 dq trained 277s peak 6.34 GB
+trained ('L', 'M2') dv,dq on 4,500,000 rows | {'load': 115, 'aug_features': 95, 'train_features': 309, 'split_load': 17, 'split_features': 49, 'train': 1049}
+validation {'rows': 3451376, 'template_rows': 3451376, 'nan': 0, 'speed_min': 5.0, 'speed_max': 120.75, 'flow_min': 365.1434073405689, 'flow_max': 11568.150868421391, 'runtime_s': 344.2}
+private {'rows': 3284419, 'template_rows': 3284419, 'nan': 0, 'speed_min': 5.0, 'speed_max': 120.75, 'flow_min': 341.0012092152141, 'flow_max': 11869.204084378276, 'runtime_s': 280.3}
+total 2053.8s peak 6.34 GB

@@ -12,3 +12,13 @@ submissions/**/*.parquet
 reports/phys/resid_check_v06_D12_I5_N.csv
 reports/queue/cv_run.log
 submissions/runall_*/queue.log
+reference/anubisyy_output/
+reference/anubisyy_assets/
+reports/queue/anubisyy/
+*.cbm
+*.npy
+reports/queue/post/run.log
+reports/queue/scale/run.log
+reports/queue/sel/*.log
+submissions/queue_variants/*.log
+submissions/queue_variants/*/run.log

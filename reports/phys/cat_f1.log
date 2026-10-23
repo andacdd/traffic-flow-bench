@@ -1,0 +1,31 @@
+train rows 3,000,000 feats 197
+0:	learn: 3.1762642	total: 487ms	remaining: 12m 9s
+250:	learn: 1.7789120	total: 1m 47s	remaining: 8m 55s
+500:	learn: 1.6555677	total: 7m 51s	remaining: 15m 40s
+750:	learn: 1.5735529	total: 13m 25s	remaining: 13m 23s
+1000:	learn: 1.5164468	total: 20m 43s	remaining: 10m 20s
+1250:	learn: 1.4709319	total: 25m	remaining: 4m 58s
+1499:	learn: 1.4342875	total: 31m 4s	remaining: 0us
+dv trained 1869s
+0:	learn: 171.7046068	total: 1.5s	remaining: 37m 32s
+250:	learn: 146.2034606	total: 6m 56s	remaining: 34m 33s
+500:	learn: 139.1348692	total: 11m 58s	remaining: 23m 52s
+750:	learn: 135.7550529	total: 19m 48s	remaining: 19m 44s
+1000:	learn: 133.5993521	total: 27m 50s	remaining: 13m 52s
+1250:	learn: 132.0921998	total: 34m 34s	remaining: 6m 52s
+1499:	learn: 130.9031500	total: 41m 26s	remaining: 0us
+dq trained 2504s
+D12_I5_N predicted 21s
+D7_I405_N predicted 44s
+D7_I210_W predicted 5s
+         S_state     S_FD    S_LWR  S_physics        J       dJ
+variant                                                        
+C        0.93465  0.98607  0.54979    0.69522  0.43141  0.00146
+LE       0.93312  0.98606  0.54054    0.68905  0.42995  0.00000
+LEC30    0.93403  0.98612  0.55005    0.69541  0.43122  0.00127
+LEC50    0.93443  0.98613  0.55307    0.69742  0.43166  0.00171
+variant          C       LE    LEC30    LEC50
+panel                                        
+D12_I5_N   0.43626  0.43447  0.43593  0.43646
+D7_I210_W  0.43477  0.43398  0.43478  0.43506
+D7_I405_N  0.42320  0.42140  0.42295  0.42347

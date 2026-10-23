@@ -1,0 +1,7 @@
+{
+  "rows": 6735795,
+  "nan_cat": 0,
+  "rmse_speed_vs_base": 0.8015266718480867,
+  "rmse_flow_vs_base": 86.56338996745673,
+  "runtime_s": 15182
+}

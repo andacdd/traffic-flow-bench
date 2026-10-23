@@ -1,0 +1,16 @@
+{
+  "private_wk0": {
+    "rows": 475870,
+    "eval_rows": 33517,
+    "last_eval_day": "2031-03-31",
+    "first_target_day": "2031-04-01"
+  },
+  "private_wk1": {
+    "rows": 479391,
+    "eval_rows": 37038,
+    "last_eval_day": "2031-04-07",
+    "first_target_day": "2031-04-09"
+  },
+  "changed_windows": 40,
+  "pred_rate": 0.0612816091954023
+}

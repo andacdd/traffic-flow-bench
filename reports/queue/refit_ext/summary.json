@@ -1,0 +1,26 @@
+[
+  {
+    "variant": "B_w3",
+    "ongoing": 0.85948,
+    "onset": 0.85893,
+    "queue": 0.85921,
+    "d_queue": 0.02474,
+    "wk_min_d": 0.00427
+  },
+  {
+    "variant": "C_w3",
+    "ongoing": 0.85444,
+    "onset": 0.85294,
+    "queue": 0.85369,
+    "d_queue": 0.01922,
+    "wk_min_d": 0.00114
+  },
+  {
+    "variant": "base",
+    "ongoing": 0.85871,
+    "onset": 0.81022,
+    "queue": 0.83447,
+    "d_queue": 0.0,
+    "wk_min_d": 0.0
+  }
+]

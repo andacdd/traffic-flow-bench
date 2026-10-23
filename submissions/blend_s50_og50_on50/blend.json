@@ -1,0 +1,15 @@
+{
+  "onset_cells": 87000,
+  "pos_before": 307,
+  "pos_after": 328,
+  "changed": 33,
+  "windows_changed": 12,
+  "args": {
+    "release_root": "data/kaggle_public",
+    "base_sub": "submissions/blend_s50_og50/submission.csv",
+    "ours_probs": "submissions/queue_variants/q7_sel",
+    "pub_probs": "reports/queue/anubisyy/onset_probs_lgb.parquet",
+    "out": "submissions/blend_s50_og50_on50",
+    "w": 0.5
+  }
+}

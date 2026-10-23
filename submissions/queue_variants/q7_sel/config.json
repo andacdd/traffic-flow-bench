@@ -1,0 +1,35 @@
+{
+  "variants": {
+    "v4thr": [
+      "thr",
+      "v4",
+      "thr",
+      0.35
+    ],
+    "eiou": [
+      "eiou",
+      "v4",
+      "eiou",
+      null
+    ],
+    "sel": [
+      "thr",
+      "sel",
+      "thr",
+      0.45
+    ],
+    "sel_eiou": [
+      "eiou",
+      "sel",
+      "eiou",
+      null
+    ]
+  },
+  "pred_rate": {
+    "v4thr": 0.06258045977011495,
+    "eiou": 0.06120114942528736,
+    "sel": 0.059833333333333336,
+    "sel_eiou": 0.0598448275862069
+  },
+  "rounds": 400
+}

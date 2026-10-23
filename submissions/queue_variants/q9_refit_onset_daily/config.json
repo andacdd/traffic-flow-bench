@@ -1,0 +1,64 @@
+{
+  "private_wk2031-04-01": {
+    "rows": 475870,
+    "eval_rows": 33517,
+    "last_eval_day": "2031-03-31",
+    "first_target_day": "2031-04-01"
+  },
+  "private_wk2031-04-02": {
+    "rows": 475870,
+    "eval_rows": 33517,
+    "last_eval_day": "2031-03-31",
+    "first_target_day": "2031-04-02"
+  },
+  "private_wk2031-04-03": {
+    "rows": 476051,
+    "eval_rows": 33698,
+    "last_eval_day": "2031-04-02",
+    "first_target_day": "2031-04-03"
+  },
+  "private_wk2031-04-04": {
+    "rows": 476612,
+    "eval_rows": 34259,
+    "last_eval_day": "2031-04-03",
+    "first_target_day": "2031-04-04"
+  },
+  "private_wk2031-04-05": {
+    "rows": 476964,
+    "eval_rows": 34611,
+    "last_eval_day": "2031-04-04",
+    "first_target_day": "2031-04-05"
+  },
+  "private_wk2031-04-06": {
+    "rows": 477397,
+    "eval_rows": 35044,
+    "last_eval_day": "2031-04-05",
+    "first_target_day": "2031-04-06"
+  },
+  "private_wk2031-04-07": {
+    "rows": 478076,
+    "eval_rows": 35723,
+    "last_eval_day": "2031-04-06",
+    "first_target_day": "2031-04-07"
+  },
+  "private_wk2031-04-09": {
+    "rows": 481213,
+    "eval_rows": 38860,
+    "last_eval_day": "2031-04-08",
+    "first_target_day": "2031-04-09"
+  },
+  "validation_wk2031-03-05": {
+    "rows": 442757,
+    "eval_rows": 404,
+    "last_eval_day": "2031-03-04",
+    "first_target_day": "2031-03-05"
+  },
+  "validation_wk2031-03-07": {
+    "rows": 444834,
+    "eval_rows": 2481,
+    "last_eval_day": "2031-03-06",
+    "first_target_day": "2031-03-07"
+  },
+  "changed_windows": 47,
+  "pred_rate": 0.061241379310344825
+}

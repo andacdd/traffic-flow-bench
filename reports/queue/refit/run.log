@@ -1,0 +1,30 @@
+D12_I5_N 14s march on/og 19 52 test 19 72
+D12_I5_S 9s march on/og 18 60 test 18 85
+D7_I10_E 10s march on/og 17 58 test 17 83
+D7_I10_W 7s march on/og 18 36 test 18 56
+D7_I210_E 17s march on/og 21 62 test 21 96
+D7_I210_W 8s march on/og 29 62 test 29 92
+D7_I405_N 17s march on/og 34 62 test 34 108
+D7_I405_S 8s march on/og 17 62 test 17 90
+base fit 34s
+week 1: test onset 49 ongoing 154
+  week 1 w1 67s
+  week 1 w3 70s
+  week 1 w5 74s
+week 2: test onset 35 ongoing 127
+  week 2 w1 65s
+  week 2 w3 65s
+  week 2 w5 65s
+week 3: test onset 69 ongoing 221
+  week 3 w1 68s
+  week 3 w3 71s
+  week 3 w5 73s
+cond     ongoing   onset   queue  d_queue  wk_min_d
+variant                                            
+B_w3      0.8595  0.8589  0.8592   0.0247    0.0043
+B_w5      0.8401  0.8664  0.8533   0.0188   -0.0248
+B_w1      0.8424  0.8540  0.8482   0.0137   -0.0133
+base      0.8587  0.8102  0.8345   0.0000    0.0000
+A_w1      0.8578  0.8102  0.8340  -0.0004   -0.0071
+A_w5      0.8429  0.8102  0.8266  -0.0079   -0.0217
+A_w3      0.8362  0.8102  0.8232  -0.0113   -0.0285

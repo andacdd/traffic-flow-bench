@@ -1,0 +1,158 @@
+{
+  "args": {
+    "release_root": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/data/kaggle_public",
+    "repo_root": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/reference/trafficflowbench-public",
+    "out_dir": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_q9_refit_onset",
+    "state": "LEB3",
+    "queue": "v4",
+    "odme": "own",
+    "odme_solver": "official",
+    "threads": 4,
+    "seed": 42,
+    "stages": [
+      "merge"
+    ],
+    "state_vp": "submissions/runall_b3/state/state_vp.csv",
+    "queue_vp": "submissions/queue_variants/q9_refit_onset/queue_vp.csv",
+    "odme_vp": "submissions/runall_s3/odme/odme_vp.csv",
+    "compare": "submissions/runall_b3_eiou/submission.csv",
+    "dry_run": false
+  },
+  "argv": [
+    "src/run_all.py",
+    "--release-root",
+    "data/kaggle_public",
+    "--repo-root",
+    "reference/trafficflowbench-public",
+    "--out-dir",
+    "submissions/runall_q9_refit_onset",
+    "--state",
+    "LEB3",
+    "--queue",
+    "v4",
+    "--odme",
+    "own",
+    "--stages",
+    "merge",
+    "--state-vp",
+    "submissions/runall_b3/state/state_vp.csv",
+    "--queue-vp",
+    "submissions/queue_variants/q9_refit_onset/queue_vp.csv",
+    "--odme-vp",
+    "submissions/runall_s3/odme/odme_vp.csv",
+    "--compare",
+    "submissions/runall_b3_eiou/submission.csv"
+  ],
+  "versions": {
+    "python": "3.14.6",
+    "numpy": "2.5.1",
+    "pandas": "2.3.3",
+    "pyarrow": "24.0.0",
+    "lightgbm": "4.7.0",
+    "scipy": "1.18.0"
+  },
+  "git": {
+    "project": {
+      "path": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench",
+      "commit": "f9f9a3b970bd4495c5068189e33158ff22a6f353",
+      "dirty": true
+    },
+    "official": {
+      "path": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/reference/trafficflowbench-public",
+      "commit": "f9e3fbc35c066419726987e470448f33d4c72fd9",
+      "dirty": false
+    }
+  },
+  "inputs": {
+    "submission_key.csv": "8232c9ce6682fdd3120e6729a30e4514866ab492ef7b167ad3952e00478bd071",
+    "sample_submission.csv": "89e19bb6d96fa6f62a4ce01b1c22e4c5610ff7d4a10750aac5943411858d4ba5"
+  },
+  "inputs_external": {
+    "state_vp": "submissions/runall_b3/state/state_vp.csv",
+    "queue_vp": "submissions/queue_variants/q9_refit_onset/queue_vp.csv",
+    "odme_vp": "submissions/runall_s3/odme/odme_vp.csv"
+  },
+  "stages": {
+    "merge": {
+      "status": "ok",
+      "runtime_s": 31.2,
+      "child_peak_gb_so_far": 2.34,
+      "log": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_q9_refit_onset/merge.log",
+      "output": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_q9_refit_onset/submission.csv",
+      "output_sha256": "b4867085880cb006d883e7995c4d7572d96f76b8610007a25051294080ebfdd2",
+      "output_bytes": 402142285
+    }
+  },
+  "compare": {
+    "new": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_q9_refit_onset/submission.csv",
+    "ref": "submissions/runall_b3_eiou/submission.csv",
+    "rows_new": 6980503,
+    "rows_ref": 6980503,
+    "same_id_task_order": true,
+    "state": {
+      "rows": 6735795,
+      "share_rows_differ": 0.0,
+      "speed_kmh": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "nan_ref": 0
+      },
+      "flow_vph": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "nan_ref": 0
+      },
+      "rmse_speed_kmh": 0.0,
+      "rmse_flow_vph_per_lane": 0.0
+    },
+    "queue": {
+      "rows": 174000,
+      "share_rows_differ": 0.00016091954022988506,
+      "queue_pred": {
+        "max_abs_diff": 1.0,
+        "mean_abs_diff": 0.00016091954022988506,
+        "nan_ref": 0
+      },
+      "agreement": 0.9998390804597701
+    },
+    "odme": {
+      "rows": 70708,
+      "share_rows_differ": 0.0,
+      "path_flow": {
+        "max_abs_diff": 0.0,
+        "mean_abs_diff": 0.0,
+        "nan_ref": 0
+      },
+      "relative_l1": 0.0
+    },
+    "rule": "state RMSE < 1% of 25 km/h and 600 veh/h/lane; queue agreement >= 99%; odme relative L1 < 1%",
+    "checks": {
+      "state_speed": true,
+      "state_flow": true,
+      "queue": true,
+      "odme": true
+    },
+    "pass": true,
+    "runtime_s": 8.6
+  },
+  "outputs": {
+    "state_vp": {
+      "path": "submissions/runall_b3/state/state_vp.csv",
+      "sha256": "98a8b2f0677d93c76d5e8b6b80ab0d6175d2a483e4f0b4e0515c22fb0e0583e4"
+    },
+    "queue_vp": {
+      "path": "submissions/queue_variants/q9_refit_onset/queue_vp.csv",
+      "sha256": "dea0a31254b9a38b0d9491074ff5145140f99efeee037f97970bb12d4f39b988"
+    },
+    "odme_vp": {
+      "path": "submissions/runall_s3/odme/odme_vp.csv",
+      "sha256": "02294d181bb1572b154fb3e6b25e0a2ce95323a7ae50b0f6d9d4ca684929ae7f"
+    },
+    "submission": {
+      "path": "/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench/submissions/runall_q9_refit_onset/submission.csv",
+      "sha256": "b4867085880cb006d883e7995c4d7572d96f76b8610007a25051294080ebfdd2"
+    }
+  },
+  "runtime_s": 41.9,
+  "child_peak_gb": 2.34
+}

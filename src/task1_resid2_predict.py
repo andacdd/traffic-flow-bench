@@ -47,7 +47,7 @@ def all_rows(P, prof, rows_of=None):
     return np.concatenate(Xs), np.concatenate(Bs), np.concatenate(Rs)
 
 
-def build_train(rel, p, n_sample, seed, cache):
+def build_train(rel, p, n_sample, seed, cache, aug_frac=0.0):
     s = time.time()
     P = tr.Panel(rel, p)
     prof = P.profiles(np.ones(P.D, dtype=bool))
@@ -55,7 +55,16 @@ def build_train(rel, p, n_sample, seed, cache):
     X, B, R = all_rows(P, prof, pick)
     yv, yq = P.tv[P.td[R], P.tt[R], P.tl[R]], P.tq[P.td[R], P.tt[R], P.tl[R]]
     good = np.isfinite(yv) & np.isfinite(yq)
-    np.savez(cache / f"{p}_train.npz", X=X[good], B=B[good], yv=yv[good], yq=yq[good])
+    X, B, yv, yq = X[good], B[good], yv[good], yq[good]
+    if aug_frac > 0:
+        import task1_resid3 as r3
+        ag = r3.aug_rows(P, 0, np.zeros(P.D, dtype=bool), prof, int(aug_frac * len(yv)), seed)
+        X = np.vstack([X, np.hstack([ag["XA"], ag["XL"]]).astype(X.dtype)])
+        B = np.vstack([B, ag["B"].astype(B.dtype)])
+        yv, yq = np.r_[yv, ag["yv"]], np.r_[yq, ag["yq"]]
+        print(f"  {p}: aug {len(ag['yv']):,} of {ag['n_cand']:,} candidates", flush=True)
+    good = np.ones(len(yv), dtype=bool)
+    np.savez(cache / f"{p}_train.npz", X=X, B=B, yv=yv, yq=yq)
     np.savez(cache / f"{p}_prof.npz", **prof)
     tr.tick("train_features", s)
     n = int(good.sum())
@@ -204,6 +213,7 @@ def main():
     ap.add_argument("--threads", type=int, default=4)
     ap.add_argument("--rounds", type=int, default=400)
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--aug-frac", type=float, default=0.0)
     ap.add_argument("--reuse-cache", action="store_true")
     ap.add_argument("--ref")
     ap.add_argument("--check-panel")
@@ -248,7 +258,7 @@ def main():
         s = time.time()
         if args.reuse_cache and (cache / f"{p}_train.npz").exists() and all((cache / f"{p}_{sp}.npz").exists() for sp in args.splits):
             continue
-        prof, ntrain[p] = build_train(rel, p, args.sample_per_panel, args.seed, cache)
+        prof, ntrain[p] = build_train(rel, p, args.sample_per_panel, args.seed, cache, args.aug_frac)
         for split in args.splits:
             build_split(rel, p, split, prof, cache)
         del prof
@@ -258,7 +268,7 @@ def main():
     print(f"trained {MEMBERS} dv,dq on {n:,} rows | {({k: round(v) for k, v in tr.STAGES.items()})}", flush=True)
     res = {"panels": panels, "train_rows": n, "n_features": len(r2.ALLFEATS),
            "params": {m: dict(r2.MODELS[m][0], num_threads=args.threads, seed=args.seed + r2.MODELS[m][2]) for m in MEMBERS}, "rounds": args.rounds,
-           "sample_per_panel": args.sample_per_panel, "base": f"interp v:0.6 + mean of {MEMBERS} LGBM dv,dq (exp {ENS})"}
+           "sample_per_panel": args.sample_per_panel, "aug_frac": args.aug_frac, "base": f"interp v:0.6 + mean of {MEMBERS} LGBM dv,dq (exp {ENS})"}
     frames = []
     for split in args.splits:
         s = time.time()

@@ -1,0 +1,28 @@
+{
+  "queue_onset": {
+    "ours_pos": 307,
+    "theirs_pos": 285,
+    "both": 272,
+    "jaccard": 0.85,
+    "final_pos": 307
+  },
+  "queue_ongoing": {
+    "ours_pos": 10342,
+    "theirs_pos": 10077,
+    "both": 9337,
+    "jaccard": 0.8425374481140588,
+    "final_pos": 10342
+  },
+  "state_rmse_speed": 1.2662395032975955,
+  "state_rmse_flow": 81.19101347404968,
+  "args": {
+    "release_root": "data/kaggle_public",
+    "ours": "submissions/runall_b3_eiou/submission.csv",
+    "theirs": "reference/anubisyy_output/submission.csv",
+    "out": "submissions/blend_s50",
+    "state_w": 0.5,
+    "onset": "ours",
+    "ongoing": "ours",
+    "odme_w": 0.0
+  }
+}
