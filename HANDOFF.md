@@ -15,7 +15,7 @@ Son güncelleme: 2026-10-23. Ayrıntılı geçmiş, tüm deneyler ve gerekçeler
 - **En iyi public LB: 0.87018** — `submissions/blend3_s_og50/submission.csv`
 - **En iyi tamamen kendi modelimiz: 0.86559** — `submissions/runall_lec50/submission.csv`
 - Görev dökümü (tahmini): state ~0.92, queue ~0.774 (onset ~0.757, ongoing ~0.79), physics ~0.72 (gürültü tabanı), ODME ~0.994
-- Takvim: **25 Eki 23:59 AoE** ödül kayıt e-postası (kullanıcı gönderir: trafficflowbench@gmail.com, konu "Traffic Flow Bench Registration"), **6 Kas** son submit, **10 Kas** kod + PDF rapor (seçilen submission %1 içinde yeniden üretilmeli). Ödül = 0.85·LB + 0.15·rapor
+- Takvim: ödül kaydı TAMAM (onay 23 Eki), **6 Kas** son submit, **10 Kas** kod + PDF rapor (seçilen submission %1 içinde yeniden üretilmeli). Ödül = 0.85·LB + 0.15·rapor
 
 ## 2. Submit geçmişi (son)
 

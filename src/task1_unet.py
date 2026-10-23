@@ -148,8 +148,8 @@ def train(grids, a, dev, out):
             tot += l.item()
         log.append({"epoch": ep, "loss": tot / a.steps, "sec": time.time() - s})
         print(log[-1], flush=True)
-    torch.save(m.state_dict(), out / f"unet_f{a.fold}.pt")
-    pd.DataFrame(log).to_csv(out / f"unet_f{a.fold}_log.csv", index=False)
+    torch.save(m.state_dict(), out / f"unet_f{a.fold}{a.tag}.pt")
+    pd.DataFrame(log).to_csv(out / f"unet_f{a.fold}{a.tag}_log.csv", index=False)
     return m
 
 
@@ -183,6 +183,7 @@ def main():
     ap.add_argument("--lr", type=float, default=2e-3)
     ap.add_argument("--aug", type=float, default=0.5)
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--tag", default="")
     a = ap.parse_args()
     rel, gd, lec, out = Path(a.release_root), Path(a.grid_dir), Path(a.le_cache), Path(a.out)
     gd.mkdir(parents=True, exist_ok=True)
@@ -200,7 +201,7 @@ def main():
         m = train(list(grids.values()), a, dev, out)
     elif "predict" in a.stages:
         m = UNet(a.width).to(dev)
-        m.load_state_dict(torch.load(out / f"unet_f{a.fold}.pt", map_location=dev))
+        m.load_state_dict(torch.load(out / f"unet_f{a.fold}{a.tag}.pt", map_location=dev))
     if "predict" in a.stages:
         for p in SCORE_PANELS:
             s = time.time()
@@ -215,10 +216,10 @@ def main():
             o["LEUN50_v"], o["LEUN50_q"] = 0.5 * le["LE_v"] + 0.5 * o["UN_v"], 0.5 * le["LE_q"] + 0.5 * o["UN_q"]
             o["LECUN_v"] = (le["LE_v"] + le["C_v"] + o["UN_v"]) / 3
             o["LECUN_q"] = (le["LE_q"] + le["C_q"] + o["UN_q"]) / 3
-            np.savez(lec / f"{p}_f{a.fold}_UN_pred.npz", **o)
+            np.savez(lec / f"{p}_f{a.fold}_UN{a.tag}_pred.npz", **o)
             tv, tq = P.tv[P.td[R], P.tt[R], P.tl[R]], P.tq[P.td[R], P.tt[R], P.tl[R]]
             ok = np.isfinite(tv) & np.isfinite(tq)
-            cor = {"panel": p,
+            cor = {"panel": p, "tag": a.tag,
                    "corr_err_v_LE_UN": float(np.corrcoef(le["LE_v"][ok] - tv[ok], v[ok] - tv[ok])[0, 1]),
                    "corr_err_q_LE_UN": float(np.corrcoef(le["LE_q"][ok] - tq[ok], q[ok] - tq[ok])[0, 1]),
                    "corr_err_v_LE_C": float(np.corrcoef(le["LE_v"][ok] - tv[ok], le["C_v"][ok] - tv[ok])[0, 1]),
