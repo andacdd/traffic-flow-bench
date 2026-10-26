@@ -12,7 +12,7 @@ Son güncelleme: 2026-10-23. Ayrıntılı geçmiş, tüm deneyler ve gerekçeler
 
 - Yarışma: Kaggle "2026 IEEE Big Data - Traffic Flow Bench" (dosya tabanlı, tek CSV submit, günde 5 hak, gün 00:00 UTC'de yenilenir). Kullanıcı: `andacdemirdelen`. Repo: https://github.com/andacdd/traffic-flow-bench
 - Metrik: `S_total = 0.35 S_state + 0.30 S_queue + 0.15 S_physics + 0.20 S_ODME`
-- **En iyi public LB: 0.87138** — `submissions/blend4_un_og50_po/submission.csv` (blend4_un_og50 0.87046 + physics S1 operatörü, src/apply_physop_sub.py). Final aday karşılığı: `blend4_un_og50_q9_po`
+- **En iyi public LB: 0.87192** — `submissions/blend5_s3_po/submission.csv` (state 1/3 bizim U-Net harmanı + 1/3 anubisyy + 1/3 yeashusemwal, physics S1 operatörü; queue = blend4_un_og50). Final aday: bunun + private onset q9 (henüz üretilmedi)
 - **En iyi tamamen kendi modelimiz: 0.86559** — `submissions/runall_lec50/submission.csv`
 - Görev dökümü (tahmini): state ~0.92, queue ~0.774 (onset ~0.757, ongoing ~0.79), physics ~0.72 (gürültü tabanı), ODME ~0.994
 - Takvim: ödül kaydı TAMAM (onay 23 Eki), **6 Kas** son submit, **10 Kas** kod + PDF rapor (seçilen submission %1 içinde yeniden üretilmeli). Ödül = 0.85·LB + 0.15·rapor
