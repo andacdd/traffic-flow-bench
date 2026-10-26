@@ -90,12 +90,12 @@ def stage3(v, q, c, prm, gf=0.035, gc=0.120):
     return np.where(ok, vc, v), np.where(ok, np.clip(q * gam, 0.0, 150000.0), q)
 
 
-def apply(P, R, v, q, stages):
+def apply(P, R, v, q, stages, beta=0.70, fq=0.95):
     prm = link_params(P)
     d, t, c = P.td[R], P.tt[R], P.tl[R]
     v, q = v.astype(float), q.astype(float)
     if "1" in stages:
-        v, q = stage1(v, q, c, prm)
+        v, q = stage1(v, q, c, prm, beta, fq)
     if "2" in stages:
         v, q = stage2(v, q, d, t, c, P.obs["v"], P.obs["q"], prm)
     if "3" in stages:
@@ -111,6 +111,9 @@ def main():
     ap.add_argument("--fold", type=int, default=1)
     ap.add_argument("--base", default="v33q20")
     ap.add_argument("--variants", nargs="+", default=["1", "2", "3", "123"])
+    ap.add_argument("--fq", nargs="+", type=float, default=[])
+    ap.add_argument("--beta", nargs="+", type=float, default=[])
+    ap.add_argument("--tag", default="")
     a = ap.parse_args()
     rel, lec, out = Path(a.release_root), Path(a.le_cache), Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -124,16 +127,22 @@ def main():
             v, q = apply(P, R, v0, q0, s)
             v, q = tr.finalize(P.vclip[P.tl[R]], v, q)
             o[f"op{s}_v"], o[f"op{s}_q"] = v.astype(np.float32), q.astype(np.float32)
-        np.savez(lec / f"{p}_f{a.fold}_PO_pred.npz", **o)
-        rows += tr.score_panel(rel, P, [a.fold], ["PO"], lec)
+        for fq in a.fq:
+            for be in a.beta:
+                v, q = apply(P, R, v0, q0, "1", be, fq)
+                v, q = tr.finalize(P.vclip[P.tl[R]], v, q)
+                n = f"f{int(round(fq*100))}b{int(round(be*100))}"
+                o[f"{n}_v"], o[f"{n}_q"] = v.astype(np.float32), q.astype(np.float32)
+        np.savez(lec / f"{p}_f{a.fold}_PO{a.tag}_pred.npz", **o)
+        rows += tr.score_panel(rel, P, [a.fold], [f"PO{a.tag}"], lec)
         del P
         gc.collect()
     df = pd.DataFrame(rows)
-    df.to_csv(out / "physop_cv.csv", index=False)
+    df.to_csv(out / f"physop{a.tag}_cv.csv", index=False)
     g = df.groupby("variant")[["S_state", "S_FD", "S_LWR", "S_physics", "rmse_v", "rmse_q_lane"]].mean()
     g["J"] = 0.35 * g.S_state + 0.15 * g.S_physics
     g["dJ"] = g.J - g.loc["base", "J"]
-    print(g.round(5).to_string(), flush=True)
+    print(g.sort_values("J", ascending=False).round(5).to_string(), flush=True)
     u = df.groupby(["variant", "panel"])[["S_state", "S_physics"]].mean()
     u["J"] = 0.35 * u.S_state + 0.15 * u.S_physics
     print(u.J.unstack(0).sub(u.J.unstack(0)["base"], axis=0).round(5).T.to_string(), flush=True)
