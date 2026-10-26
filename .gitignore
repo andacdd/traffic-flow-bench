@@ -22,3 +22,4 @@ reports/queue/scale/run.log
 reports/queue/sel/*.log
 submissions/queue_variants/*.log
 submissions/queue_variants/*/run.log
+reference/yeashu_output/

@@ -22,6 +22,8 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--w", type=float, default=0.5)
     ap.add_argument("--rule", default="eiou")
+    ap.add_argument("--third-queue", default=None)
+    ap.add_argument("--w3", type=float, default=0.0)
     a = ap.parse_args()
     rel, out = Path(a.release_root), Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -49,7 +51,14 @@ def main():
     ours = pd.concat(rows, ignore_index=True)
     m = ours.merge(pub, on=["window_id", "h", "link_id"], how="left")
     assert m.p_pub.notna().all(), int(m.p_pub.isna().sum())
-    m["p"] = (1 - a.w) * m.p_ours + a.w * m.p_pub
+    if a.third_queue:
+        t3 = pd.concat([pd.read_csv(f, dtype={"link_id": str}) for f in a.third_queue.split(",")], ignore_index=True)
+        t3["h"] = ((pd.to_datetime(t3.timestamp, utc=True) - t3.window_id.map(origin)).dt.total_seconds() // 300).astype(int)
+        m = m.merge(t3[["window_id", "h", "link_id", "queue_pred"]].rename(columns={"queue_pred": "p_3"}), on=["window_id", "h", "link_id"], how="left")
+        assert m.p_3.notna().all(), int(m.p_3.isna().sum())
+    else:
+        m["p_3"] = 0.0
+    m["p"] = (1 - a.w - a.w3) * m.p_ours + a.w * m.p_pub + a.w3 * m.p_3
     m["pred"] = 0
     for wid, idx in m.groupby("window_id").indices.items():
         p = m.p.to_numpy()[idx]
