@@ -73,13 +73,18 @@ Ortam: python 3.14 (miniconda), numpy 2.5, pandas 2.3, lightgbm 4.7, catboost 1.
 - Queue kararları için ölçüt: ağırlıklı dev (ρ=0.28 val, 0.4 private) veya Mart hafta-ileri geri testi; düz dev LB'yi ters gösterir
 - Kullanıcı küçük kazançlı "öğretici" probları istemez; büyük artış arar
 
-## 6. Sıradaki adımlar (öncelik sırasıyla)
+## 6. Sıradaki adımlar (2026-10-27 grilling kararları; araştırma: reports/queue/research_leaders.md)
 
-1. YAPILDI: `blend3_s_og50_q9` (final 2. aday) ve U-Net state (torch 2.14.1 + MPS; fold-1 LE+C+UN v33q20 +0.0055 J). LB: `blend4_un_og50` 0.87046 (EN İYİ). Submit bekleyen: `runall_un33` (~0.867), `blend4_un_og50_q9`
-2. LB sonucuna göre: U-Net harman ağırlığı / anubisyy payı probu; U-Net iyileştirme (daha geniş, LE-kanallı varyant, fold 2-3 CV)
-3. Ongoing için farklı özellik setli ikinci kendi model (anubisyy 36 özellik fikri, kendi kodumuzla), ağırlıklı dev ile ölçülür
-4. State harman ağırlığı (anubisyy payı 0.4/0.6) ve ongoing harman ağırlığı/eşiği LB probları
-5. Final rapor (rubrik: teknik %40, analiz/insight %40, netlik %20) — `reports/` tabloları; olay hafızası, physics tavanı, seçici analizi ana bulgular
+Hedef: private (Nisan) + ödül. Public LB yalnızca ongoing/state yön doğrulaması. Günde en fazla 3 tek değişkenli prob, 2 hak yedek. 6 Kas son deney günü; 7-10 Kas rapor + yeniden üretim.
+
+1. Uyum testi: her pencere için T sonrası satırlar silinip yeniden koşulunca queue tahmini (q9 dahil) birebir aynı kalmalı (host #749601, #748789). q9 geçemezse günlük nedensel refit; o da Mart geri testinde negatifse q9 bırakılır
+2. Tek prob: state = yalnız anubisyy (Larmuseau 0.9416 iddiası; bizim ~0.935 tahminini doğrular)
+3. Ongoing: ham uzay-zaman yaması LGBM (21 link × 9 adım, Larmuseau) 3. üye, yalnız train ile; LB probu
+4. Ongoing'e olay hafızası / ay-içi refit; LB probu (ongoing val ≤17 Mart, public'te görünür)
+5. Onset: darboğaz aç/kapa kuralı (ay-içi ≥10 gün oran <0.05) + flow/cap kapısı; yalnız Mart hafta-ileri geri testi, sadece private
+6. Arka planda: honghanhhh N-interpolasyonu fold-1 testi (physics)
+7. Kazananlar final adaya (`blend5_s3_po_q9` tabanı) eklenir, uyum testi tekrar
+8. Final iki dosya: public en iyi + private iyileştirmeli (uyum testinden geçmeli). yeashusemwal çıktısı açık lisans yoksa finalden çıkar
 
 ## 7. Dosya haritası
 
