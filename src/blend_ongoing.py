@@ -24,6 +24,7 @@ def main():
     ap.add_argument("--rule", default="eiou")
     ap.add_argument("--third-queue", default=None)
     ap.add_argument("--w3", type=float, default=0.0)
+    ap.add_argument("--third-probs", default=None)
     a = ap.parse_args()
     rel, out = Path(a.release_root), Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -55,6 +56,12 @@ def main():
         t3 = pd.concat([pd.read_csv(f, dtype={"link_id": str}) for f in a.third_queue.split(",")], ignore_index=True)
         t3["h"] = ((pd.to_datetime(t3.timestamp, utc=True) - t3.window_id.map(origin)).dt.total_seconds() // 300).astype(int)
         m = m.merge(t3[["window_id", "h", "link_id", "queue_pred"]].rename(columns={"queue_pred": "p_3"}), on=["window_id", "h", "link_id"], how="left")
+        assert m.p_3.notna().all(), int(m.p_3.isna().sum())
+    elif a.third_probs:
+        t3 = pd.read_parquet(a.third_probs)
+        t3 = t3.rename(columns={[c for c in t3.columns if c.startswith("p_")][0]: "p_3"})
+        t3["link_id"] = t3.link_id.astype(str)
+        m = m.merge(t3[["window_id", "h", "link_id", "p_3"]], on=["window_id", "h", "link_id"], how="left")
         assert m.p_3.notna().all(), int(m.p_3.isna().sum())
     else:
         m["p_3"] = 0.0
