@@ -14,8 +14,8 @@ import task2_model as tm
 from online_refit import RARE, calendar, eval_rows, fit, memory, week
 
 
-def build(rel, og_per_day):
-    rng = np.random.default_rng(0)
+def build(rel, og_per_day, seed=0):
+    rng = np.random.default_rng(seed)
     rows, wins = [], []
     for pid, panel in enumerate(tm.PANELS):
         s = time.time()
@@ -60,10 +60,11 @@ def main():
     ap.add_argument("--rounds", type=int, default=400)
     ap.add_argument("--weight", type=float, default=3.0)
     ap.add_argument("--og-per-day", type=int, default=2)
+    ap.add_argument("--seed", type=int, default=0)
     a = ap.parse_args()
     rel, out = Path(a.release_root), Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
-    rows, wins = build(rel, a.og_per_day)
+    rows, wins = build(rel, a.og_per_day, a.seed)
     edate = rows.win.str.split("|").str[2].where(rows.split != "train", "")
     plan = [("validation", k, (rows.split == "train") | ((rows.split == "validation") & (rows.wk < k))) for k in range(0, 4)]
     plan += [("private", k, (rows.split != "private") | ((rows.split == "private") & (rows.wk < k))) for k in range(0, 4)]
