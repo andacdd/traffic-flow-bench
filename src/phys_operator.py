@@ -75,6 +75,25 @@ def stage2(v, q, d, t, c, ov, oq, prm, alpha=0.78):
     return np.clip(v * np.exp(-(1 - alpha) * dt), 5.0, 132.0), np.clip(q * np.exp(alpha * dt), 0.0, 150000.0)
 
 
+def stage_n(v, q, d, t, c, ov, oq, prm, w, alpha, max_run):
+    length = prm[5]
+    obs = np.isfinite(ov) & np.isfinite(oq)
+    N = np.where(obs, oq / np.maximum(ov, 1.0), np.nan)
+    idx = np.arange(T)[None, :, None]
+    prev = np.maximum.accumulate(np.where(obs, idx, -1), axis=1)
+    nxt = np.flip(np.minimum.accumulate(np.flip(np.where(obs, idx, T), 1), axis=1), 1)
+    p, n = prev[d, t, c], nxt[d, t, c]
+    has = (p >= 0) & (n < T)
+    pp, nn = np.maximum(p, 0), np.minimum(n, T - 1)
+    fr = (t - pp) / np.maximum(nn - pp, 1)
+    ki = np.where(has, N[d, pp, c] * (1 - fr) + N[d, nn, c] * fr, np.nan)
+    run = np.where(has, nn - pp - 1, 10 ** 6)
+    kh = q / np.maximum(v, 1.0)
+    ok = np.isfinite(ki) & (ki > 0) & (kh > 0) & (run <= max_run)
+    dl = np.where(ok, np.log(np.maximum(ki, 1e-9)) - np.log(np.maximum(kh, 1e-9)), 0.0) * w
+    return np.clip(v * np.exp(-(1 - alpha) * dl), 1, 180), np.clip(q * np.exp(alpha * dl), 0, 150000)
+
+
 def stage3(v, q, c, prm, gf=0.035, gc=0.120):
     lanes, vf, cap, kc, kj, _ = prm
     ln = lanes[c]
@@ -114,6 +133,7 @@ def main():
     ap.add_argument("--fq", nargs="+", type=float, default=[])
     ap.add_argument("--beta", nargs="+", type=float, default=[])
     ap.add_argument("--tag", default="")
+    ap.add_argument("--nscan", action="store_true")
     a = ap.parse_args()
     rel, lec, out = Path(a.release_root), Path(a.le_cache), Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -133,6 +153,17 @@ def main():
                 v, q = tr.finalize(P.vclip[P.tl[R]], v, q)
                 n = f"f{int(round(fq*100))}b{int(round(be*100))}"
                 o[f"{n}_v"], o[f"{n}_q"] = v.astype(np.float32), q.astype(np.float32)
+        if a.nscan:
+            prm = link_params(P)
+            d, t, c = P.td[R], P.tt[R], P.tl[R]
+            v1, q1 = apply(P, R, v0, q0, "1")
+            for w in (0.5, 1.0):
+                for al in (0.0, 0.5, 1.0):
+                    for mr in (2, 999):
+                        v, q = stage_n(v1, q1, d, t, c, P.obs["v"], P.obs["q"], prm, w, al, mr)
+                        v, q = tr.finalize(P.vclip[P.tl[R]], v, q)
+                        n = f"n{int(w*100)}a{int(al*100)}r{mr}"
+                        o[f"{n}_v"], o[f"{n}_q"] = v.astype(np.float32), q.astype(np.float32)
         np.savez(lec / f"{p}_f{a.fold}_PO{a.tag}_pred.npz", **o)
         rows += tr.score_panel(rel, P, [a.fold], [f"PO{a.tag}"], lec)
         del P
