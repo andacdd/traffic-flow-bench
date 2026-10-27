@@ -58,7 +58,7 @@ def main():
     a = ap.parse_args()
     rel, out = Path(a.release_root), Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
-    tr_on, _, ev_on, _ = build(rel, 0)
+    tr_on, _, ev_on, _ = build(rel, 1)
     rates = month_rates(rel)
     res = []
     for k in range(1, len(WEEKS)):
