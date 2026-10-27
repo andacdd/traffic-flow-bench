@@ -61,6 +61,7 @@ def main():
     ap.add_argument("--weight", type=float, default=3.0)
     ap.add_argument("--og-per-day", type=int, default=2)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--daily", action="store_true")
     a = ap.parse_args()
     rel, out = Path(a.release_root), Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -68,9 +69,12 @@ def main():
     edate = rows.win.str.split("|").str[2].where(rows.split != "train", "")
     plan = [("validation", k, (rows.split == "train") | ((rows.split == "validation") & (rows.wk < k))) for k in range(0, 4)]
     plan += [("private", k, (rows.split != "private") | ((rows.split == "private") & (rows.wk < k))) for k in range(0, 4)]
+    if a.daily:
+        tday = lambda X: str(X.T0.iloc[0].date())
+        plan = [(sp, d, (rows.split == "train") | ((rows.split != "train") & (edate < d))) for sp in ("validation", "private") for d in sorted({tday(X) for X in wins if X.split.iloc[0] == sp})]
     preds, used = [], {}
     for split, k, sel in plan:
-        targets = [X for X in wins if X.split.iloc[0] == split and X.wk.iloc[0] == k]
+        targets = [X for X in wins if X.split.iloc[0] == split and (str(X.T0.iloc[0].date()) == k if a.daily else X.wk.iloc[0] == k)]
         if not targets:
             continue
         s = time.time()
