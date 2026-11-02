@@ -1,11 +1,11 @@
 # HANDOFF — Traffic Flow Bench (başka bir LLM/oturum için giriş noktası)
 
-Son güncelleme: 2026-10-23. Ayrıntılı geçmiş, tüm deneyler ve gerekçeler `NOTES.md` içinde (deney tablosu + faz bölümleri). Terimler `GLOSSARY.md` içinde. Bu dosya "şu an neredeyiz, sırada ne var" özetidir.
+Son güncelleme: 2026-11-02. Ayrıntılı geçmiş, tüm deneyler ve gerekçeler `NOTES.md` içinde (deney tablosu + faz bölümleri). Terimler `GLOSSARY.md` içinde. Bu dosya "şu an neredeyiz, sırada ne var" özetidir.
 
 ## 0. Devam etme promptu (yeni oturuma aynen yapıştır)
 
 ```
-/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench projesine devam ediyoruz (Kaggle 2026 IEEE Big Data Traffic Flow Bench). Önce HANDOFF.md, sonra GLOSSARY.md ve NOTES.md'nin "Deney tablosu" bölümünün son 25 satırını oku. Cevaplar Türkçe. Python: /opt/miniconda3/bin/python3, kaggle: /opt/miniconda3/bin/kaggle (PATH'te değiller). Submit, paket kurma, veri indirme ve ağır iş öncesi bana sor. Kodda yorum satırı yok. En iyi public LB 0.87018 (submissions/blend3_s_og50). Hedef: birinci olmak (lider ~0.924). Sıradaki adım HANDOFF.md §6'daki listenin ilk maddesi; başlamadan önce planı bana 3-5 satırda söyle.
+/Users/andac/Claude Personal Projects/ieee-traffic-flow-bench projesine devam ediyoruz (Kaggle 2026 IEEE Big Data Traffic Flow Bench). Önce HANDOFF.md, sonra GLOSSARY.md ve NOTES.md'nin "Deney tablosu" bölümünün son 25 satırını oku. Cevaplar Türkçe. Python: /opt/miniconda3/bin/python3, kaggle: /opt/miniconda3/bin/kaggle (PATH'te değiller). Submit, paket kurma, veri indirme ve ağır iş öncesi bana sor. Kodda yorum satırı yok. En iyi public LB 0.87383 (submissions/blend6_og_daily). Final aday: submissions/blend6_og_daily_q9. Hedef: birinci olmak (lider ~0.931). Sıradaki adım HANDOFF.md §6'daki listenin ilk maddesi; başlamadan önce planı bana 3-5 satırda söyle.
 ```
 
 ## 1. Durum
@@ -53,6 +53,27 @@ Zincir:
 6. Private onset olay hafızası: `src/online_refit_predict.py --base-queue ... --out submissions/queue_variants/q9_refit_onset` (haftalık; günlük `--daily` val'de zararlı)
 
 Ortam: python 3.14 (miniconda), numpy 2.5, pandas 2.3, lightgbm 4.7, catboost 1.2.10, scipy 1.18. torch kurulu değil, GPU yok.
+
+## 3a. FİNAL: blend6_og_daily_q9 (2 Kas 2026)
+
+Dosya: `submissions/blend6_og_daily_q9/submission.csv` (public kısmı = blend6_og_daily, LB 0.87383; fark yalnız 28 private onset hücresi). Format kontrolü: 6,980,503 satır, sample ile id/task birebir, NaN yok.
+
+Yeniden üretim (blend3_s_og50 tabanından 2 Kas'ta baştan koşuldu, finalle 4 sütunda max fark 0.0):
+```bash
+python src/blend_state3.py --release-root data/kaggle_public --base submissions/blend3_s_og50/submission.csv --ours submissions/runall_un33/submission.csv --pub reference/anubisyy_output/submission.csv --third reference/yeashu_output/task1/task1_validation.csv reference/yeashu_output/task1/task1_private.csv --w 0.3333333333333333 0.3333333333333333 0.3333333333333333 --out submissions/blend5_s3
+python src/apply_physop_sub.py --sub submissions/blend5_s3/submission.csv --out submissions/blend5_s3_po --fq 0.95 --beta 0.7
+python src/online_refit_ongoing.py --daily --og-per-day 2 --seed 0 --out submissions/queue_variants/og_refit_daily
+python src/blend_ongoing.py --release-root data/kaggle_public --base-sub submissions/blend5_s3_po/submission.csv --ours-probs submissions/queue_variants/q7_sel --pub-probs reports/queue/anubisyy/ongoing_probs.parquet --pub-queue reference/anubisyy_output/predictions/queue.csv --third-probs submissions/queue_variants/og_refit_daily/probs.parquet --w 0.3333333 --w3 0.3333333 --out submissions/blend6_og_daily
+python src/apply_queue_diff.py --base submissions/blend6_og_daily/submission.csv --from-a submissions/blend_s50_og50/submission.csv --from-b submissions/blend_s50_og50_q9/submission.csv --out submissions/blend6_og_daily_q9
+```
+Üst parçalar: blend3_s_og50 (§3 zinciri 1-5), runall_un33 (U-Net state v33q20: src/task1_unet.py --fold 0, 3 seed + src/task1_unet_predict.py), q9 (§3 adım 6).
+
+Dış kaynaklar ve lisans (raporda açıkça belirtilecek):
+- anubisyy/catboost-lgbm-nnls-pipeline-top-50-0-86517: CC0; state çıktısı (1/3) + ongoing LGBM olasılığı (1/3).
+- yeashusemwal/trafficflowbench-trees-u-net-cnn-lb-0-87: Apache 2.0; yalnız Task 1 state çıktısı (1/3). Not: o notebook bir private dataset girdisi kullanıyor; biz yalnız public çıktı dosyasını kullanıyoruz (`kaggle kernels output yeashusemwal/trafficflowbench-trees-u-net-cnn-lb-0-87 -p reference/yeashu_output`).
+- Robina Mirbahar physics S1 fikri (notebook, kod kendi yazımımız).
+
+Task 2 nedensellik: uyum testi geçti (src/compliance_t2.py, 160 pencere, 0 uyuşmazlık); günlük refit her hedef gün için yalnız önceki günlerle eğitildi (online_refit_ongoing assert, config.json last_eval_day < first_target_day); anubisyy ongoing girdisi window_history < T (assert); q9 haftalık refit önceki günler (assert).
 
 ## 4. Bilinen gerçekler
 
