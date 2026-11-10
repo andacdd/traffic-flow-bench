@@ -1,7 +1,7 @@
 # ieee-traffic-flow-bench
 
 - **Amaç:** Kaggle "2026 IEEE Big Data - Traffic Flow Bench" yarışmasında dört görevli (state, queue, physics, ODME) otoyol trafiği çözümü kurmak; öğrenerek ilerlemek.
-- **Durum:** devam ediyor
+- **Durum:** bitti 202/801
 - **Başlangıç:** 2026-10-16
 - **Yarışma:** https://www.kaggle.com/competitions/2026-ieee-big-data-traffic-flow-bench
 - **Resmi repo (baseline + scorer):** https://github.com/jacky850/trafficflowbench-public (commit `f9e3fbc`)
